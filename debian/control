@@ -160,6 +160,7 @@ Description: GStreamer plugin to install codecs using QApt
 
 Package: gstreamer0.10-qapt
 Section: oldlibs
+Priority: extra
 Architecture: all
 Depends: gstreamer-qapt (>= ${source:Version}), ${misc:Depends}
 Description: transitional dummy package
