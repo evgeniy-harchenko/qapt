@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 3.0.1 amd64
+# SymbolsHelper-Confirmed: 3.0.1 alpha amd64 arm64 armel armhf hppa i386 kfreebsd-amd64 kfreebsd-i386 mips mips64el mipsel powerpc ppc64 ppc64el s390x sparc64 x32
 libQApt.so.3 libqapt3 #MINVER#
  _ZN4QApt11HistoryItemC1ERK7QString@Base 3.0.0
  _ZN4QApt11HistoryItemC1ERKS0_@Base 3.0.0
@@ -232,8 +232,6 @@ libQApt.so.3 libqapt3 #MINVER#
  _ZN4QApt9ChangelogD1Ev@Base 3.0.0
  _ZN4QApt9ChangelogD2Ev@Base 3.0.0
  _ZN4QApt9ChangelogaSERKS0_@Base 3.0.0
- (optional=gcc5|arch=!amd64)_ZN6Xapian5ErrorD1Ev@Base 3.0.0
- (optional=gcc5|arch=!amd64)_ZN6Xapian5ErrorD2Ev@Base 3.0.0
  _ZNK4QApt11HistoryItem11errorStringEv@Base 3.0.0
  _ZNK4QApt11HistoryItem14purgedPackagesEv@Base 3.0.0
  _ZNK4QApt11HistoryItem15removedPackagesEv@Base 3.0.0
@@ -443,7 +441,7 @@ libQApt.so.3 libqapt3 #MINVER#
  _ZNK4QApt9Changelog15newEntriesSinceERK7QString@Base 3.0.0
  _ZNK4QApt9Changelog4textEv@Base 3.0.0
  _ZNK4QApt9Changelog7entriesEv@Base 3.0.0
- (optional=templinst)_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE@Base 3.0.1
+ (optional=templinst|subst)_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineI{size_t}L{size_t}16807EL{size_t}0EL{size_t}2147483647EEEEiRT_RKNS0_10param_typeE@Base 3.0.1
  _ZTIN4QApt11SourcesListE@Base 3.0.0
  _ZTIN4QApt11TransactionE@Base 3.0.0
  _ZTIN4QApt6ConfigE@Base 3.0.0
