@@ -34,8 +34,8 @@ Build-Depends: cmake (>= 2.8.12),
                qttools5-dev-tools
 Standards-Version: 3.9.6
 Homepage: https://projects.kde.org/projects/extragear/sysadmin/libqapt/
-Vcs-Browser: http://anonscm.debian.org/cgit/pkg-kde/kde-extras/qapt
-Vcs-Git: git://anonscm.debian.org/pkg-kde/kde-extras/qapt.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-kde/kde-extras/qapt.git/
+Vcs-Git: https://anonscm.debian.org/git/pkg-kde/kde-extras/qapt.git
 
 Package: libqapt3
 Architecture: any
