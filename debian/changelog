@@ -9,6 +9,7 @@ libqapt (3.0.2-0r1) UNRELEASED; urgency=medium
     build; patch upstream_include-random-for-std-default_random_engine.patch.
     (Closes: #822497)
   * Link in as-needed mode.
+  * Bump Standards-Version to 3.9.8, no changes required.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sun, 15 May 2016 15:28:16 +0200
 
