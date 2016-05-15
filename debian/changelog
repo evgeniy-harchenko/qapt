@@ -5,6 +5,9 @@ libqapt (3.0.2-0r1) UNRELEASED; urgency=medium
   * Update Vcs-* fields.
   * Small update to copyright.
   * Update symbols file.
+  * Backport upstream commit a58eab74ee9881d10e0f24a3ed216ed71ba03bf5 to fix
+    build; patch upstream_include-random-for-std-default_random_engine.patch.
+    (Closes: #822497)
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sun, 15 May 2016 15:28:16 +0200
 
