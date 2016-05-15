@@ -1,3 +1,8 @@
+libqapt (3.0.2-2) UNRELEASED; urgency=medium
+
+
+ -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sun, 15 May 2016 19:30:43 +0200
+
 libqapt (3.0.2-1) unstable; urgency=medium
 
   * Team upload.
