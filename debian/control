@@ -39,6 +39,7 @@ Vcs-Git: https://anonscm.debian.org/git/pkg-kde/kde-extras/qapt.git
 
 Package: libqapt3
 Architecture: any
+Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: libqapt3-runtime (= ${binary:Version})
 Description: QApt library package
@@ -52,6 +53,7 @@ Description: QApt library package
 Package: libqapt-dev
 Section: libdevel
 Architecture: any
+Multi-Arch: same
 Depends: libapt-pkg-dev,
          libqapt3 (= ${binary:Version}),
          qtbase5-dev (>= 5.2.0),
