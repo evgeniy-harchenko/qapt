@@ -4,7 +4,7 @@ set -e
 
 update-alternatives --install /usr/bin/gstreamer-codec-install \
 		    gstreamer-codec-install \
-		    /usr/lib/kde4/libexec/qapt-gst-helper 85 || true
+		    /usr/lib/$DPKG_MAINTSCRIPT_ARCH/libexec/qapt-gst-helper 85 || true
 
 #DEBHELPER#
 

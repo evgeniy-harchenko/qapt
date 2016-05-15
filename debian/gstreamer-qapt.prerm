@@ -4,7 +4,7 @@ set -e
 
 if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ] ; then
 	update-alternatives --remove gstreamer-codec-install \
-			    /usr/lib/kde4/libexec/qapt-gst-helper || true
+			    /usr/lib/$DPKG_MAINTSCRIPT_ARCH/libexec/qapt-gst-helper || true
 
 fi
 
