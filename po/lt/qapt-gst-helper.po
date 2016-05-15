@@ -5,14 +5,15 @@
 # Automatically generated, 2011.
 # Liudas Ališauskas <liudas.alisauskas@gmail.com>, 2011.
 # Liudas Alisauskas <liudas@akmc.lt>, 2013.
+# Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: qapt-gst-helper\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-12-23 09:33+0000\n"
-"PO-Revision-Date: 2013-04-16 21:43+0300\n"
-"Last-Translator: Liudas Alisauskas <liudas@akmc.lt>\n"
-"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"PO-Revision-Date: 2015-12-29 21:20+0200\n"
+"Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
+"Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,17 +71,18 @@ msgstr "GStreamer diegimo informacija"
 msgctxt "@info Error message"
 msgid "No valid plugin info was provided, so no plugins could be found."
 msgstr ""
-"Ne tinkama priedo informacija buvo pateikta, taigi nebuvo rasta jokių priedų."
+"Ne tinkama papildinio informacija buvo pateikta, taigi nebuvo rasta jokių "
+"papildinių."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:89
 msgctxt "@title:window"
 msgid "Couldn't Find Plugins"
-msgstr "Nepavyko rasti priedų"
+msgstr "Nepavyko rasti papildinių"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:95
 msgctxt "@info:progress"
 msgid "Looking for plugins"
-msgstr "Ieškoti priedų"
+msgstr "Ieškoti papildinių"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:129
 #: utils/qapt-gst-helper/PluginHelper.cpp:244
@@ -107,14 +109,17 @@ msgid_plural ""
 "The following plugins are required: <ul><li>%2</li></ul>Do you want to "
 "search for these now?"
 msgstr[0] ""
-"Yra reikalaujamas šis priedas: <ul><li>%2</li></ul>Ar norite jo ieškoti "
+"Yra reikalaujamas šis papildinys: <ul><li>%2</li></ul>Ar norite jo ieškoti "
 "dabar?"
 msgstr[1] ""
-"Yra reikalaujami šie priedai: <ul><li>%2</li></ul>Ar norite jų ieškoti dabar?"
+"Yra reikalaujami šie papildiniai: <ul><li>%2</li></ul>Ar norite jų ieškoti "
+"dabar?"
 msgstr[2] ""
-"Yra reikalaujami šie priedai: <ul><li>%2</li></ul>Ar norite jų ieškoti dabar?"
+"Yra reikalaujami šie papildiniai: <ul><li>%2</li></ul>Ar norite jų ieškoti "
+"dabar?"
 msgstr[3] ""
-"Yra reikalaujami šie priedai: <ul><li>%2</li></ul>Ar norite jų ieškoti dabar?"
+"Yra reikalaujami šie papildiniai: <ul><li>%2</li></ul>Ar norite jų ieškoti "
+"dabar?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:158
 msgctxt "A program for which we have no name"
@@ -125,19 +130,19 @@ msgstr "Programa"
 #, kde-format
 msgid "%2 requires an additional plugin to encode this file"
 msgid_plural "%2 requires additional plugins to encode this file"
-msgstr[0] "%2 reikalauja papildomo priedo, kad užkoduotų šį failą"
-msgstr[1] "%2 reikalauja papildomų priedų, kad užkoduotų šį failą"
-msgstr[2] "%2 reikalauja papildomų priedų, kad užkoduotų šį failą"
-msgstr[3] "%2 reikalauja papildomų priedų, kad užkoduotų šį failą"
+msgstr[0] "%2 reikalauja papildomo papildinio, kad užkoduotų šį failą"
+msgstr[1] "%2 reikalauja papildomų papildinių, kad užkoduotų šį failą"
+msgstr[2] "%2 reikalauja papildomų papildinių, kad užkoduotų šį failą"
+msgstr[3] "%2 reikalauja papildomų papildinių, kad užkoduotų šį failą"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:171
 #, kde-format
 msgid "%2 requires an additional plugin to decode this file"
 msgid_plural "%2 requires additional plugins to decode this file"
-msgstr[0] "%2 reikalauja papildomo priedo, kad atkoduotų šį failą"
-msgstr[1] "%2 reikalauja papildomų priedų, kad atkoduotų šį failą"
-msgstr[2] "%2 reikalauja papildomų priedų, kad atkoduotų šį failą"
-msgstr[3] "%2 reikalauja papildomų priedų, kad atkoduotų šį failą"
+msgstr[0] "%2 reikalauja papildomo papildinio, kad atkoduotų šį failą"
+msgstr[1] "%2 reikalauja papildomų papildinių, kad atkoduotų šį failą"
+msgstr[2] "%2 reikalauja papildomų papildinių, kad atkoduotų šį failą"
+msgstr[3] "%2 reikalauja papildomų papildinių, kad atkoduotų šį failą"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:183
 msgctxt "Search for packages"
@@ -392,7 +397,7 @@ msgstr "Įdiegimas baigtas"
 #: utils/qapt-gst-helper/PluginHelper.cpp:449
 msgctxt "@info"
 msgid "No plugins could be found"
-msgstr "Nebuvo rasta priedų"
+msgstr "Nebuvo rasta papildinių"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:450
 msgctxt "@title"

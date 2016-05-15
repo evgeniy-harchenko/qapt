@@ -162,7 +162,7 @@ msgstr[2] "Necesită instalarea a %1 de pachete suplimentare"
 #: utils/qapt-deb-installer/DebInstaller.cpp:255
 msgctxt "@info"
 msgid "All dependencies are satisfied."
-msgstr "Toate dependențele sînt satisfăcute."
+msgstr "Toate dependențele sunt satisfăcute."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:274
 msgctxt "@info"

@@ -1,4 +1,4 @@
-# Translation of qapt-deb-installer.po to Catalan
+# Translation of qapt-deb-installer.po to Catalan (Valencian)
 # Copyright (C) 2011-2014 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: qapt-deb-installer\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-12-29 07:46+0000\n"
-"PO-Revision-Date: 2014-02-01 10:30+0100\n"
+"PO-Revision-Date: 2014-12-12 19:56+0100\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -280,17 +280,14 @@ msgstr "Jonathan Thomas"
 #: utils/qapt-deb-installer/main.cpp:53
 msgctxt "@info:credit"
 msgid "Harald Sitter"
-msgstr ""
+msgstr "Harald Sitter"
 
 #: utils/qapt-deb-installer/main.cpp:54
 msgctxt "@info:credit"
 msgid "Qt 5 port"
-msgstr ""
+msgstr "Adaptació a les Qt 5"
 
 #: utils/qapt-deb-installer/main.cpp:62
-#, fuzzy
-#| msgctxt "@info:shell"
-#| msgid ".deb file"
 msgctxt "@info:shell argument"
 msgid ".deb file"
 msgstr "Fitxer .deb"
