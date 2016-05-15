@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 3.0.1 alpha amd64 arm64 armel armhf hppa i386 kfreebsd-amd64 kfreebsd-i386 mips mips64el mipsel powerpc ppc64 ppc64el s390x sparc64 x32
+# SymbolsHelper-Confirmed: 3.0.2 amd64
 libQApt.so.3 libqapt3 #MINVER#
  _ZN4QApt11HistoryItemC1ERK7QString@Base 3.0.0
  _ZN4QApt11HistoryItemC1ERKS0_@Base 3.0.0
@@ -178,7 +178,9 @@ libQApt.so.3 libqapt3 #MINVER#
  _ZN4QApt7Backend17restoreCacheStateERK5QListIiE@Base 3.0.0
  _ZN4QApt7Backend17setCompressEventsEb@Base 3.0.0
  _ZN4QApt7Backend17updateXapianIndexEv@Base 3.0.0
+ _ZN4QApt7Backend18cacheReloadStartedEv@Base 3.0.2
  _ZN4QApt7Backend18emitPackageChangedEv@Base 3.0.0
+ _ZN4QApt7Backend19cacheReloadFinishedEv@Base 3.0.2
  _ZN4QApt7Backend19xapianUpdateStartedEv@Base 3.0.0
  _ZN4QApt7Backend20setUndoRedoCacheSizeEi@Base 3.0.0
  _ZN4QApt7Backend20xapianUpdateFinishedEv@Base 3.0.0
