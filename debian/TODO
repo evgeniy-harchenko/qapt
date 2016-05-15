@@ -1,4 +1,0 @@
-2012-03-18/Cùran: Make QApt ready for multiarch.
-	This is almost done in a local branch, though I have to investigate
-	whether a merge makes sense before KDE is MA-ready (because of the
-	directory "kde4" still residing under /usr/lib).
