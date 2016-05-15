@@ -1,5 +1,5 @@
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
-# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011.
+# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2016.
 # Jonathan Raphael Joachim Kolberg <bulldog98@kubuntu-de.org>, 2010.
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2014, 2015.
 msgid ""
@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: qaptbatch\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-12-23 09:33+0000\n"
-"PO-Revision-Date: 2015-01-02 20:50+0100\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2016-01-03 21:36+0100\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
 msgctxt "@label Remaining time"
@@ -324,7 +324,7 @@ msgstr "Suche nach neuen, entfernten oder aktualisierbaren Paketen"
 #: utils/qapt-batch/qaptbatch.cpp:345
 msgctxt "@title:window"
 msgid "Downloading"
-msgstr "Herunterladen"
+msgstr "Wird heruntergeladen"
 
 #: utils/qapt-batch/qaptbatch.cpp:347
 msgctxt "@info:status"

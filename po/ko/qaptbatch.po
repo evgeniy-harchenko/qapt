@@ -322,7 +322,7 @@ msgstr "설치 완료"
 #: utils/qapt-batch/qaptbatch.cpp:364
 msgctxt "@label"
 msgid "Package installation failed."
-msgstr "패키지 설치가 실패하였습니다."
+msgstr "패키지 설치가 실패했습니다."
 
 #: utils/qapt-batch/qaptbatch.cpp:367
 msgctxt "@label"
@@ -338,13 +338,13 @@ msgstr "삭제 완료"
 #: utils/qapt-batch/qaptbatch.cpp:375
 msgctxt "@label"
 msgid "Package removal failed."
-msgstr "패키지 삭제가 실패하였습니다."
+msgstr "패키지 삭제가 실패했습니다."
 
 #: utils/qapt-batch/qaptbatch.cpp:379
 msgctxt "@label"
 msgid "Package successfully uninstalled."
 msgid_plural "Packages successfully uninstalled."
-msgstr[0] "패키지를 성공적으로 삭제하였습니다."
+msgstr[0] "패키지를 성공적으로 삭제했습니다."
 
 #: utils/qapt-batch/qaptbatch.cpp:383
 msgctxt "@title:window"

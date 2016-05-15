@@ -1,16 +1,17 @@
-# Translation of qaptbatch.po to Catalan
-# Copyright (C) 2010-2013 This_file_is_part_of_KDE
+# Translation of qaptbatch.po to Catalan (Valencian)
+# Copyright (C) 2010-2015 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Manuel Tortosa <manutortosa@chakra-project.org>, 2010.
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2011, 2012, 2013.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2011, 2012, 2013, 2014, 2015.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: qaptbatch\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-12-23 09:33+0000\n"
-"PO-Revision-Date: 2013-03-10 13:52+0100\n"
+"PO-Revision-Date: 2015-06-12 20:25+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
 msgctxt "@label Remaining time"
@@ -65,12 +66,12 @@ msgstr "Jonathan Thomas"
 #: utils/qapt-batch/main.cpp:54
 msgctxt "@info:credit"
 msgid "Harald Sitter"
-msgstr ""
+msgstr "Harald Sitter"
 
 #: utils/qapt-batch/main.cpp:55
 msgctxt "@info:credit"
 msgid "Qt 5 port"
-msgstr ""
+msgstr "Adaptació a les Qt 5"
 
 #: utils/qapt-batch/main.cpp:63
 msgctxt "@info:shell"
@@ -80,7 +81,7 @@ msgstr "Adjunta la finestra a una aplicació X especificada per «winid»"
 #: utils/qapt-batch/main.cpp:64
 msgctxt "@info:shell value name"
 msgid "winid"
-msgstr ""
+msgstr "winid"
 
 #: utils/qapt-batch/main.cpp:68
 msgctxt "@info:shell"
@@ -95,22 +96,22 @@ msgstr "Elimina un paquet"
 #: utils/qapt-batch/main.cpp:74
 msgctxt "@info:shell"
 msgid "Update the package cache"
-msgstr "Actualitza la cau de paquets"
+msgstr "Actualitza la memòria cau de paquets"
 
 #: utils/qapt-batch/main.cpp:77
 msgctxt "@info:shell"
 msgid "Packages to be operated upon"
-msgstr "Paquets sobre els que s'ha d'operar"
+msgstr "Paquets sobre els quals s'ha d'operar"
 
 #: utils/qapt-batch/main.cpp:87
 msgctxt "@info:shell error"
 msgid "Only one operation mode may be defined."
-msgstr ""
+msgstr "Només es pot definir un mode d'operació."
 
 #: utils/qapt-batch/main.cpp:98
 msgctxt "@info:shell error"
 msgid "No operation mode defined."
-msgstr ""
+msgstr "No s'ha definit cap mode d'operació."
 
 #: utils/qapt-batch/qaptbatch.cpp:65
 msgctxt "@label"
@@ -169,7 +170,7 @@ msgid ""
 "You do not have enough disk space in the directory at %1 to continue with "
 "this operation."
 msgstr ""
-"No teniu espai al disc suficient al directori %1 per continuar amb esta "
+"No teniu espai al disc suficient al directori %1 per a continuar amb esta "
 "operació."
 
 #: utils/qapt-batch/qaptbatch.cpp:206
@@ -306,7 +307,7 @@ msgstr "S'està esperant que acabin altres gestors de programari."
 #: utils/qapt-batch/qaptbatch.cpp:338
 msgctxt "@label Status label"
 msgid "Loading package cache."
-msgstr "S'estan carregant la memòria cau dels paquets."
+msgstr "S'està carregant la memòria cau dels paquets."
 
 #: utils/qapt-batch/qaptbatch.cpp:342
 msgctxt "@title:window"
@@ -366,8 +367,8 @@ msgstr "L'eliminació del paquet ha fallat."
 msgctxt "@label"
 msgid "Package successfully uninstalled."
 msgid_plural "Packages successfully uninstalled."
-msgstr[0] "El paquet s'ha eliminar correctament."
-msgstr[1] "Els paquets s'han eliminar correctament."
+msgstr[0] "El paquet s'ha eliminat correctament."
+msgstr[1] "Els paquets s'han eliminat correctament."
 
 #: utils/qapt-batch/qaptbatch.cpp:383
 msgctxt "@title:window"

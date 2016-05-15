@@ -323,7 +323,7 @@ msgstr "코덱 설치 중"
 #: utils/qapt-gst-helper/PluginHelper.cpp:409
 msgctxt "@label"
 msgid "Package installation finished with errors."
-msgstr "패키지 설치가 성공하였습니다."
+msgstr "패키지 설치가 성공했습니다."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:410
 msgctxt "@title:window"

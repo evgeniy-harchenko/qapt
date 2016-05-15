@@ -1,3 +1,5 @@
+# Translation of qapt-gst-helper to Norwegian Bokmål
+#
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2010, 2011, 2012.
 msgid ""
 msgstr ""
