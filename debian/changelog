@@ -7,6 +7,7 @@ libqapt (3.0.2-2) UNRELEASED; urgency=medium
   * Fix path to qapt-gst-helper passed to update-alternatives in postinst
     and prerm of gstreamer-qapt.
   * Replace the deprecated kio-dev build dependency with libkf5kio-dev.
+  * Remove unused meta/upstream_scm.json file.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sun, 15 May 2016 19:30:43 +0200
 
