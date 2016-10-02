@@ -167,19 +167,3 @@ Architecture: all
 Depends: gstreamer-qapt (>= ${source:Version}), ${misc:Depends}
 Description: transitional dummy package
  This is a transitional dummy package. It can safely be removed.
-
-Package: qapt-dbg
-Section: debug
-Priority: extra
-Architecture: any
-Depends: libqapt3 (= ${binary:Version}), ${misc:Depends}
-Description: QApt debugging symbols
- QApt is a collection of tools and a library providing a wrapper around
- APT. The intention is to ease the use of APT in Qt-based programs.
- .
- This package contains debugging symbols for QApt.
- When QApt crashes, in most cases this package is
- needed to get a backtrace that is useful for developers. If you have
- experienced a QApt crash without this package
- installed, please install it, try to reproduce the problem and fill a bug
- report with a new backtrace attached.
