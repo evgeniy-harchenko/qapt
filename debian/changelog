@@ -1,6 +1,6 @@
-libqapt (3.0.3-0r1) UNRELEASED; urgency=medium
+libqapt (3.0.3-1) unstable; urgency=medium
 
-  [ Pino Toscano ]
+  * Team upload.
   * New upstream release.
   * Change the priority of the transitional gstreamer0.10-qapt to extra.
   * Mark libqapt3 and libqapt-dev as "Multi-Arch: same".
@@ -15,7 +15,7 @@ libqapt (3.0.3-0r1) UNRELEASED; urgency=medium
       backported from upstream
   * Switch Homepage to the upstream VCS, since projects.kde.org is dead.
 
- -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sun, 15 May 2016 19:30:43 +0200
+ -- Pino Toscano <pino@debian.org>  Sun, 18 Jun 2017 10:14:59 +0200
 
 libqapt (3.0.2-1) unstable; urgency=medium
 
