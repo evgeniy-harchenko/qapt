@@ -1,6 +1,7 @@
-libqapt (3.0.2-2) UNRELEASED; urgency=medium
+libqapt (3.0.3-0r1) UNRELEASED; urgency=medium
 
   [ Pino Toscano ]
+  * New upstream release.
   * Change the priority of the transitional gstreamer0.10-qapt to extra.
   * Mark libqapt3 and libqapt-dev as "Multi-Arch: same".
   * Remove debian/TODO, obsolete now.
