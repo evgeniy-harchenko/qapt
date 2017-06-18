@@ -10,6 +10,9 @@ libqapt (3.0.3-0r1) UNRELEASED; urgency=medium
   * Replace the deprecated kio-dev build dependency with libkf5kio-dev.
   * Remove unused meta/upstream_scm.json file.
   * Remove qapt-dbg in favour of the -dbgsym packages.
+  * Update the patches:
+    - upstream_include-random-for-std-default_random_engine.patch: drop,
+      backported from upstream
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sun, 15 May 2016 19:30:43 +0200
 
