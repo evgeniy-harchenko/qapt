@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2015-01-10 02:55+0300\n"
 "Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -19,16 +19,19 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
+#, kde-format
 msgctxt "@label Remaining time"
 msgid "Remaining Time:"
 msgstr "الوقت المتبقّي:"
 
 #: utils/qapt-batch/detailswidget.cpp:56
+#, kde-format
 msgctxt "@label Download Rate"
 msgid "Speed:"
 msgstr "السّرعة:"
 
 #: utils/qapt-batch/detailswidget.cpp:107
+#, kde-format
 msgctxt "@info:progress Remaining time"
 msgid "Unknown"
 msgstr "مجهول"
@@ -40,81 +43,97 @@ msgid "%1/s"
 msgstr "%1/ثا"
 
 #: utils/qapt-batch/main.cpp:33
+#, kde-format
 msgctxt "@info"
 msgid "A batch installer using QApt"
 msgstr "مثبّت دفعات يستخدم كيو-آبت"
 
 #: utils/qapt-batch/main.cpp:45
+#, kde-format
 msgctxt "@title"
 msgid "QApt Batch Installer"
 msgstr "مثبّت الدّفعات كيو-آبت"
 
 #: utils/qapt-batch/main.cpp:49
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2010 Jonathan Thomas"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:51
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "جونَثِن توماس"
 
 #: utils/qapt-batch/main.cpp:54
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr "هارالد سِتِر"
 
 #: utils/qapt-batch/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr "النّقل إلى كيوت 5"
 
 #: utils/qapt-batch/main.cpp:63
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "يرفق النّافذة إلى تطبيق س الذي يحدّده معرّف_النّافذة"
 
 #: utils/qapt-batch/main.cpp:64
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr "معرّف_النّافذة"
 
 #: utils/qapt-batch/main.cpp:68
+#, kde-format
 msgctxt "@info:shell"
 msgid "Install a package"
 msgstr "ثبّت حزمة"
 
 #: utils/qapt-batch/main.cpp:71
+#, kde-format
 msgctxt "@info:shell"
 msgid "Remove a package"
 msgstr "أزل حزمة"
 
 #: utils/qapt-batch/main.cpp:74
+#, kde-format
 msgctxt "@info:shell"
 msgid "Update the package cache"
 msgstr "حدّث خبيئة الحزم"
 
 #: utils/qapt-batch/main.cpp:77
+#, kde-format
 msgctxt "@info:shell"
 msgid "Packages to be operated upon"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:87
+#, kde-format
 msgctxt "@info:shell error"
 msgid "Only one operation mode may be defined."
 msgstr "يمكن تحديد وضع عمليّة واحد فقط."
 
 #: utils/qapt-batch/main.cpp:98
+#, kde-format
 msgctxt "@info:shell error"
 msgid "No operation mode defined."
 msgstr "لا وضع عمليّة محدّد."
 
 #: utils/qapt-batch/qaptbatch.cpp:65
+#, kde-format
 msgctxt "@label"
 msgid "Waiting for authorization"
 msgstr "ينتظر الاستيثاق"
 
 #: utils/qapt-batch/qaptbatch.cpp:100 utils/qapt-batch/qaptbatch.cpp:186
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -122,6 +141,7 @@ msgid ""
 msgstr "تعذّر تمهيد نظام الحزم، قد يكون الضّبط معطوبًا."
 
 #: utils/qapt-batch/qaptbatch.cpp:102 utils/qapt-batch/qaptbatch.cpp:188
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "خطأ تمهيد"
@@ -135,11 +155,13 @@ msgid ""
 msgstr "لم يُعثر على الحزمة \"%1\" في مصادر برمجيّاتك. لذلك لا يمكن تثبيتها. "
 
 #: utils/qapt-batch/qaptbatch.cpp:130 utils/qapt-batch/qaptbatch.cpp:257
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr "لم يُعثر على الحزمة"
 
 #: utils/qapt-batch/qaptbatch.cpp:195
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -150,6 +172,7 @@ msgstr ""
 "قبل أن تستطيع تثبيت أيّة حزم أو إزالتها."
 
 #: utils/qapt-batch/qaptbatch.cpp:199
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "تعذّر الحصول على قفل نظام الحزم"
@@ -163,42 +186,50 @@ msgid ""
 msgstr "لا مساحة قرص كافية لديك في الدّليل %1 لمتابعة هذه العمليّة."
 
 #: utils/qapt-batch/qaptbatch.cpp:206
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "مساحة القرص منخفضة"
 
 #: utils/qapt-batch/qaptbatch.cpp:211
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "تعذّر تنزيل الحزم"
 
 #: utils/qapt-batch/qaptbatch.cpp:212
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "فشل التّنزيل"
 
 #: utils/qapt-batch/qaptbatch.cpp:216
+#, kde-format
 msgctxt "@label"
 msgid "An error occurred while applying changes:"
 msgstr "حدث خطأ أثناء تطبيق التّغييرات:"
 
 #: utils/qapt-batch/qaptbatch.cpp:217
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit error"
 msgstr "خطأ إيداع"
 
 #: utils/qapt-batch/qaptbatch.cpp:222
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr "لا يمكن متابعة هذه العمليّة حيث لم يُوفَّر الاستيثاق المناسب"
 
 #: utils/qapt-batch/qaptbatch.cpp:224
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "خطأ استيثاق"
 
 #: utils/qapt-batch/qaptbatch.cpp:228
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -208,11 +239,13 @@ msgstr ""
 "كيو-آبت"
 
 #: utils/qapt-batch/qaptbatch.cpp:230
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "خطأ غير متوقّع"
 
 #: utils/qapt-batch/qaptbatch.cpp:238
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -240,27 +273,31 @@ msgstr[5] ""
 "ضبطك الحاليّ."
 
 #: utils/qapt-batch/qaptbatch.cpp:247
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "حزم غير موثوقة"
 
 #: utils/qapt-batch/qaptbatch.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "تغيير الوسيط مطلوب"
 
 #: utils/qapt-batch/qaptbatch.cpp:271
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "فضلًا أدرج %1 إلى <filename>%2</filename>"
 
 #: utils/qapt-batch/qaptbatch.cpp:279
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "تحذير - حزم غير متحقّق منها"
 
 #: utils/qapt-batch/qaptbatch.cpp:281
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -298,46 +335,55 @@ msgstr[5] ""
 "العبث.</warning> أتودّ المتابعة؟"
 
 #: utils/qapt-batch/qaptbatch.cpp:316
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting to start."
 msgstr "ينتظر البدء."
 
 #: utils/qapt-batch/qaptbatch.cpp:321
+#, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
 msgstr "ينتظر الاستيثاق."
 
 #: utils/qapt-batch/qaptbatch.cpp:325
+#, kde-format
 msgctxt "@label Status label when waiting for a CD-ROM"
 msgid "Waiting for required media."
 msgstr "ينتظر الوسيط المطلوب."
 
 #: utils/qapt-batch/qaptbatch.cpp:330
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr "ينتظر إنهاء مدراء الحزم الأخرى."
 
 #: utils/qapt-batch/qaptbatch.cpp:338
+#, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
 msgstr "يحمّل خبيئة الحزم."
 
 #: utils/qapt-batch/qaptbatch.cpp:342
+#, kde-format
 msgctxt "@title:window"
 msgid "Refreshing Package Information"
 msgstr "ينعش معلومات الحزمة"
 
 #: utils/qapt-batch/qaptbatch.cpp:343
+#, kde-format
 msgctxt "@info:status"
 msgid "Checking for new, removed or upgradeable packages"
 msgstr "يلتمس الحزم الجديدة، أو المزالة أو القابلة للتّرقية"
 
 #: utils/qapt-batch/qaptbatch.cpp:345
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "ينزّل"
 
 #: utils/qapt-batch/qaptbatch.cpp:347
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading package file"
 msgid_plural "Downloading package files"
@@ -349,21 +395,25 @@ msgstr[4] "ينزّل ملفّات حزم"
 msgstr[5] "ينزّل ملفّات حزم"
 
 #: utils/qapt-batch/qaptbatch.cpp:355
+#, kde-format
 msgctxt "@title:window"
 msgid "Installing Packages"
 msgstr "يثبّت الحزم"
 
 #: utils/qapt-batch/qaptbatch.cpp:360
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "اكتمل التّثبيت"
 
 #: utils/qapt-batch/qaptbatch.cpp:364
+#, kde-format
 msgctxt "@label"
 msgid "Package installation failed."
 msgstr "فشل تثبيت الحزم."
 
 #: utils/qapt-batch/qaptbatch.cpp:367
+#, kde-format
 msgctxt "@label"
 msgid "Package successfully installed."
 msgid_plural "Packages successfully installed."
@@ -375,16 +425,19 @@ msgstr[4] "ثُبّتت الحزم بنجاح."
 msgstr[5] "ثُبّتت الحزم بنجاح."
 
 #: utils/qapt-batch/qaptbatch.cpp:371
+#, kde-format
 msgctxt "@title:window"
 msgid "Removal Complete"
 msgstr "اكتملت الإزالة"
 
 #: utils/qapt-batch/qaptbatch.cpp:375
+#, kde-format
 msgctxt "@label"
 msgid "Package removal failed."
 msgstr "فشلت إزالة الحزمة."
 
 #: utils/qapt-batch/qaptbatch.cpp:379
+#, kde-format
 msgctxt "@label"
 msgid "Package successfully uninstalled."
 msgid_plural "Packages successfully uninstalled."
@@ -396,16 +449,19 @@ msgstr[4] "أُزيلت الحزم بنجاح."
 msgstr[5] "أُزيلت الحزم بنجاح."
 
 #: utils/qapt-batch/qaptbatch.cpp:383
+#, kde-format
 msgctxt "@title:window"
 msgid "Refresh Complete"
 msgstr "اكتمل الإنعاش"
 
 #: utils/qapt-batch/qaptbatch.cpp:386
+#, kde-format
 msgctxt "@info:status"
 msgid "Refresh failed."
 msgstr "فشل الإنعاش"
 
 #: utils/qapt-batch/qaptbatch.cpp:388
+#, kde-format
 msgctxt "@label"
 msgid "Package information successfully refreshed."
 msgstr "أُنعشت معلومات الحزمة بنجاح."

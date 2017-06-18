@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-29 07:46+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2014-12-14 11:23+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -18,16 +18,19 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Confirm Additional Changes"
 msgstr "Confirm Additional Changes"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:42
+#, kde-format
 msgctxt "@info"
 msgid "<h2>Additional Changes</h2>"
 msgstr "<h2>Additional Changes</h2>"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:46
+#, kde-format
 msgid "This action requires a change to another package:"
 msgid_plural "This action requires changes to other packages:"
 msgstr[0] "This action requires a change to another package:"
@@ -35,57 +38,68 @@ msgstr[1] "This action requires changes to other packages:"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:86
 #: utils/qapt-deb-installer/ChangesDialog.cpp:87
+#, kde-format
 msgctxt "@info:status Requested action"
 msgid "Install"
 msgstr "Install"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:88
+#, kde-format
 msgctxt "@info:status Requested action"
 msgid "Remove"
 msgstr "Remove"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:49
+#, kde-format
 msgctxt "@info The widget's header label"
 msgid "<title>Installing</title>"
 msgstr "<title>Installing</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:105
+#, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Starting</title>"
 msgstr "<title>Starting</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:112
+#, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Waiting</title>"
 msgstr "<title>Waiting</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:120
+#, kde-format
 msgctxt "@info Status info"
 msgid "<title>Loading Software List</title>"
 msgstr "<title>Loading Software List</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:125
+#, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Downloading Packages</title>"
 msgstr "<title>Downloading Packages</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:130
+#, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Committing Changes</title>"
 msgstr "<title>Committing Changes</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:136
+#, kde-format
 msgctxt "@label Message that the install is done"
 msgid "Done"
 msgstr "Done"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:138
+#, kde-format
 msgctxt "@info Header label used when the install is done"
 msgid "<title>Done</title>"
 msgstr "<title>Done</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:155
 #: utils/qapt-deb-installer/DebInstaller.cpp:72
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -96,21 +110,25 @@ msgstr ""
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:157
 #: utils/qapt-deb-installer/DebInstaller.cpp:74
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "Initialisation error"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:164
+#, kde-format
 msgctxt "@label"
 msgid "This package is incompatible with your computer."
 msgstr "This package is incompatible with your computer."
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:165
+#, kde-format
 msgctxt "@title:window"
 msgid "Incompatible Package"
 msgstr "Incompatible Package"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:83
+#, kde-format
 msgctxt "@label"
 msgid "Install Package"
 msgstr "Install Package"
@@ -144,6 +162,7 @@ msgid "Error: Breaks the existing package \"%1\""
 msgstr "Error: Breaks the existing package \"%1\""
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:241
+#, kde-format
 msgctxt "@info"
 msgid "Error: Cannot satisfy dependencies"
 msgstr "Error: Cannot satisfy dependencies"
@@ -157,26 +176,31 @@ msgstr[0] "Requires the installation of %1 additional package."
 msgstr[1] "Requires the installation of %1 additional packages"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:255
+#, kde-format
 msgctxt "@info"
 msgid "All dependencies are satisfied."
 msgstr "All dependencies are satisfied."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:274
+#, kde-format
 msgctxt "@info"
 msgid "The same version is available in a software channel."
 msgstr "The same version is available in a software channel."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:275
+#, kde-format
 msgctxt "@info"
 msgid "It is recommended to install the software from the channel instead"
 msgstr "It is recommended to install the software from the channel instead"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:277
+#, kde-format
 msgctxt "@info"
 msgid "An older version is available in a software channel."
 msgstr "An older version is available in a software channel."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:278
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It is recommended to install the version from the software channel, since it "
@@ -186,11 +210,13 @@ msgstr ""
 "usually has more support."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:281
+#, kde-format
 msgctxt "@info"
 msgid "A newer version is available in a software channel."
 msgstr "A newer version is available in a software channel."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:282
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It is strongly advised to install the version from the software channel, "
@@ -200,91 +226,109 @@ msgstr ""
 "since it usually has more support."
 
 #: utils/qapt-deb-installer/DebViewer.cpp:71
+#, kde-format
 msgctxt "@label Label preceding the package name"
 msgid "Package:"
 msgstr "Package:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:79
+#, kde-format
 msgctxt "@label Label preceding the package status"
 msgid "Status:"
 msgstr "Status:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:81
+#, kde-format
 msgctxt "@label"
 msgid "Details..."
 msgstr "Details..."
 
 #: utils/qapt-deb-installer/DebViewer.cpp:132
+#, kde-format
 msgctxt "@label Label preceding the package version"
 msgid "Version:"
 msgstr "Version:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:139
+#, kde-format
 msgctxt "@label Label preceding the package size"
 msgid "Installed Size:"
 msgstr "Installed Size:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:146
+#, kde-format
 msgctxt "@label Label preceding the package maintainer"
 msgid "Maintainer:"
 msgstr "Maintainer:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:153
+#, kde-format
 msgctxt "@label Label preceding the package category"
 msgid "Category:"
 msgstr "Category:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:160
+#, kde-format
 msgctxt "@label Label preceding the package homepage"
 msgid "Homepage:"
 msgstr "Homepage:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:174
+#, kde-format
 msgctxt "@title:tab"
 msgid "Description"
 msgstr "Description"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:175
+#, kde-format
 msgctxt "@title:tab"
 msgid "Details"
 msgstr "Details"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:176
+#, kde-format
 msgctxt "@title:tab"
 msgid "Included Files"
 msgstr "Included Files"
 
 #: utils/qapt-deb-installer/main.cpp:32
+#, kde-format
 msgctxt "@info"
 msgid "A Debian package installer"
 msgstr "A Debian package installer"
 
 #: utils/qapt-deb-installer/main.cpp:44
+#, kde-format
 msgctxt "@title"
 msgid "QApt Package Installer"
 msgstr "QApt Package Installer"
 
 #: utils/qapt-deb-installer/main.cpp:48
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2011 Jonathan Thomas"
 msgstr "(C) 2011 Jonathan Thomas"
 
 #: utils/qapt-deb-installer/main.cpp:50
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-deb-installer/main.cpp:53
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr "Harald Sitter"
 
 #: utils/qapt-deb-installer/main.cpp:54
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr "Qt 5 port"
 
 #: utils/qapt-deb-installer/main.cpp:62
+#, kde-format
 msgctxt "@info:shell argument"
 msgid ".deb file"
 msgstr ".deb file"

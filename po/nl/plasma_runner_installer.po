@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-12 01:57+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2011-02-04 09:54+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: utils/plasma-runner-installer/installerrunner.cpp:42
+#, kde-format
 msgid "Suggests the installation of applications if :q: is not found"
 msgstr "Suggereert de installatie van programma's als :q: niet is gevonden"
 

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.12)
 
 set(PROJECT_VERSION_MAJOR 3)
 set(PROJECT_VERSION_MINOR 0)
-set(PROJECT_VERSION_PATCH 2)
+set(PROJECT_VERSION_PATCH 3)
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}" )
 set(PROJECT_SOVERSION ${PROJECT_VERSION_MAJOR})
 
@@ -19,8 +19,8 @@ include(ECMPoQmTools)
 include(ECMSetupVersion)
 include(FeatureSummary)
 include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings)
+include(KDECMakeSettings NO_POLICY_SCOPE)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMGeneratePriFile) # This needs InstallDirs
 
 # Turn exceptions on

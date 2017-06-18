@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2013-03-11 03:36+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,67 +18,80 @@ msgstr ""
 "X-Generator: Lokalize 1.2\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
+#, kde-format
 msgctxt "@info"
 msgid "A GStreamer codec installer using QApt"
 msgstr "QApt пайдаланатын GStreamer кодек орнатқышы "
 
 #: utils/qapt-gst-helper/main.cpp:46
+#, kde-format
 msgctxt "@title"
 msgid "QApt Codec Searcher"
 msgstr "QApt кодек іздегіші"
 
 #: utils/qapt-gst-helper/main.cpp:50
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2011 Jonathan Thomas"
 msgstr "(C) 2011 Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:52
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr ""
 
 #: utils/qapt-gst-helper/main.cpp:56
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr ""
 
 #: utils/qapt-gst-helper/main.cpp:64
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "winid-мен келтірілген X қолданбаны терезеге тіркеу"
 
 #: utils/qapt-gst-helper/main.cpp:65
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr ""
 
 #: utils/qapt-gst-helper/main.cpp:69
+#, kde-format
 msgctxt "@info:shell"
 msgid "GStreamer install info"
 msgstr "GStreamer орнату ақпары"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:86
+#, kde-format
 msgctxt "@info Error message"
 msgid "No valid plugin info was provided, so no plugins could be found."
 msgstr "Дұрыс плагині табылған жоқ."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:89
+#, kde-format
 msgctxt "@title:window"
 msgid "Couldn't Find Plugins"
 msgstr "Плагиндер табылған жоқ"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:95
+#, kde-format
 msgctxt "@info:progress"
 msgid "Looking for plugins"
 msgstr "Плагиндерді қарастыру"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:129
 #: utils/qapt-gst-helper/PluginHelper.cpp:244
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -87,6 +100,7 @@ msgstr "Десте жүйесі бастайтын күйіне келтіріл
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:131
 #: utils/qapt-gst-helper/PluginHelper.cpp:246
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "Инициализациялау қатесі"
@@ -103,6 +117,7 @@ msgstr[0] ""
 "Келесі плагиндер қажет: <ul><li>%2</li></ul>Оларды қазір іздеп көресіз бе?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:158
+#, kde-format
 msgctxt "A program for which we have no name"
 msgid "A program"
 msgstr "Бағдарлама"
@@ -120,25 +135,30 @@ msgid_plural "%2 requires additional plugins to decode this file"
 msgstr[0] "Бұл файлды декодтау үшін %2 қосымша плагиндерді керек қылады"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:183
+#, kde-format
 msgctxt "Search for packages"
 msgid "Search"
 msgstr "Іздеу"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:209
+#, kde-format
 msgid "Confirm Changes"
 msgstr "Өзгерістерін құптау"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:210
+#, kde-format
 msgid "Install the following package?"
 msgid_plural "Install the following packages?"
 msgstr[0] "Келесі дестелерді орнатү керек пе?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:215
+#, kde-format
 msgctxt "Install packages"
 msgid "Install"
 msgstr "Орнату"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:254
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -149,6 +169,7 @@ msgstr ""
 "не өшіру үшін басқа десте менеджерлерін жабу керек."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:258
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "Десте жүйесі бұғатталмады"
@@ -162,42 +183,50 @@ msgid ""
 msgstr "Бұл амалды жалғастыру үшін %1 қапшығында дискі орыны жетіспейді."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:265
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "Дискіде орын тапшылығы"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:269
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "Десте жүктеп алынбады"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "Жүктеп алу жаңылысы"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:275
+#, kde-format
 msgctxt "@label"
 msgid "An error occurred while applying changes:"
 msgstr "Өзгерістерді іске асырғанда пайда болған қате:"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:276
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit Error"
 msgstr "Тапсыру қатесі"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:282
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr "Бұл амал жалғастырылмайды, өйткені керек авторизацясы етілмегн"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:284
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "Аутентификация қатесі"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:288
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -207,11 +236,13 @@ msgstr ""
 "қатені хабарлаңыз."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:290
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "Күтпеген қате"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:298
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -224,6 +255,7 @@ msgstr[0] ""
 "сенімсіз дестелері жүктелмейді."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:307
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "Сенім артылмаған дестелер"
@@ -238,27 +270,31 @@ msgstr ""
 "Бағдарламалар көздерінде \"%1\" дестесі табылған жоқ. Сондықтан орнатылмады."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:317
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr "Десте табылмады"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:331
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "Тасушыны ауыстыру керек"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:332
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "<filename>%2</filename> дегенге %1 салыңыз"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:341
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "Ескерту - расталмаған бағдарламалар"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:343
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -276,81 +312,97 @@ msgstr[0] ""
 "warning> Жалғастыра берейік пе?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:372
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting to start."
 msgstr "Бастауды күтіп тұр."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:377
+#, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
 msgstr "Аутентификацияны күтіп тұр."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:382
+#, kde-format
 msgctxt "@label Status label when waiting for a CD-ROM"
 msgid "Waiting for required media."
 msgstr "Тасушысын күтіп тұр."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:387
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr "Басқа десте менеджерінен шығуды күтіп тұр."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:395
+#, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
 msgstr "Десте кэшін жүктеп жатыр."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:398
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "Жүктелу"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:399
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading codecs"
 msgstr "Кодектерді жүктеу"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:402
+#, kde-format
 msgctxt "@title:window"
 msgid "Installing"
 msgstr "Орнатып жатыр"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:403
+#, kde-format
 msgctxt "@info:status"
 msgid "Installing codecs"
 msgstr "Кодектерді орнатып жатыр"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:409
+#, kde-format
 msgctxt "@label"
 msgid "Package installation finished with errors."
 msgstr "Дестені орнату қатемен аяқталды."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:410
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Failed"
 msgstr "Орнату жаңылысы"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:412
+#, kde-format
 msgctxt "@label"
 msgid "Codecs successfully installed"
 msgstr "Кодектері сәтті орнатылды"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:413
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "Орнату бітті"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:449
+#, kde-format
 msgctxt "@info"
 msgid "No plugins could be found"
 msgstr "Ешбір плагині табылған жоқ"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:450
+#, kde-format
 msgctxt "@title"
 msgid "Plugins Not Found"
 msgstr "Плагин табылмады"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:512
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting"
 msgstr "Күту"

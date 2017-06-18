@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2014-12-30 09:05+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -18,51 +18,61 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
+#, kde-format
 msgctxt "@info"
 msgid "A GStreamer codec installer using QApt"
 msgstr "En Gstreamer-avkodare installerad med hjälp av Qapt"
 
 #: utils/qapt-gst-helper/main.cpp:46
+#, kde-format
 msgctxt "@title"
 msgid "QApt Codec Searcher"
 msgstr "Qapt-avkodarsökning"
 
 #: utils/qapt-gst-helper/main.cpp:50
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2011 Jonathan Thomas"
 msgstr "© 2011 Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:52
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr "Harald Sitter"
 
 #: utils/qapt-gst-helper/main.cpp:56
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr "Konvertering till Qt-5"
 
 #: utils/qapt-gst-helper/main.cpp:64
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "Ansluter fönstret till ett X-program angivet av winid"
 
 #: utils/qapt-gst-helper/main.cpp:65
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr "fönster-id"
 
 #: utils/qapt-gst-helper/main.cpp:69
+#, kde-format
 msgctxt "@info:shell"
 msgid "GStreamer install info"
 msgstr "Gstreamer-installationsinformation"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:86
+#, kde-format
 msgctxt "@info Error message"
 msgid "No valid plugin info was provided, so no plugins could be found."
 msgstr ""
@@ -70,17 +80,20 @@ msgstr ""
 "inga insticksprogram hittas."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:89
+#, kde-format
 msgctxt "@title:window"
 msgid "Couldn't Find Plugins"
 msgstr "Kunde inte hitta insticksprogram"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:95
+#, kde-format
 msgctxt "@info:progress"
 msgid "Looking for plugins"
 msgstr "Söker efter insticksprogram"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:129
 #: utils/qapt-gst-helper/PluginHelper.cpp:244
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -89,6 +102,7 @@ msgstr "Paketsystemet kunde inte initieras, din inställning kan vara felaktig."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:131
 #: utils/qapt-gst-helper/PluginHelper.cpp:246
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "Intitieringsfel"
@@ -109,6 +123,7 @@ msgstr[1] ""
 "nu?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:158
+#, kde-format
 msgctxt "A program for which we have no name"
 msgid "A program"
 msgstr "Ett program"
@@ -128,26 +143,31 @@ msgstr[0] "%2 kräver ett ytterligare insticksprogram för att avkoda filen"
 msgstr[1] "%2 kräver ytterligare insticksprogram för att avkoda filen"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:183
+#, kde-format
 msgctxt "Search for packages"
 msgid "Search"
 msgstr "Sök"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:209
+#, kde-format
 msgid "Confirm Changes"
 msgstr "Bekräfta ändringar"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:210
+#, kde-format
 msgid "Install the following package?"
 msgid_plural "Install the following packages?"
 msgstr[0] "Installera följande paket?"
 msgstr[1] "Installera följande paket?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:215
+#, kde-format
 msgctxt "Install packages"
 msgid "Install"
 msgstr "Installera"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:254
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -159,6 +179,7 @@ msgstr ""
 "ta bort några paket."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:258
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "Kan inte låsa paketsystemet"
@@ -174,31 +195,37 @@ msgstr ""
 "med åtgärden."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:265
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "Ont om diskutrymme"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:269
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "Kunde inte ladda ner paket"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "Nerladdning misslyckades"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:275
+#, kde-format
 msgctxt "@label"
 msgid "An error occurred while applying changes:"
 msgstr "Ett fel uppstod när ändringar skulle verkställas:"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:276
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit Error"
 msgstr "Verkställningsfel"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:282
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
@@ -206,11 +233,13 @@ msgstr ""
 "Åtgärden kan inte fortsätta eftersom riktig behörighet inte tillhandahölls"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:284
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "Fel vid behörighetskontroll"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:288
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -220,11 +249,13 @@ msgstr ""
 "försvunnit. Rapportera felet till Qapt-utvecklarna."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:290
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "Oväntat fel"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:298
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -240,6 +271,7 @@ msgstr[1] ""
 "opålitliga paket tillåts inte av den aktuella inställningen."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:307
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "Opålitliga paket"
@@ -255,27 +287,31 @@ msgstr ""
 "det inte installeras. "
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:317
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr "Paket hittades inte"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:331
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "Media behöver bytas"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:332
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "Infoga %1 i <filename>%2</filename>"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:341
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "Varning - overifierad programvara"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:343
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -299,81 +335,97 @@ msgstr[1] ""
 "warning> Vill du fortsätta?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:372
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting to start."
 msgstr "Väntar på att starta."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:377
+#, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
 msgstr "Väntar på behörighetskontroll."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:382
+#, kde-format
 msgctxt "@label Status label when waiting for a CD-ROM"
 msgid "Waiting for required media."
 msgstr "Väntar på nödvändiga media."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:387
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr "Väntar på att andra pakethanterare ska avslutas."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:395
+#, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
 msgstr "Läser in paketcache."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:398
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "Laddar ner"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:399
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading codecs"
 msgstr "Laddar ner avkodare"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:402
+#, kde-format
 msgctxt "@title:window"
 msgid "Installing"
 msgstr "Installerar"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:403
+#, kde-format
 msgctxt "@info:status"
 msgid "Installing codecs"
 msgstr "Installerar kodare"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:409
+#, kde-format
 msgctxt "@label"
 msgid "Package installation finished with errors."
 msgstr "Paketinstallation avslutades med fel"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:410
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Failed"
 msgstr "Installation misslyckades"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:412
+#, kde-format
 msgctxt "@label"
 msgid "Codecs successfully installed"
 msgstr "Avkodare installerade med lyckat resultat"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:413
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "Installation klar"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:449
+#, kde-format
 msgctxt "@info"
 msgid "No plugins could be found"
 msgstr "Inget insticksprogram kunde hittas"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:450
+#, kde-format
 msgctxt "@title"
 msgid "Plugins Not Found"
 msgstr "Insticksprogram hittades inte"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:512
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting"
 msgstr "Väntar"

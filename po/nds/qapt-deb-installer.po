@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qapt-deb-installer\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-29 07:46+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2011-09-10 08:49+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -19,16 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Confirm Additional Changes"
 msgstr ""
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:42
+#, kde-format
 msgctxt "@info"
 msgid "<h2>Additional Changes</h2>"
 msgstr ""
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:46
+#, kde-format
 msgid "This action requires a change to another package:"
 msgid_plural "This action requires changes to other packages:"
 msgstr[0] ""
@@ -36,7 +39,7 @@ msgstr[1] ""
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:86
 #: utils/qapt-deb-installer/ChangesDialog.cpp:87
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label Label preceding the package size"
 #| msgid "Installed Size:"
 msgctxt "@info:status Requested action"
@@ -44,17 +47,19 @@ msgid "Install"
 msgstr "Installeert Grött:"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:88
+#, kde-format
 msgctxt "@info:status Requested action"
 msgid "Remove"
 msgstr ""
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:49
+#, kde-format
 msgctxt "@info The widget's header label"
 msgid "<title>Installing</title>"
 msgstr "<title>An't Installeren</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:105
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info The widget's header label"
 #| msgid "<title>Installing</title>"
 msgctxt "@info Status information, widget title"
@@ -62,7 +67,7 @@ msgid "<title>Starting</title>"
 msgstr "<title>An't Installeren</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:112
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info The widget's header label"
 #| msgid "<title>Installing</title>"
 msgctxt "@info Status information, widget title"
@@ -70,7 +75,7 @@ msgid "<title>Waiting</title>"
 msgstr "<title>An't Installeren</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:120
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info Header label used when packages are downloading"
 #| msgid "<title>Downloading Dependencies</title>"
 msgctxt "@info Status info"
@@ -78,7 +83,7 @@ msgid "<title>Loading Software List</title>"
 msgstr "<title>Afhangigkeiten warrt daallaadt</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:125
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info Header label used when packages are downloading"
 #| msgid "<title>Downloading Dependencies</title>"
 msgctxt "@info Status information, widget title"
@@ -86,7 +91,7 @@ msgid "<title>Downloading Packages</title>"
 msgstr "<title>Afhangigkeiten warrt daallaadt</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:130
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info Header label used when the install is done"
 #| msgid "<title>Done</title>"
 msgctxt "@info Status information, widget title"
@@ -94,17 +99,20 @@ msgid "<title>Committing Changes</title>"
 msgstr "<title>Afslaten</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:136
+#, kde-format
 msgctxt "@label Message that the install is done"
 msgid "Done"
 msgstr "Afslaten"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:138
+#, kde-format
 msgctxt "@info Header label used when the install is done"
 msgid "<title>Done</title>"
 msgstr "<title>Afslaten</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:155
 #: utils/qapt-deb-installer/DebInstaller.cpp:72
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -115,17 +123,19 @@ msgstr ""
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:157
 #: utils/qapt-deb-installer/DebInstaller.cpp:74
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "Fehler bi't Torechtmaken"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:164
+#, kde-format
 msgctxt "@label"
 msgid "This package is incompatible with your computer."
 msgstr "Dit Paket is mit Dien Reekner nich kompatibel."
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:165
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Install Package"
 msgctxt "@title:window"
@@ -133,6 +143,7 @@ msgid "Incompatible Package"
 msgstr "Paket installeren"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:83
+#, kde-format
 msgctxt "@label"
 msgid "Install Package"
 msgstr "Paket installeren"
@@ -166,6 +177,7 @@ msgid "Error: Breaks the existing package \"%1\""
 msgstr "Fehler: Ramponeert vörhannen Paket \"%1\""
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:241
+#, kde-format
 msgctxt "@info"
 msgid "Error: Cannot satisfy dependencies"
 msgstr "Fehler: Afhangigkeiten laat sik nich opfüllen."
@@ -179,16 +191,19 @@ msgstr[0] "Bruukt noch de Installatschoon vun %1 Paket bito"
 msgstr[1] "Bruukt noch de Installatschoon vun %1 Paketen bito"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:255
+#, kde-format
 msgctxt "@info"
 msgid "All dependencies are satisfied."
 msgstr "All Afhangigkeiten sünd oplööst"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:274
+#, kde-format
 msgctxt "@info"
 msgid "The same version is available in a software channel."
 msgstr "En Programm-Anbeder stellt de sülve Verschoon praat."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:275
+#, kde-format
 msgctxt "@info"
 msgid "It is recommended to install the software from the channel instead"
 msgstr ""
@@ -196,11 +211,13 @@ msgstr ""
 "ansteed."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:277
+#, kde-format
 msgctxt "@info"
 msgid "An older version is available in a software channel."
 msgstr "En Programm-Anbeder stellt en öller Verschoon praat."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:278
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It is recommended to install the version from the software channel, since it "
@@ -210,11 +227,13 @@ msgstr ""
 "ansteed, wiel dor normalerwies mehr Ünnerstütten för praatstellt warrt."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:281
+#, kde-format
 msgctxt "@info"
 msgid "A newer version is available in a software channel."
 msgstr "En Programm-Anbeder stellt en nieger Verschoon praat."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:282
+#, kde-format
 msgctxt "@info"
 msgid ""
 "It is strongly advised to install the version from the software channel, "
@@ -225,7 +244,7 @@ msgstr ""
 "warrt."
 
 #: utils/qapt-deb-installer/DebViewer.cpp:71
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label Label preceeding the package name"
 #| msgid "Package:"
 msgctxt "@label Label preceding the package name"
@@ -233,7 +252,7 @@ msgid "Package:"
 msgstr "Paket:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:79
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label Label preceeding the package status"
 #| msgid "Status:"
 msgctxt "@label Label preceding the package status"
@@ -241,7 +260,7 @@ msgid "Status:"
 msgstr "Status:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:81
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Details"
 msgctxt "@label"
@@ -249,77 +268,91 @@ msgid "Details..."
 msgstr "Enkelheiten"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:132
+#, kde-format
 msgctxt "@label Label preceding the package version"
 msgid "Version:"
 msgstr "Verschoon:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:139
+#, kde-format
 msgctxt "@label Label preceding the package size"
 msgid "Installed Size:"
 msgstr "Installeert Grött:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:146
+#, kde-format
 msgctxt "@label Label preceding the package maintainer"
 msgid "Maintainer:"
 msgstr "Pleger:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:153
+#, kde-format
 msgctxt "@label Label preceding the package category"
 msgid "Category:"
 msgstr "Kategorie:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:160
+#, kde-format
 msgctxt "@label Label preceding the package homepage"
 msgid "Homepage:"
 msgstr "Tohuussiet:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:174
+#, kde-format
 msgctxt "@title:tab"
 msgid "Description"
 msgstr "Beschrieven"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:175
+#, kde-format
 msgctxt "@title:tab"
 msgid "Details"
 msgstr "Enkelheiten"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:176
+#, kde-format
 msgctxt "@title:tab"
 msgid "Included Files"
 msgstr "Inslaten Dateien"
 
 #: utils/qapt-deb-installer/main.cpp:32
+#, kde-format
 msgctxt "@info"
 msgid "A Debian package installer"
 msgstr "En Paket-Installeerprogramm för Debian"
 
 #: utils/qapt-deb-installer/main.cpp:44
+#, kde-format
 msgctxt "@title"
 msgid "QApt Package Installer"
 msgstr "Paket-Installeerprogramm QApt"
 
 #: utils/qapt-deb-installer/main.cpp:48
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2011 Jonathan Thomas"
 msgstr "© 2011: Jonathan Thomas"
 
 #: utils/qapt-deb-installer/main.cpp:50
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-deb-installer/main.cpp:53
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr ""
 
 #: utils/qapt-deb-installer/main.cpp:54
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr ""
 
 #: utils/qapt-deb-installer/main.cpp:62
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info:shell"
 #| msgid ".deb file"
 msgctxt "@info:shell argument"

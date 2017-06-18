@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qaptbatch 0001\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2014-12-19 20:03+0700\n"
 "Last-Translator: wantoyo <wantoyo@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -18,16 +18,19 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
+#, kde-format
 msgctxt "@label Remaining time"
 msgid "Remaining Time:"
 msgstr "Waktu Tersisa:"
 
 #: utils/qapt-batch/detailswidget.cpp:56
+#, kde-format
 msgctxt "@label Download Rate"
 msgid "Speed:"
 msgstr "Kecepatan:"
 
 #: utils/qapt-batch/detailswidget.cpp:107
+#, kde-format
 msgctxt "@info:progress Remaining time"
 msgid "Unknown"
 msgstr "Tidak diketahui"
@@ -39,81 +42,97 @@ msgid "%1/s"
 msgstr "%1/s"
 
 #: utils/qapt-batch/main.cpp:33
+#, kde-format
 msgctxt "@info"
 msgid "A batch installer using QApt"
 msgstr "Sebuah pemasang batch menggunakan QApt"
 
 #: utils/qapt-batch/main.cpp:45
+#, kde-format
 msgctxt "@title"
 msgid "QApt Batch Installer"
 msgstr "Pemasang Batch QApt"
 
 #: utils/qapt-batch/main.cpp:49
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2010 Jonathan Thomas"
 msgstr "(C) 2010 Jonathan Thomas"
 
 #: utils/qapt-batch/main.cpp:51
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-batch/main.cpp:54
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr "Harald Sitter"
 
 #: utils/qapt-batch/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr "port Qt 5"
 
 #: utils/qapt-batch/main.cpp:63
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "Anggota jendela untuk sebuah X app ditetapkan menurut winid"
 
 #: utils/qapt-batch/main.cpp:64
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr "winid"
 
 #: utils/qapt-batch/main.cpp:68
+#, kde-format
 msgctxt "@info:shell"
 msgid "Install a package"
 msgstr "Pasang sebuah paket"
 
 #: utils/qapt-batch/main.cpp:71
+#, kde-format
 msgctxt "@info:shell"
 msgid "Remove a package"
 msgstr "Buang sebuah paket"
 
 #: utils/qapt-batch/main.cpp:74
+#, kde-format
 msgctxt "@info:shell"
 msgid "Update the package cache"
 msgstr "Perbarui cache paket"
 
 #: utils/qapt-batch/main.cpp:77
+#, kde-format
 msgctxt "@info:shell"
 msgid "Packages to be operated upon"
 msgstr "Paket-paket untuk dioperasikan pada"
 
 #: utils/qapt-batch/main.cpp:87
+#, kde-format
 msgctxt "@info:shell error"
 msgid "Only one operation mode may be defined."
 msgstr "Hanya satu mode operasi yang mungkin digambarkan."
 
 #: utils/qapt-batch/main.cpp:98
+#, kde-format
 msgctxt "@info:shell error"
 msgid "No operation mode defined."
 msgstr "Tidak ada mode operasi yang digambarkan,"
 
 #: utils/qapt-batch/qaptbatch.cpp:65
+#, kde-format
 msgctxt "@label"
 msgid "Waiting for authorization"
 msgstr "Menunggu pemberian kuasa"
 
 #: utils/qapt-batch/qaptbatch.cpp:100 utils/qapt-batch/qaptbatch.cpp:186
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -122,6 +141,7 @@ msgstr ""
 "Sistem paket tidak bisa diinisialisasi, konfigurasi anda mungkin rusak."
 
 #: utils/qapt-batch/qaptbatch.cpp:102 utils/qapt-batch/qaptbatch.cpp:188
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "Galat menginisialisasi"
@@ -137,11 +157,13 @@ msgstr ""
 "Oleh karena itu, tidak bisa dipasang. "
 
 #: utils/qapt-batch/qaptbatch.cpp:130 utils/qapt-batch/qaptbatch.cpp:257
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr "Paket Tidak Ditemukan"
 
 #: utils/qapt-batch/qaptbatch.cpp:195
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -153,6 +175,7 @@ msgstr ""
 "paket manapun."
 
 #: utils/qapt-batch/qaptbatch.cpp:199
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "Tidak mampu merengkuh sistem kunci paket"
@@ -168,31 +191,37 @@ msgstr ""
 "melanjutkanoperasi ini."
 
 #: utils/qapt-batch/qaptbatch.cpp:206
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "Sedikit ruang disk"
 
 #: utils/qapt-batch/qaptbatch.cpp:211
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "Tidak bisa mengunduh paket-paket"
 
 #: utils/qapt-batch/qaptbatch.cpp:212
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "Unduh gagal"
 
 #: utils/qapt-batch/qaptbatch.cpp:216
+#, kde-format
 msgctxt "@label"
 msgid "An error occurred while applying changes:"
 msgstr "Terjadi kesalahan ketika menerapkan perubahan:"
 
 #: utils/qapt-batch/qaptbatch.cpp:217
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit error"
 msgstr "Galat melakukan"
 
 #: utils/qapt-batch/qaptbatch.cpp:222
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
@@ -201,11 +230,13 @@ msgstr ""
 "tersedia"
 
 #: utils/qapt-batch/qaptbatch.cpp:224
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "Galat pengesahan"
 
 #: utils/qapt-batch/qaptbatch.cpp:228
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -215,11 +246,13 @@ msgstr ""
 "ke pengelola QApt"
 
 #: utils/qapt-batch/qaptbatch.cpp:230
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "Galat Tidak Terduga"
 
 #: utils/qapt-batch/qaptbatch.cpp:238
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -232,27 +265,31 @@ msgstr[0] ""
 "dipercaya telah dianulir menurut konfigurasi anda saat ini."
 
 #: utils/qapt-batch/qaptbatch.cpp:247
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "Paket-paket Tidak Terpercaya"
 
 #: utils/qapt-batch/qaptbatch.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "Perubahan Media Diperlukan"
 
 #: utils/qapt-batch/qaptbatch.cpp:271
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "Silakan sisipkan %1 kedalam <filename>%2</filename>"
 
 #: utils/qapt-batch/qaptbatch.cpp:279
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "Peringatan - Perangkat Lunak Belum Diteliti Kebenarannya"
 
 #: utils/qapt-batch/qaptbatch.cpp:281
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -271,99 +308,118 @@ msgstr[0] ""
 "pertanda dapat merusak.</warning> Apakah anda ingin melanjutkan?"
 
 #: utils/qapt-batch/qaptbatch.cpp:316
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting to start."
 msgstr "Menunggu untuk memulai."
 
 #: utils/qapt-batch/qaptbatch.cpp:321
+#, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
 msgstr "Menunggu pengesahan."
 
 #: utils/qapt-batch/qaptbatch.cpp:325
+#, kde-format
 msgctxt "@label Status label when waiting for a CD-ROM"
 msgid "Waiting for required media."
 msgstr "Menunggu media yang diperlukan."
 
 #: utils/qapt-batch/qaptbatch.cpp:330
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr "Menunggu manajer paket lainnya keluar."
 
 #: utils/qapt-batch/qaptbatch.cpp:338
+#, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
 msgstr "Memuat cache paket."
 
 #: utils/qapt-batch/qaptbatch.cpp:342
+#, kde-format
 msgctxt "@title:window"
 msgid "Refreshing Package Information"
 msgstr "Informasi Menyegarkan Paket"
 
 #: utils/qapt-batch/qaptbatch.cpp:343
+#, kde-format
 msgctxt "@info:status"
 msgid "Checking for new, removed or upgradeable packages"
 msgstr "Memeriksa yang baru, dibuang atau paket-paket bisa ditingkatkan"
 
 #: utils/qapt-batch/qaptbatch.cpp:345
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "Mengunduh"
 
 #: utils/qapt-batch/qaptbatch.cpp:347
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading package file"
 msgid_plural "Downloading package files"
 msgstr[0] "Mengunduh berkas paket"
 
 #: utils/qapt-batch/qaptbatch.cpp:355
+#, kde-format
 msgctxt "@title:window"
 msgid "Installing Packages"
 msgstr "Memasang paket-paket"
 
 #: utils/qapt-batch/qaptbatch.cpp:360
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "Pemasangan Lengkap"
 
 #: utils/qapt-batch/qaptbatch.cpp:364
+#, kde-format
 msgctxt "@label"
 msgid "Package installation failed."
 msgstr "Pemasangan paket gagal."
 
 #: utils/qapt-batch/qaptbatch.cpp:367
+#, kde-format
 msgctxt "@label"
 msgid "Package successfully installed."
 msgid_plural "Packages successfully installed."
 msgstr[0] "Paket-paket dengan sukses terpasang."
 
 #: utils/qapt-batch/qaptbatch.cpp:371
+#, kde-format
 msgctxt "@title:window"
 msgid "Removal Complete"
 msgstr "Penghapusan Lengkap"
 
 #: utils/qapt-batch/qaptbatch.cpp:375
+#, kde-format
 msgctxt "@label"
 msgid "Package removal failed."
 msgstr "Penghapusan paket gagal."
 
 #: utils/qapt-batch/qaptbatch.cpp:379
+#, kde-format
 msgctxt "@label"
 msgid "Package successfully uninstalled."
 msgid_plural "Packages successfully uninstalled."
 msgstr[0] "Paket-paket dengan sukses dihapus."
 
 #: utils/qapt-batch/qaptbatch.cpp:383
+#, kde-format
 msgctxt "@title:window"
 msgid "Refresh Complete"
 msgstr "Segarkan Lengkap"
 
 #: utils/qapt-batch/qaptbatch.cpp:386
+#, kde-format
 msgctxt "@info:status"
 msgid "Refresh failed."
 msgstr "Gagal menyegarkan."
 
 #: utils/qapt-batch/qaptbatch.cpp:388
+#, kde-format
 msgctxt "@label"
 msgid "Package information successfully refreshed."
 msgstr "Informasi paket dengan sukses disegarkan."

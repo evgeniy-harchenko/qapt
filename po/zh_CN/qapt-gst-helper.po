@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2015-02-23 17:07-0500\n"
 "Last-Translator: Weng Xuetian <wengxt@gmail.com>\n"
 "Language-Team: Chinese Simplified <kde-china@kde.org>\n"
@@ -20,67 +20,80 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
+#, kde-format
 msgctxt "@info"
 msgid "A GStreamer codec installer using QApt"
 msgstr "使用 QApt 的 GStreamer 解码器安装器"
 
 #: utils/qapt-gst-helper/main.cpp:46
+#, kde-format
 msgctxt "@title"
 msgid "QApt Codec Searcher"
 msgstr "QApt 解码器搜索器"
 
 #: utils/qapt-gst-helper/main.cpp:50
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2011 Jonathan Thomas"
 msgstr "(C) 2011 Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:52
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr "Harald Sitter"
 
 #: utils/qapt-gst-helper/main.cpp:56
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr "Qt 5 移植"
 
 #: utils/qapt-gst-helper/main.cpp:64
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "将窗口附到以 winid 指定的 X 应用程序"
 
 #: utils/qapt-gst-helper/main.cpp:65
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr "winid"
 
 #: utils/qapt-gst-helper/main.cpp:69
+#, kde-format
 msgctxt "@info:shell"
 msgid "GStreamer install info"
 msgstr "GStreamer 安装信息"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:86
+#, kde-format
 msgctxt "@info Error message"
 msgid "No valid plugin info was provided, so no plugins could be found."
 msgstr "未提供有效的插件信息，找不到插件。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:89
+#, kde-format
 msgctxt "@title:window"
 msgid "Couldn't Find Plugins"
 msgstr "找不到插件"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:95
+#, kde-format
 msgctxt "@info:progress"
 msgid "Looking for plugins"
 msgstr "正在查找插件"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:129
 #: utils/qapt-gst-helper/PluginHelper.cpp:244
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -89,6 +102,7 @@ msgstr "软件包管理系统无法初始化，您的配置可能已损坏。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:131
 #: utils/qapt-gst-helper/PluginHelper.cpp:246
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "初始化出错"
@@ -104,6 +118,7 @@ msgid_plural ""
 msgstr[0] "需要如下插件：<ul><li>%2</li></ul> 您想马上搜索它们吗？"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:158
+#, kde-format
 msgctxt "A program for which we have no name"
 msgid "A program"
 msgstr "一款程序"
@@ -121,25 +136,30 @@ msgid_plural "%2 requires additional plugins to decode this file"
 msgstr[0] "%2 需要额外插件才能解码此文件"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:183
+#, kde-format
 msgctxt "Search for packages"
 msgid "Search"
 msgstr "搜索"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:209
+#, kde-format
 msgid "Confirm Changes"
 msgstr "确认更改"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:210
+#, kde-format
 msgid "Install the following package?"
 msgid_plural "Install the following packages?"
 msgstr[0] "安装以下软件包吗？"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:215
+#, kde-format
 msgctxt "Install packages"
 msgid "Install"
 msgstr "安装"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:254
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -150,6 +170,7 @@ msgstr ""
 "装或移除软件包。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:258
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "无法获取软件包系统锁"
@@ -163,42 +184,50 @@ msgid ""
 msgstr "%1 处目录中的磁盘空间不足，操作无法继续。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:265
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "磁盘空间低"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:269
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "无法下载软件包"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "下载失败"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:275
+#, kde-format
 msgctxt "@label"
 msgid "An error occurred while applying changes:"
 msgstr "应用更改时发生了错误："
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:276
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit Error"
 msgstr "提交出错"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:282
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr "操作无法继续，因为没有提供合法的认证"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:284
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "验证错误"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:288
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -206,11 +235,13 @@ msgid ""
 msgstr "QApt worker (工具) 似乎已崩溃或消失。请向 QApt 维护者报告这一错误。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:290
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "意外出错"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:298
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -222,6 +253,7 @@ msgstr[0] ""
 "以下软件包未经它们作者验证。您当前的配置不允许下载这些不信任的软件包。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:307
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "不可信的软件包"
@@ -235,27 +267,31 @@ msgid ""
 msgstr "在您的软件源中未找到“%1”这个软件包。因此，无法安装它。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:317
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr "软件包未找到"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:331
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "需要更改媒体"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:332
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "请将 %1 插入 <filename>%2</filename>"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:341
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "警告 - 软件未经验证"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:343
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -272,81 +308,97 @@ msgstr[0] ""
 "表示软件被篡改。</warning>您想继续吗？"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:372
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting to start."
 msgstr "正在等待启动"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:377
+#, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
 msgstr "正在等待认证。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:382
+#, kde-format
 msgctxt "@label Status label when waiting for a CD-ROM"
 msgid "Waiting for required media."
 msgstr "正在等待需要的媒体。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:387
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr "正在等待其他包管理器退出。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:395
+#, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
 msgstr "正在加载软件包缓存。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:398
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "正在下载"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:399
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading codecs"
 msgstr "正在下载编解码器"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:402
+#, kde-format
 msgctxt "@title:window"
 msgid "Installing"
 msgstr "正在安装"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:403
+#, kde-format
 msgctxt "@info:status"
 msgid "Installing codecs"
 msgstr "正在安装编解码器"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:409
+#, kde-format
 msgctxt "@label"
 msgid "Package installation finished with errors."
 msgstr "软件包安装完成，但有错误。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:410
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Failed"
 msgstr "安装失败"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:412
+#, kde-format
 msgctxt "@label"
 msgid "Codecs successfully installed"
 msgstr "成功安装了编解码器"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:413
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "安装完成"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:449
+#, kde-format
 msgctxt "@info"
 msgid "No plugins could be found"
 msgstr "找不到插件"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:450
+#, kde-format
 msgctxt "@title"
 msgid "Plugins Not Found"
 msgstr "找不到插件"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:512
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting"
 msgstr "正在等待"

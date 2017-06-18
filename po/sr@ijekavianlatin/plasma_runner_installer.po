@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-runner-installer\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-12 01:57+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2011-05-26 12:18+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -22,6 +22,7 @@ msgstr ""
 "X-Generator: Lokalize 1.1\n"
 
 #: utils/plasma-runner-installer/installerrunner.cpp:42
+#, kde-format
 msgid "Suggests the installation of applications if :q: is not found"
 msgstr "Predlaže instaliranje programa ako :q: nije pronađen."
 
