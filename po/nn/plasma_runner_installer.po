@@ -1,33 +1,32 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Translation of plasma_runner_installer to Norwegian Nynorsk
 #
-# Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
+# Karl Ove Hufthammer <karl@huftis.org>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2011-02-18 23:56+0100\n"
-"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
-"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
-"Language: hu\n"
+"PO-Revision-Date: 2016-11-28 19:52+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
+"Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: utils/plasma-runner-installer/installerrunner.cpp:42
 #, kde-format
 msgid "Suggests the installation of applications if :q: is not found"
-msgstr "Alkalmazások telepítését javasolja, ha :q: nem található"
+msgstr "Føreslår installering av program viss :q: ikkje vert funnen"
 
 #: utils/plasma-runner-installer/installerrunner.cpp:114
 #, kde-format
 msgid "Install %1"
-msgstr "%1 telepítése"
+msgstr "Installer %1"
 
 #: utils/plasma-runner-installer/installerrunner.cpp:117
 #, kde-format
 msgid "The \"%1\" package contains %2"
-msgstr "A(z) „%1” csomag tartalmazza a következőt: %2"
+msgstr "Pakken «%1» inneheld %2"

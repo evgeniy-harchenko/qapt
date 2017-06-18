@@ -46,6 +46,7 @@
 #include <apt-pkg/versionmatch.h>
 
 #include <algorithm>
+#include <random>
 
 // Own includes
 #include "backend.h"
@@ -312,7 +313,9 @@ QString Package::longDescription() const
             // Merge multiple whitespace chars into one
             sections[i].replace(QRegExp(QLatin1String("\\ \\ +")), QChar::fromLatin1(' '));
             // Remove the initial whitespace
-            sections[i].remove(0, 1);
+            if (sections[i].startsWith(QChar::Space)) {
+                sections[i].remove(0, 1);
+            }
             // Append to parsedDescription
             if (sections[i].startsWith(QLatin1String("\n ") % QString::fromUtf8("\xE2\x80\xA2 ")) || !i) {
                 parsedDescription += sections[i];

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qapt-batch\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2010-10-30 08:15+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -19,16 +19,19 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
+#, kde-format
 msgctxt "@label Remaining time"
 msgid "Remaining Time:"
 msgstr "Nablieven Tiet:"
 
 #: utils/qapt-batch/detailswidget.cpp:56
+#, kde-format
 msgctxt "@label Download Rate"
 msgid "Speed:"
 msgstr "Gauheit:"
 
 #: utils/qapt-batch/detailswidget.cpp:107
+#, kde-format
 msgctxt "@info:progress Remaining time"
 msgid "Unknown"
 msgstr "Nich begäng"
@@ -40,81 +43,97 @@ msgid "%1/s"
 msgstr "%1/s"
 
 #: utils/qapt-batch/main.cpp:33
+#, kde-format
 msgctxt "@info"
 msgid "A batch installer using QApt"
 msgstr "En Bült-Installeerprogramm för den Bruuk mit QApt"
 
 #: utils/qapt-batch/main.cpp:45
+#, kde-format
 msgctxt "@title"
 msgid "QApt Batch Installer"
 msgstr "Bült-Installeerprogramm för QApt"
 
 #: utils/qapt-batch/main.cpp:49
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2010 Jonathan Thomas"
 msgstr "© 2010: Jonathan Thomas"
 
 #: utils/qapt-batch/main.cpp:51
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-batch/main.cpp:54
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:63
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "Föögt dat Finster na en X-Programm to, dat \"WinID\" angifft."
 
 #: utils/qapt-batch/main.cpp:64
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:68
+#, kde-format
 msgctxt "@info:shell"
 msgid "Install a package"
 msgstr "En Paket installeren"
 
 #: utils/qapt-batch/main.cpp:71
+#, kde-format
 msgctxt "@info:shell"
 msgid "Remove a package"
 msgstr "En Paket wegdoon"
 
 #: utils/qapt-batch/main.cpp:74
+#, kde-format
 msgctxt "@info:shell"
 msgid "Update the package cache"
 msgstr "Paket-Twischenspieker opfrischen"
 
 #: utils/qapt-batch/main.cpp:77
+#, kde-format
 msgctxt "@info:shell"
 msgid "Packages to be operated upon"
 msgstr "Paketen, de Du ännern wullt"
 
 #: utils/qapt-batch/main.cpp:87
+#, kde-format
 msgctxt "@info:shell error"
 msgid "Only one operation mode may be defined."
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:98
+#, kde-format
 msgctxt "@info:shell error"
 msgid "No operation mode defined."
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:65
+#, kde-format
 msgctxt "@label"
 msgid "Waiting for authorization"
 msgstr "An't Töven op Verlööf"
 
 #: utils/qapt-batch/qaptbatch.cpp:100 utils/qapt-batch/qaptbatch.cpp:186
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -124,6 +143,7 @@ msgstr ""
 "leeg."
 
 #: utils/qapt-batch/qaptbatch.cpp:102 utils/qapt-batch/qaptbatch.cpp:188
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "Fehler bi't Torechtmaken"
@@ -139,11 +159,13 @@ msgstr ""
 "sik dat nich installeren. "
 
 #: utils/qapt-batch/qaptbatch.cpp:130 utils/qapt-batch/qaptbatch.cpp:257
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr "Paket lett sik nich finnen."
 
 #: utils/qapt-batch/qaptbatch.cpp:195
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -155,6 +177,7 @@ msgstr ""
 "wegmaken kannst."
 
 #: utils/qapt-batch/qaptbatch.cpp:199
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "Dat Paketsystem lett sik nich afsluten."
@@ -168,22 +191,25 @@ msgid ""
 msgstr "Binnen Orner \"%1\" gifft dat nich noog free Ruum för't Wiedermaken."
 
 #: utils/qapt-batch/qaptbatch.cpp:206
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "To minn free Ruum op de Fastplaat"
 
 #: utils/qapt-batch/qaptbatch.cpp:211
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "Paketen laat sik nich daalladen."
 
 #: utils/qapt-batch/qaptbatch.cpp:212
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "Daalladen fehlslaan"
 
 #: utils/qapt-batch/qaptbatch.cpp:216
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "An error occurred while applying changes:"
 #| msgid_plural "The following errors occurred while applying changes:"
@@ -192,11 +218,13 @@ msgid "An error occurred while applying changes:"
 msgstr "Bi't Övernehmen vun Ännern geev dat en Fehler:"
 
 #: utils/qapt-batch/qaptbatch.cpp:217
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit error"
 msgstr "Inspelen fehlslaan"
 
 #: utils/qapt-batch/qaptbatch.cpp:222
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
@@ -205,11 +233,13 @@ msgstr ""
 "warrt."
 
 #: utils/qapt-batch/qaptbatch.cpp:224
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "Identiteetprööv fehlslaan"
 
 #: utils/qapt-batch/qaptbatch.cpp:228
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -219,11 +249,13 @@ msgstr ""
 "QApt-Plegers en Fehlerbericht to."
 
 #: utils/qapt-batch/qaptbatch.cpp:230
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "Nich verwacht Fehler"
 
 #: utils/qapt-batch/qaptbatch.cpp:238
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -239,27 +271,31 @@ msgstr[1] ""
 "beglöövt Paketen is op Dien Systeem nich tolaten."
 
 #: utils/qapt-batch/qaptbatch.cpp:247
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "Nich troot Paketen"
 
 #: utils/qapt-batch/qaptbatch.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "En Medienwessel deit noot"
 
 #: utils/qapt-batch/qaptbatch.cpp:271
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "Bitte %1 na <filename>%2</filename> inleggen."
 
 #: utils/qapt-batch/qaptbatch.cpp:279
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "Wohrschoen: Programmen nich beglöövt"
 
 #: utils/qapt-batch/qaptbatch.cpp:281
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -281,7 +317,7 @@ msgstr[1] ""
 "Programmen villicht vermurkst wesen köönt.</warning> Wullt Du wiedermaken?"
 
 #: utils/qapt-batch/qaptbatch.cpp:316
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Waiting for authorization"
 msgctxt "@label Progress bar label when waiting to start"
@@ -289,7 +325,7 @@ msgid "Waiting to start."
 msgstr "An't Töven op Verlööf"
 
 #: utils/qapt-batch/qaptbatch.cpp:321
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Waiting for authorization"
 msgctxt "@label Status label when waiting for a password"
@@ -297,7 +333,7 @@ msgid "Waiting for authentication."
 msgstr "An't Töven op Verlööf"
 
 #: utils/qapt-batch/qaptbatch.cpp:325
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Waiting for authorization"
 msgctxt "@label Status label when waiting for a CD-ROM"
@@ -305,12 +341,13 @@ msgid "Waiting for required media."
 msgstr "An't Töven op Verlööf"
 
 #: utils/qapt-batch/qaptbatch.cpp:330
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:338
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Downloading package file"
 #| msgid_plural "Downloading package files"
@@ -319,21 +356,25 @@ msgid "Loading package cache."
 msgstr "Paketdatei warrt daallaadt."
 
 #: utils/qapt-batch/qaptbatch.cpp:342
+#, kde-format
 msgctxt "@title:window"
 msgid "Refreshing Package Information"
 msgstr "Paketinformatschonen warrt opfrischt"
 
 #: utils/qapt-batch/qaptbatch.cpp:343
+#, kde-format
 msgctxt "@info:status"
 msgid "Checking for new, removed or upgradeable packages"
 msgstr "Bi't Kieken na nieg, wegdaan oder opgradeerbor Paketen"
 
 #: utils/qapt-batch/qaptbatch.cpp:345
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "Bi to daalladen..."
 
 #: utils/qapt-batch/qaptbatch.cpp:347
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading package file"
 msgid_plural "Downloading package files"
@@ -341,17 +382,19 @@ msgstr[0] "Paketdatei warrt daallaadt."
 msgstr[1] "Paketdateien warrt daallaadt."
 
 #: utils/qapt-batch/qaptbatch.cpp:355
+#, kde-format
 msgctxt "@title:window"
 msgid "Installing Packages"
 msgstr "Paketen warrt installeert."
 
 #: utils/qapt-batch/qaptbatch.cpp:360
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "Installatschoon afslaten"
 
 #: utils/qapt-batch/qaptbatch.cpp:364
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Package installation finished with errors."
 msgctxt "@label"
@@ -359,7 +402,7 @@ msgid "Package installation failed."
 msgstr "Paketinstallatschoon mit Fehlers afslaten"
 
 #: utils/qapt-batch/qaptbatch.cpp:367
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Package successfully installed"
 #| msgid_plural "Packages successfully installed"
@@ -370,12 +413,13 @@ msgstr[0] "Paket mit Spood installeert"
 msgstr[1] "Paketen mit Spood installeert"
 
 #: utils/qapt-batch/qaptbatch.cpp:371
+#, kde-format
 msgctxt "@title:window"
 msgid "Removal Complete"
 msgstr "Wegmaken afslaten"
 
 #: utils/qapt-batch/qaptbatch.cpp:375
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Package removal finished with errors."
 msgctxt "@label"
@@ -383,7 +427,7 @@ msgid "Package removal failed."
 msgstr "Wegmaken vun Paket mit Fehlers afslaten"
 
 #: utils/qapt-batch/qaptbatch.cpp:379
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Package successfully uninstalled"
 #| msgid_plural "Packages successfully uninstalled"
@@ -394,12 +438,13 @@ msgstr[0] "Paket mit Spood wegmaakt"
 msgstr[1] "Paketen mit Spood wegmaakt"
 
 #: utils/qapt-batch/qaptbatch.cpp:383
+#, kde-format
 msgctxt "@title:window"
 msgid "Refresh Complete"
 msgstr "Opfrischen afslaten"
 
 #: utils/qapt-batch/qaptbatch.cpp:386
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Refresh Complete"
 msgctxt "@info:status"
@@ -407,7 +452,7 @@ msgid "Refresh failed."
 msgstr "Opfrischen afslaten"
 
 #: utils/qapt-batch/qaptbatch.cpp:388
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Package information successfully refreshed"
 msgctxt "@label"

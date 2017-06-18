@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qapt-batch\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2011-09-11 06:26+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -19,51 +19,61 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
+#, kde-format
 msgctxt "@info"
 msgid "A GStreamer codec installer using QApt"
 msgstr "En GStreamer-Installeerprogramm för den Bruuk mit QApt"
 
 #: utils/qapt-gst-helper/main.cpp:46
+#, kde-format
 msgctxt "@title"
 msgid "QApt Codec Searcher"
 msgstr "QApt-Kodeksöök"
 
 #: utils/qapt-gst-helper/main.cpp:50
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2011 Jonathan Thomas"
 msgstr "© 2011: Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:52
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-gst-helper/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr ""
 
 #: utils/qapt-gst-helper/main.cpp:56
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr ""
 
 #: utils/qapt-gst-helper/main.cpp:64
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "Föögt dat Finster na en X-Programm to, dat \"WinID\" angifft."
 
 #: utils/qapt-gst-helper/main.cpp:65
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr ""
 
 #: utils/qapt-gst-helper/main.cpp:69
+#, kde-format
 msgctxt "@info:shell"
 msgid "GStreamer install info"
 msgstr "Informatschonen över de Installatschoon vun GStreamer"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:86
+#, kde-format
 msgctxt "@info Error message"
 msgid "No valid plugin info was provided, so no plugins could be found."
 msgstr ""
@@ -71,17 +81,20 @@ msgstr ""
 "finnen."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:89
+#, kde-format
 msgctxt "@title:window"
 msgid "Couldn't Find Plugins"
 msgstr "Modulen laat sik nich finnen"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:95
+#, kde-format
 msgctxt "@info:progress"
 msgid "Looking for plugins"
 msgstr "Modulen warrt söcht..."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:129
 #: utils/qapt-gst-helper/PluginHelper.cpp:244
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -92,6 +105,7 @@ msgstr ""
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:131
 #: utils/qapt-gst-helper/PluginHelper.cpp:246
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "Fehler bi't Torechtmaken"
@@ -109,6 +123,7 @@ msgstr[1] ""
 "Disse Modulen deit noot: <ul><li>%2</li></ul>Wullt Du dor nu na söken?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:158
+#, kde-format
 msgctxt "A program for which we have no name"
 msgid "A program"
 msgstr "En Programm"
@@ -131,26 +146,31 @@ msgstr[1] ""
 "%2 bruukt noch mehr Modulen bito, dormit sik disse Datei dekoderen lett."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:183
+#, kde-format
 msgctxt "Search for packages"
 msgid "Search"
 msgstr "Söken"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:209
+#, kde-format
 msgid "Confirm Changes"
 msgstr "Ännern beglöven"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:210
+#, kde-format
 msgid "Install the following package?"
 msgid_plural "Install the following packages?"
 msgstr[0] "Dit Paket installeren?"
 msgstr[1] "Disse Paketen installeren?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:215
+#, kde-format
 msgctxt "Install packages"
 msgid "Install"
 msgstr "Installeren"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:254
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -162,6 +182,7 @@ msgstr ""
 "wegmaken kannst."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:258
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "Dat Paketsystem lett sik nich afsluten."
@@ -175,22 +196,25 @@ msgid ""
 msgstr "Binnen Orner \"%1\" gifft dat nich noog free Ruum för't Wiedermaken."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:265
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "To minn free Ruum op de Fastplaat"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:269
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "Paketen laat sik nich daalladen."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "Daalladen fehlslaan"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:275
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "An error occurred while applying changes:"
 #| msgid_plural "The following errors occurred while applying changes:"
@@ -199,7 +223,7 @@ msgid "An error occurred while applying changes:"
 msgstr "Bi't Övernehmen vun Ännern geev dat en Fehler:"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:276
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Commit error"
 msgctxt "@title:window"
@@ -207,6 +231,7 @@ msgid "Commit Error"
 msgstr "Inspelen fehlslaan"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:282
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
@@ -215,11 +240,13 @@ msgstr ""
 "warrt."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:284
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "Identiteetprööv fehlslaan"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:288
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -229,11 +256,13 @@ msgstr ""
 "QApt-Plegers en Fehlerbericht to."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:290
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "Nich verwacht Fehler"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:298
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -249,6 +278,7 @@ msgstr[1] ""
 "beglöövt Paketen is op Dien Systeem nich tolaten."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:307
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "Nich troot Paketen"
@@ -264,27 +294,31 @@ msgstr ""
 "sik dat nich installeren. "
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:317
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr "Paket lett sik nich finnen."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:331
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "En Medienwessel deit noot"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:332
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "Bitte %1 na <filename>%2</filename> inleggen."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:341
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "Wohrschoen: Programmen nich beglöövt"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:343
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -306,42 +340,49 @@ msgstr[1] ""
 "Programmen villicht vermurkst wesen köönt.</warning> Wullt Du wiedermaken?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:372
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting to start."
 msgstr ""
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:377
+#, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
 msgstr ""
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:382
+#, kde-format
 msgctxt "@label Status label when waiting for a CD-ROM"
 msgid "Waiting for required media."
 msgstr ""
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:387
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr ""
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:395
+#, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
 msgstr ""
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:398
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "Bi to daalladen..."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:399
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading codecs"
 msgstr "Kodeks warrt daallaadt"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:402
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "Install packages"
 #| msgid "Install"
 msgctxt "@title:window"
@@ -349,7 +390,7 @@ msgid "Installing"
 msgstr "Installeren"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:403
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Installing Codecs"
 msgctxt "@info:status"
@@ -357,12 +398,13 @@ msgid "Installing codecs"
 msgstr "Kodeks warrt installeert"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:409
+#, kde-format
 msgctxt "@label"
 msgid "Package installation finished with errors."
 msgstr "Paketinstallatschoon mit Fehlers afslaten"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:410
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Installation Complete"
 msgctxt "@title:window"
@@ -370,22 +412,25 @@ msgid "Installation Failed"
 msgstr "Installatschoon afslaten"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:412
+#, kde-format
 msgctxt "@label"
 msgid "Codecs successfully installed"
 msgstr "Kodeks mit Spood installeert"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:413
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "Installatschoon afslaten"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:449
+#, kde-format
 msgctxt "@info"
 msgid "No plugins could be found"
 msgstr ""
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:450
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Package Not Found"
 msgctxt "@title"
@@ -393,6 +438,7 @@ msgid "Plugins Not Found"
 msgstr "Paket lett sik nich finnen."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:512
+#, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting"
 msgstr "An't Töven"

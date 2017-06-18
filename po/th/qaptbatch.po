@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4-l10n\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-12-23 09:33+0000\n"
+"POT-Creation-Date: 2016-11-19 20:10+0100\n"
 "PO-Revision-Date: 2010-08-13 20:09+0700\n"
 "Last-Translator: Sahachart Anukulkitch <drrider@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -21,16 +21,19 @@ msgstr ""
 "X-Poedit-Basepath: ~/kde/trunk/th/\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
+#, kde-format
 msgctxt "@label Remaining time"
 msgid "Remaining Time:"
 msgstr "เหลือเวลาอีก:"
 
 #: utils/qapt-batch/detailswidget.cpp:56
+#, kde-format
 msgctxt "@label Download Rate"
 msgid "Speed:"
 msgstr "อัตราเร็ว:"
 
 #: utils/qapt-batch/detailswidget.cpp:107
+#, kde-format
 msgctxt "@info:progress Remaining time"
 msgid "Unknown"
 msgstr "ไม่รู้"
@@ -42,81 +45,97 @@ msgid "%1/s"
 msgstr "%1ต่อวินาที"
 
 #: utils/qapt-batch/main.cpp:33
+#, kde-format
 msgctxt "@info"
 msgid "A batch installer using QApt"
 msgstr "ตัวติดตั้งแบบเป็นชุดโดยใช้ QApt"
 
 #: utils/qapt-batch/main.cpp:45
+#, kde-format
 msgctxt "@title"
 msgid "QApt Batch Installer"
 msgstr "QApt เป็นตัวติดตั้งโปรแกรมเป็นชุด"
 
 #: utils/qapt-batch/main.cpp:49
+#, kde-format
 msgctxt "@info:credit"
 msgid "(C) 2010 Jonathan Thomas"
 msgstr "(C) 2010 Jonathan Thomas"
 
 #: utils/qapt-batch/main.cpp:51
+#, kde-format
 msgctxt "@info:credit"
 msgid "Jonathan Thomas"
 msgstr "Jonathan Thomas"
 
 #: utils/qapt-batch/main.cpp:54
+#, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:55
+#, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:63
+#, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
 msgstr "ผูกหน้าต่างเข้ากับโปรแกรม X โดยระบุ winid"
 
 #: utils/qapt-batch/main.cpp:64
+#, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:68
+#, kde-format
 msgctxt "@info:shell"
 msgid "Install a package"
 msgstr "ติดตั้งแพกเกจ"
 
 #: utils/qapt-batch/main.cpp:71
+#, kde-format
 msgctxt "@info:shell"
 msgid "Remove a package"
 msgstr "ถอดถอนแพกเกจ"
 
 #: utils/qapt-batch/main.cpp:74
+#, kde-format
 msgctxt "@info:shell"
 msgid "Update the package cache"
 msgstr "ปรับปรุงที่เก็บข้อมูลแพกเกจชั่วคราว"
 
 #: utils/qapt-batch/main.cpp:77
+#, kde-format
 msgctxt "@info:shell"
 msgid "Packages to be operated upon"
 msgstr "แพกเกจต่าง ๆ ถูกจัดการแล้ว"
 
 #: utils/qapt-batch/main.cpp:87
+#, kde-format
 msgctxt "@info:shell error"
 msgid "Only one operation mode may be defined."
 msgstr ""
 
 #: utils/qapt-batch/main.cpp:98
+#, kde-format
 msgctxt "@info:shell error"
 msgid "No operation mode defined."
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:65
+#, kde-format
 msgctxt "@label"
 msgid "Waiting for authorization"
 msgstr "กำลังรอการตรวจสอบสิทธิ์"
 
 #: utils/qapt-batch/qaptbatch.cpp:100 utils/qapt-batch/qaptbatch.cpp:186
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
@@ -124,6 +143,7 @@ msgid ""
 msgstr "ระบบแพกเกจไม่สามารถเริ่มต้นได้ การตั้งค่าของคุณอาจจะผิดพลาด"
 
 #: utils/qapt-batch/qaptbatch.cpp:102 utils/qapt-batch/qaptbatch.cpp:188
+#, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
 msgstr "การเริ่มต้นผิดพลาด"
@@ -137,11 +157,13 @@ msgid ""
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:130 utils/qapt-batch/qaptbatch.cpp:257
+#, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:195
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Another application seems to be using the package system at this time. You "
@@ -152,6 +174,7 @@ msgstr ""
 "ก่อนที่คุณจะติดตั้งหรือถอดถอนแพกเกจต่าง ๆ ได้"
 
 #: utils/qapt-batch/qaptbatch.cpp:199
+#, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
 msgstr "ไม่สามารถล็อคระบบแพกเกจ"
@@ -165,22 +188,25 @@ msgid ""
 msgstr "คุณมีพื้นที่บนดิสก์ไม่พอในไดเร็คทอรี %1 ที่จะดำเนินการต่อ"
 
 #: utils/qapt-batch/qaptbatch.cpp:206
+#, kde-format
 msgctxt "@title:window"
 msgid "Low disk space"
 msgstr "พื้นที่บนดิสก์เหลือน้อย"
 
 #: utils/qapt-batch/qaptbatch.cpp:211
+#, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
 msgstr "ไม่สามารถดาวน์โหลดแพ็กเกจ"
 
 #: utils/qapt-batch/qaptbatch.cpp:212
+#, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
 msgstr "ดาวน์โหลดล้มเหลว"
 
 #: utils/qapt-batch/qaptbatch.cpp:216
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "An error occurred while applying changes:"
 #| msgid_plural "The following errors occurred while applying changes:"
@@ -189,22 +215,26 @@ msgid "An error occurred while applying changes:"
 msgstr "พบข้อผิดพลาดต่อไปนี้ขณะกำลังนำแพ็กเกจไปใช้:"
 
 #: utils/qapt-batch/qaptbatch.cpp:217
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit error"
 msgstr "บันทึกผิดพลาด"
 
 #: utils/qapt-batch/qaptbatch.cpp:222
+#, kde-format
 msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr "การทำงานนี้ไม่สามารถทำต่อไปได้เนื่องจากไม่มีการยืนยันสิทธิ์ที่เหมาะสม"
 
 #: utils/qapt-batch/qaptbatch.cpp:224
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
 msgstr "การยืนยันสิทธิ์ผิดพลาด"
 
 #: utils/qapt-batch/qaptbatch.cpp:228
+#, kde-format
 msgctxt "@label"
 msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
@@ -212,11 +242,13 @@ msgid ""
 msgstr "พบว่าตัวทำงาน QApt หยุดทำงานหรือถูกลบไป โปรดแจ้งข้อผิดพลาดนี้ให้กับผู้ดูแล QApt"
 
 #: utils/qapt-batch/qaptbatch.cpp:230
+#, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
 msgstr "ข้อผิดพลาดที่ระบุไม่ได้"
 
 #: utils/qapt-batch/qaptbatch.cpp:238
+#, kde-format
 msgctxt "@label"
 msgid ""
 "The following package has not been verified by its author. Downloading "
@@ -229,27 +261,31 @@ msgstr[0] ""
 "การตั้งค่าของคุณในขณะนี้ไม่อนุญาตให้ทำการดาวน์โหลดแพกเกจที่เชื่อถือไม่ได้"
 
 #: utils/qapt-batch/qaptbatch.cpp:247
+#, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
 msgstr "แพกเกจที่เชื่อถือไม่ได้"
 
 #: utils/qapt-batch/qaptbatch.cpp:270
+#, kde-format
 msgctxt "@title:window"
 msgid "Media Change Required"
 msgstr "ต้องมีการเปลี่ยนสื่อบันทึก"
 
 #: utils/qapt-batch/qaptbatch.cpp:271
-#, kde-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
 msgstr "กรุณาใส่ %1 เข้าไปที่ <filename>%2</filename>"
 
 #: utils/qapt-batch/qaptbatch.cpp:279
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
 msgstr "คำเตือน - ซอฟต์แวร์ที่ไม่ได้รับการยืนยันตัว"
 
 #: utils/qapt-batch/qaptbatch.cpp:281
+#, kde-kuit-format
 msgctxt "@label"
 msgid ""
 "The following piece of software cannot be verified. <warning>Installing "
@@ -268,7 +304,7 @@ msgstr[0] ""
 "คุณต้องการให้ทำต่อหรือไม่"
 
 #: utils/qapt-batch/qaptbatch.cpp:316
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Waiting for authorization"
 msgctxt "@label Progress bar label when waiting to start"
@@ -276,7 +312,7 @@ msgid "Waiting to start."
 msgstr "กำลังรอการตรวจสอบสิทธิ์"
 
 #: utils/qapt-batch/qaptbatch.cpp:321
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Waiting for authorization"
 msgctxt "@label Status label when waiting for a password"
@@ -284,7 +320,7 @@ msgid "Waiting for authentication."
 msgstr "กำลังรอการตรวจสอบสิทธิ์"
 
 #: utils/qapt-batch/qaptbatch.cpp:325
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Waiting for authorization"
 msgctxt "@label Status label when waiting for a CD-ROM"
@@ -292,12 +328,13 @@ msgid "Waiting for required media."
 msgstr "กำลังรอการตรวจสอบสิทธิ์"
 
 #: utils/qapt-batch/qaptbatch.cpp:330
+#, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:338
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "Downloading package file"
 #| msgid_plural "Downloading package files"
@@ -306,43 +343,50 @@ msgid "Loading package cache."
 msgstr "กำลังดาวน์โหลดแฟ้มแพกเกจ"
 
 #: utils/qapt-batch/qaptbatch.cpp:342
+#, kde-format
 msgctxt "@title:window"
 msgid "Refreshing Package Information"
 msgstr "กำลังเรียกข้อมูลแพกเกจใหม่"
 
 #: utils/qapt-batch/qaptbatch.cpp:343
+#, kde-format
 msgctxt "@info:status"
 msgid "Checking for new, removed or upgradeable packages"
 msgstr "กำลังตรวจสอบแพกเกจใหม่, เอาออกไปแล้ว หรือที่ปรับรุ่นได้"
 
 #: utils/qapt-batch/qaptbatch.cpp:345
+#, kde-format
 msgctxt "@title:window"
 msgid "Downloading"
 msgstr "กำลังดาวน์โหลด"
 
 #: utils/qapt-batch/qaptbatch.cpp:347
+#, kde-format
 msgctxt "@info:status"
 msgid "Downloading package file"
 msgid_plural "Downloading package files"
 msgstr[0] "กำลังดาวน์โหลดแฟ้มแพกเกจ"
 
 #: utils/qapt-batch/qaptbatch.cpp:355
+#, kde-format
 msgctxt "@title:window"
 msgid "Installing Packages"
 msgstr "กำลังติดตั้งแพกเกจ"
 
 #: utils/qapt-batch/qaptbatch.cpp:360
+#, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
 msgstr "การติดตั้งเสร็จสิ้น"
 
 #: utils/qapt-batch/qaptbatch.cpp:364
+#, kde-format
 msgctxt "@label"
 msgid "Package installation failed."
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:367
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Package successfully installed"
 #| msgid_plural "Packages successfully installed"
@@ -352,17 +396,19 @@ msgid_plural "Packages successfully installed."
 msgstr[0] "ติดตั้งแพกเกจสำเร็จแล้ว"
 
 #: utils/qapt-batch/qaptbatch.cpp:371
+#, kde-format
 msgctxt "@title:window"
 msgid "Removal Complete"
 msgstr "การถอดถอนเสร็จสิ้น"
 
 #: utils/qapt-batch/qaptbatch.cpp:375
+#, kde-format
 msgctxt "@label"
 msgid "Package removal failed."
 msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:379
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Package successfully uninstalled"
 #| msgid_plural "Packages successfully uninstalled"
@@ -372,7 +418,7 @@ msgid_plural "Packages successfully uninstalled."
 msgstr[0] "ถอดถอนแพกเกจเรียบร้อย"
 
 #: utils/qapt-batch/qaptbatch.cpp:383
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Removal Complete"
 msgctxt "@title:window"
@@ -380,7 +426,7 @@ msgid "Refresh Complete"
 msgstr "การถอดถอนเสร็จสิ้น"
 
 #: utils/qapt-batch/qaptbatch.cpp:386
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Removal Complete"
 msgctxt "@info:status"
@@ -388,7 +434,7 @@ msgid "Refresh failed."
 msgstr "การถอดถอนเสร็จสิ้น"
 
 #: utils/qapt-batch/qaptbatch.cpp:388
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Package information successfully refreshed"
 msgctxt "@label"
