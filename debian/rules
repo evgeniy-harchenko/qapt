@@ -5,7 +5,7 @@ export QT_SELECT=qt5
 export DEB_LDFLAGS_MAINT_APPEND := -Wl,--as-needed
 
 %:
-	dh $@ --with kf5 --parallel
+	dh $@ --with kf5,pkgkde_symbolshelper --parallel
 
 override_dh_install:
 	dh_install --fail-missing
