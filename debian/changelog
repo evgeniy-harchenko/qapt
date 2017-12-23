@@ -9,6 +9,7 @@ libqapt (3.0.3-2) UNRELEASED; urgency=medium
     libkf5plasma-dev.
   * Use also the dh pkgkde_symbolshelper addon to handle symbols file with
     substitutions.
+  * Update lintian overrides.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sat, 23 Dec 2017 13:13:56 +0100
 
