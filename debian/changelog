@@ -5,6 +5,8 @@ libqapt (3.0.3-2) UNRELEASED; urgency=medium
   * Bump Priority of transitional gstreamer0.10-qapt to optional.
   * Switch libqapt3 to section libs.
   * Update symbols file.
+  * Switch the transitional plasma-framework-dev build dependency to
+    libkf5plasma-dev.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sat, 23 Dec 2017 13:13:56 +0100
 
