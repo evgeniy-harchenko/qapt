@@ -2,6 +2,7 @@ libqapt (3.0.3-2) UNRELEASED; urgency=medium
 
   [ Pino Toscano ]
   * Bump Standards-Version to 4.1.2, no changes required.
+  * Bump Priority of transitional gstreamer0.10-qapt to optional.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Sat, 23 Dec 2017 13:13:56 +0100
 
