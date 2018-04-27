@@ -7,6 +7,7 @@ libqapt (3.0.4-0r1) UNRELEASED; urgency=medium
     - bump the debhelper build dependency to 11~
     - bump compat to 11
     - remove --parallel for dh, as now done by default
+  * Bump Standards-Version to 4.1.4, no changes required.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Fri, 27 Apr 2018 05:37:57 +0200
 
