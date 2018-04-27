@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Yuri Efremov <yur.arh@gmail.com>, 2010, 2012.
-# Alexander Potashev <aspotashev@gmail.com>, 2010.
+# Alexander Potashev <aspotashev@gmail.com>, 2010, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2012-10-21 21:05+0400\n"
-"Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
+"PO-Revision-Date: 2017-12-01 16:42+0300\n"
+"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -74,13 +74,13 @@ msgstr "Jonathan Thomas"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Harald Sitter"
-msgstr ""
+msgstr "Harald Sitter"
 
 #: utils/qapt-batch/main.cpp:55
 #, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
-msgstr ""
+msgstr "Перенос на Qt 5"
 
 #: utils/qapt-batch/main.cpp:63
 #, kde-format
@@ -93,7 +93,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:shell value name"
 msgid "winid"
-msgstr ""
+msgstr "идентификатор_окна"
 
 #: utils/qapt-batch/main.cpp:68
 #, kde-format

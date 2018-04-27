@@ -1,12 +1,12 @@
 # Translation of qapt-deb-installer.po into Serbian.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2011.
-# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2014.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2012, 2014, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: qapt-deb-installer\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2014-12-14 13:00+0100\n"
+"PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
@@ -54,41 +54,47 @@ msgctxt "@info:status Requested action"
 msgid "Remove"
 msgstr "Уклони"
 
+# rewrite-msgid: /title/h2/
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:49
 #, kde-format
 msgctxt "@info The widget's header label"
 msgid "<title>Installing</title>"
-msgstr "<title>Инсталирам</title>"
+msgstr "<h2>Инсталирам</h2>"
 
+# rewrite-msgid: /title/h2/
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:105
 #, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Starting</title>"
-msgstr "<title>Започињем</title>"
+msgstr "<h2>Започињем</h2>"
 
+# rewrite-msgid: /title/h2/
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:112
 #, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Waiting</title>"
-msgstr "<title>Чекам</title>"
+msgstr "<h2>Чекам</h2>"
 
+# rewrite-msgid: /title/h2/
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:120
 #, kde-format
 msgctxt "@info Status info"
 msgid "<title>Loading Software List</title>"
-msgstr "<title>Учитавам листу софтвера</title>"
+msgstr "<h2>Учитавам листу софтвера</h2>"
 
+# rewrite-msgid: /title/h2/
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:125
 #, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Downloading Packages</title>"
-msgstr "<title>Преузимам пакете</title>"
+msgstr "<h2>Преузимам пакете</h2>"
 
+# rewrite-msgid: /title/h2/
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:130
 #, kde-format
 msgctxt "@info Status information, widget title"
 msgid "<title>Committing Changes</title>"
-msgstr "<title>Предајем измене</title>"
+msgstr "<h2>Предајем измене</h2>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:136
 #, kde-format
@@ -96,11 +102,12 @@ msgctxt "@label Message that the install is done"
 msgid "Done"
 msgstr "Готово"
 
+# rewrite-msgid: /title/h2/
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:138
 #, kde-format
 msgctxt "@info Header label used when the install is done"
 msgid "<title>Done</title>"
-msgstr "<title>Готово</title>"
+msgstr "<h2>Готово</h2>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:155
 #: utils/qapt-deb-installer/DebInstaller.cpp:72
@@ -138,6 +145,7 @@ msgid "Install Package"
 msgstr "Инсталирај пакет"
 
 # >> @info
+# rewrite-msgid: /<.?filename>//
 #: utils/qapt-deb-installer/DebInstaller.cpp:107
 #, kde-format
 msgctxt "@label"
@@ -145,8 +153,7 @@ msgid ""
 "Could not open <filename>%1</filename>. It does not appear to be a valid "
 "Debian package file."
 msgstr ""
-"Не могу да отворим <filename>%1</filename>. Изгледа да није исправан фајл "
-"Дебијановог пакета."
+"Не могу да отворим ‘%1’. Изгледа да није исправан фајл Дебијановог пакета."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:115
 #, kde-format

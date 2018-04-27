@@ -236,7 +236,7 @@ msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
 "report a bug to the QApt maintainers"
 msgstr ""
-"QApt 작업자가 충돌하였거나 사라졌습니다. QApt 관리자에게 버그를 보고해 주십시"
+"QApt 작업자가 충돌했거나 사라졌습니다. QApt 관리자에게 버그를 보고해 주십시"
 "오."
 
 #: utils/qapt-batch/qaptbatch.cpp:230
