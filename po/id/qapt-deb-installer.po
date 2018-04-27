@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # wantoyo <wantoyo@yahoo.com>, 2014.
+# Wantoyo <wantoyek@gmail.com>, 2017, 2018.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: qapt-deb-installer 0001\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2014-12-14 21:28+0700\n"
-"Last-Translator: wantoyo <wantoyo@yahoo.com>\n"
-"Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2018-03-03 08:12+0700\n"
+"Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
+"Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:37
 #, kde-format
@@ -139,7 +140,7 @@ msgid ""
 "Debian package file."
 msgstr ""
 "Tidak bisa membuka <filename>%1</filename>. Itu tidak nampak untuk menjadi "
-"berkas paket Debian yang berlaku."
+"fail paket Debian yang berlaku."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:115
 #, kde-format
@@ -182,19 +183,20 @@ msgstr "Semua ketergantungan telah tercukupi."
 #, kde-format
 msgctxt "@info"
 msgid "The same version is available in a software channel."
-msgstr "Versi yang sama tersedia di kanal perangkat lunak."
+msgstr "Versi yang sama tersedia di channel perangkat lunak."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:275
 #, kde-format
 msgctxt "@info"
 msgid "It is recommended to install the software from the channel instead"
-msgstr "Disarankan untuk memasang perangkat lunak dari kanal sebagai gantinya"
+msgstr ""
+"Disarankan untuk memasang perangkat lunak dari channel sebagai gantinya"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:277
 #, kde-format
 msgctxt "@info"
 msgid "An older version is available in a software channel."
-msgstr "Sebuah versi lebih tua tersedia di kanal perangkat lunak."
+msgstr "Sebuah versi lebih tua tersedia di channel perangkat lunak."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:278
 #, kde-format
@@ -203,14 +205,14 @@ msgid ""
 "It is recommended to install the version from the software channel, since it "
 "usually has more support."
 msgstr ""
-"Disarankan untuk memasang versi dari kanal perangkat lunak, karena biasanya "
-"memiliki lebih banyak dukungan."
+"Disarankan untuk memasang versi dari channel perangkat lunak, karena "
+"biasanya memiliki lebih banyak dukungan."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:281
 #, kde-format
 msgctxt "@info"
 msgid "A newer version is available in a software channel."
-msgstr "Sebuah versi lebih baru tersedia di kanal perangkat lunak."
+msgstr "Sebuah versi lebih baru tersedia di channel perangkat lunak."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:282
 #, kde-format
@@ -219,7 +221,7 @@ msgid ""
 "It is strongly advised to install the version from the software channel, "
 "since it usually has more support."
 msgstr ""
-"Hal ini sangat disarankan untuk memasang versi dari kanal perangkat lunak, "
+"Hal ini sangat disarankan untuk memasang versi dari channel perangkat lunak, "
 "karena biasanya memiliki lebih banyak dukungan."
 
 #: utils/qapt-deb-installer/DebViewer.cpp:71
@@ -238,7 +240,7 @@ msgstr "Status:"
 #, kde-format
 msgctxt "@label"
 msgid "Details..."
-msgstr "Rincian..."
+msgstr "Perincian..."
 
 #: utils/qapt-deb-installer/DebViewer.cpp:132
 #, kde-format
@@ -256,7 +258,7 @@ msgstr "Ukuran Terpasang:"
 #, kde-format
 msgctxt "@label Label preceding the package maintainer"
 msgid "Maintainer:"
-msgstr "Pengelola:"
+msgstr "Pemelihara:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:153
 #, kde-format
@@ -280,13 +282,13 @@ msgstr "Keterangan"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Details"
-msgstr "Rincian"
+msgstr "Perincian"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:176
 #, kde-format
 msgctxt "@title:tab"
 msgid "Included Files"
-msgstr "Berkas-berkas tercantum"
+msgstr "Fail-fail tercantum"
 
 #: utils/qapt-deb-installer/main.cpp:32
 #, kde-format
@@ -328,4 +330,4 @@ msgstr "port Qt 5"
 #, kde-format
 msgctxt "@info:shell argument"
 msgid ".deb file"
-msgstr "berkas .deb"
+msgstr "Fail .deb"

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.12)
 
 set(PROJECT_VERSION_MAJOR 3)
 set(PROJECT_VERSION_MINOR 0)
-set(PROJECT_VERSION_PATCH 3)
+set(PROJECT_VERSION_PATCH 4)
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}" )
 set(PROJECT_SOVERSION ${PROJECT_VERSION_MAJOR})
 
@@ -133,10 +133,7 @@ if(WITH_UTILS)
 
     #Do not remove or modify these.  The release script substitutes in for these
     #comments with appropriate doc and translation directories.
-    
-find_package(KF5I18n CONFIG REQUIRED)
-ki18n_install(po)
-
+    #PO_SUBDIR
     #DOC_SUBDIR
 endif()
 

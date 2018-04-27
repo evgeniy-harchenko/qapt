@@ -36,8 +36,8 @@ msgstr "<h2>Canvis addicionals</h2>"
 #, kde-format
 msgid "This action requires a change to another package:"
 msgid_plural "This action requires changes to other packages:"
-msgstr[0] "Esta acció requereix un canvi en un altre paquet:"
-msgstr[1] "Esta acció requereix canvis en altres paquets:"
+msgstr[0] "Aquesta acció requereix un canvi en un altre paquet:"
+msgstr[1] "Aquesta acció requereix canvis en altres paquets:"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:86
 #: utils/qapt-deb-installer/ChangesDialog.cpp:87
@@ -122,7 +122,7 @@ msgstr "Error d'inicialització"
 #, kde-format
 msgctxt "@label"
 msgid "This package is incompatible with your computer."
-msgstr "Este paquet és incompatible amb l'ordinador."
+msgstr "Aquest paquet és incompatible amb l'ordinador."
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:165
 #, kde-format
@@ -143,7 +143,7 @@ msgid ""
 "Could not open <filename>%1</filename>. It does not appear to be a valid "
 "Debian package file."
 msgstr ""
-"No s'ha pogut obrir <filename>%1</filename>. No pareix que siga un fitxer de "
+"No s'ha pogut obrir <filename>%1</filename>. No sembla que siga un fitxer de "
 "paquet Debian vàlid."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:115
@@ -209,7 +209,7 @@ msgid ""
 "It is recommended to install the version from the software channel, since it "
 "usually has more support."
 msgstr ""
-"Es recomana instal·lar la versió des del canal de programari, atès que "
+"Es recomana instal·lar la versió des del canal de programari, atés que "
 "normalment té més suport."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:281
@@ -226,7 +226,7 @@ msgid ""
 "since it usually has more support."
 msgstr ""
 "Es recomana especialment instal·lar la versió des del canal de programari, "
-"atès que normalment té més suport."
+"atés que normalment té més suport."
 
 #: utils/qapt-deb-installer/DebViewer.cpp:71
 #, kde-format

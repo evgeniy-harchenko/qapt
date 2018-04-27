@@ -176,7 +176,7 @@ msgid ""
 "must close all other package managers before you will be able to install or "
 "remove any packages."
 msgstr ""
-"Una altra aplicació pareix estar usant ara el sistema de paquets. Heu de "
+"Una altra aplicació sembla estar usant ara el sistema de paquets. Heu de "
 "tancar els altres gestors de paquets abans de poder instal·lar o eliminar "
 "qualsevol paquet."
 
@@ -193,7 +193,7 @@ msgid ""
 "You do not have enough disk space in the directory at %1 to continue with "
 "this operation."
 msgstr ""
-"No teniu espai al disc suficient al directori %1 per a continuar amb esta "
+"No teniu espai al disc suficient al directori %1 per a continuar amb aquesta "
 "operació."
 
 #: utils/qapt-batch/qaptbatch.cpp:206
@@ -232,7 +232,7 @@ msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr ""
-"Esta operació no pot continuar perquè no s'ha proporcionat l'autorització "
+"Aquesta operació no pot continuar perquè no s'ha proporcionat l'autorització "
 "adequada"
 
 #: utils/qapt-batch/qaptbatch.cpp:224
@@ -248,7 +248,7 @@ msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
 "report a bug to the QApt maintainers"
 msgstr ""
-"Pareix que el treballador QApt ha fallat o ha desaparegut. Informeu de "
+"Sembla que el treballador QApt ha fallat o ha desaparegut. Informeu de "
 "l'error als mantenidors del QApt"
 
 #: utils/qapt-batch/qaptbatch.cpp:230

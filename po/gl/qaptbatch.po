@@ -4,20 +4,21 @@
 # Miguel Branco, 2012, 2013.
 # Marce Villarino <mvillarino@kde-espana.org>, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2015-02-21 13:39+0100\n"
-"Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
+"PO-Revision-Date: 2018-02-01 19:41+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -86,7 +87,7 @@ msgstr "Versión baseada en Qt 5"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
-msgstr "Ancora a xanela a unha aplicación X especificada por winid"
+msgstr "Conecta a xanela a un aplicativo X indicado por winid"
 
 #: utils/qapt-batch/main.cpp:64
 #, kde-format
@@ -104,7 +105,7 @@ msgstr "Instalar un paquete"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Remove a package"
-msgstr "Eliminar un paquete"
+msgstr "Retirar un paquete"
 
 #: utils/qapt-batch/main.cpp:74
 #, kde-format
@@ -143,7 +144,7 @@ msgid ""
 "The package system could not be initialized, your configuration may be "
 "broken."
 msgstr ""
-"Non foi posíbel inicializar o sistema de paquetes. A configuración podería "
+"Non se puido inicializar o sistema de paquetes. A configuración podería "
 "estar estragada."
 
 #: utils/qapt-batch/qaptbatch.cpp:102 utils/qapt-batch/qaptbatch.cpp:188
@@ -159,14 +160,14 @@ msgid ""
 "The package \"%1\" has not been found among your software sources. "
 "Therefore, it cannot be installed. "
 msgstr ""
-"O paquete «%1» non se atopou nas fontes de software activadas. Con isto, non "
-"se puido instalar."
+"O paquete «%1» non se atopou nas fontes de software activadas. Polo tanto "
+"non pode instalarse."
 
 #: utils/qapt-batch/qaptbatch.cpp:130 utils/qapt-batch/qaptbatch.cpp:257
 #, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
-msgstr "Non se achou o paquete"
+msgstr "Non se atopou o paquete"
 
 #: utils/qapt-batch/qaptbatch.cpp:195
 #, kde-format
@@ -178,13 +179,13 @@ msgid ""
 msgstr ""
 "Semella que outra aplicativo está a usar o paquete de sistemas ao mesmo "
 "tempo. Tes que pechar todos os xestores de paquetes para poder facer "
-"calquera instalación ou eliminación de paquetes."
+"calquera instalación ou retiración de paquetes."
 
 #: utils/qapt-batch/qaptbatch.cpp:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
-msgstr "Incapaz de obter o bloqueo do sistema de paquetes"
+msgstr "Non se pode obter o bloqueo do sistema de paquetes"
 
 #: utils/qapt-batch/qaptbatch.cpp:204
 #, kde-format
@@ -206,7 +207,7 @@ msgstr "Pouco espazo no disco"
 #, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
-msgstr "Non foi posíbel descargar os paquetes"
+msgstr "Non se puideron descargar os paquetes"
 
 #: utils/qapt-batch/qaptbatch.cpp:212
 #, kde-format
@@ -224,7 +225,7 @@ msgstr "Produciuse un erro ao aplicar os cambios:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Commit error"
-msgstr "Erro de envío"
+msgstr "Erro de remisión"
 
 #: utils/qapt-batch/qaptbatch.cpp:222
 #, kde-format
@@ -232,7 +233,7 @@ msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr ""
-"Esta operación non puido continuar xa que non se deu a autorización apropiada"
+"Esta operación non pode continuar xa que non se deu a autorización apropiada"
 
 #: utils/qapt-batch/qaptbatch.cpp:224
 #, kde-format
@@ -247,8 +248,8 @@ msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
 "report a bug to the QApt maintainers"
 msgstr ""
-"Semella que o xestor QApt ou rachou ou desapareceu. Por favor, informa do "
-"erro aos mantedores de QApt."
+"Semella que o xestor QApt ou quebrou ou desapareceu. Por favor, informa do "
+"fallo aos mantedores de QApt."
 
 #: utils/qapt-batch/qaptbatch.cpp:230
 #, kde-format
@@ -310,12 +311,12 @@ msgid_plural ""
 "presence of unverifiable software can be a sign of tampering.</warning> Do "
 "you wish to continue?"
 msgstr[0] ""
-"Non foi posíbel verificar a seguinte peza de software.<warning>Instalar "
-"software sen verificar supón un risco de seguridade, e así mesmo a presencia "
-"de software sen verificar pode ser un sinal de adulteración.</warning>Queres "
+"A seguinte peza de software non pode verificarse. <warning>Instalar software "
+"sen verificar supón un risco de seguridade, e así mesmo a presenza de "
+"software sen verificar pode ser un sinal de adulteración.</warning>Queres "
 "continuar?"
 msgstr[1] ""
-"Non foi posíbel verificar as seguintes pezas de software.<warning>Instalar "
+"As seguintes pezas de software non pode verificarse. <warning>Instalar "
 "software sen verificar supón un risco de seguridade, e así mesmo a presencia "
 "de software sen verificar pode ser un sinal de adulteración.</warning>Queres "
 "continuar?"
@@ -342,7 +343,7 @@ msgstr "Estase a agardar polos medios que se precisan."
 #, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
-msgstr "Estase a agardar a que paren outros xestores de paquetes."
+msgstr "Estase a agardar a saír doutros xestores de paquetes."
 
 #: utils/qapt-batch/qaptbatch.cpp:338
 #, kde-format
@@ -360,7 +361,7 @@ msgstr "Actualizando a información de paquetes"
 #, kde-format
 msgctxt "@info:status"
 msgid "Checking for new, removed or upgradeable packages"
-msgstr "Comprobando se hai paquetes novos, eliminábeis ou actualizábeis."
+msgstr "Comprobando se hai paquetes novos, retirábeis ou actualizábeis."
 
 #: utils/qapt-batch/qaptbatch.cpp:345
 #, kde-format
@@ -392,7 +393,7 @@ msgstr "Instalación completada"
 #, kde-format
 msgctxt "@label"
 msgid "Package installation failed."
-msgstr "Non foi posíbel completar a instalación do paquete."
+msgstr "A instalación do paquete fallou."
 
 #: utils/qapt-batch/qaptbatch.cpp:367
 #, kde-format
@@ -412,7 +413,7 @@ msgstr "Eliminación completa"
 #, kde-format
 msgctxt "@label"
 msgid "Package removal failed."
-msgstr "Non foi posíbel eliminar o paquete."
+msgstr "A eliminación do paquete fallou."
 
 #: utils/qapt-batch/qaptbatch.cpp:379
 #, kde-format
@@ -432,7 +433,7 @@ msgstr "Completouse a actualización"
 #, kde-format
 msgctxt "@info:status"
 msgid "Refresh failed."
-msgstr "Non foi posíbel actualizar."
+msgstr "A actualización fallou."
 
 #: utils/qapt-batch/qaptbatch.cpp:388
 #, kde-format
