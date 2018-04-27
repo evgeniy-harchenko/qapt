@@ -10,6 +10,7 @@ libqapt (3.0.4-0r1) UNRELEASED; urgency=medium
   * Bump Standards-Version to 4.1.4, no changes required.
   * Switch from dh_install to dh_missing for --fail-missing.
   * Update install files.
+  * Use https for Format in copyright.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Fri, 27 Apr 2018 05:37:57 +0200
 
