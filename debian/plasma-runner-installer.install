@@ -1,4 +1,3 @@
 usr/lib/*/qt5/plugins/krunner_installer.so
 usr/share/kservices5/plasma-runner-installer.desktop
-usr/share/locale/*/LC_MESSAGES/plasma_runner_installer.mo
 usr/share/locale/*/LC_MESSAGES/plasma_runner_installer.qm

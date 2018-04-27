@@ -9,6 +9,7 @@ libqapt (3.0.4-0r1) UNRELEASED; urgency=medium
     - remove --parallel for dh, as now done by default
   * Bump Standards-Version to 4.1.4, no changes required.
   * Switch from dh_install to dh_missing for --fail-missing.
+  * Update install files.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Fri, 27 Apr 2018 05:37:57 +0200
 
