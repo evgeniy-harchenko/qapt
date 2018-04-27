@@ -1,3 +1,10 @@
+libqapt (3.0.4-0r1) UNRELEASED; urgency=medium
+
+  [ Pino Toscano ]
+  * New upstream release.
+
+ -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Fri, 27 Apr 2018 05:37:57 +0200
+
 libqapt (3.0.3-2) unstable; urgency=medium
 
   * Team upload.
