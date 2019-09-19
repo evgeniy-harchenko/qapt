@@ -160,10 +160,3 @@ Description: GStreamer plugin to install codecs using QApt
  .
  This package provides a plugin for the GStreamer multimedia framework
  to search and to install audio and video codecs.
-
-Package: gstreamer0.10-qapt
-Section: oldlibs
-Architecture: all
-Depends: gstreamer-qapt (>= ${source:Version}), ${misc:Depends}
-Description: transitional dummy package
- This is a transitional dummy package. It can safely be removed.
