@@ -17,6 +17,9 @@ libqapt (3.0.5-0r1) UNRELEASED; urgency=medium
   * Add the configuration for the CI on salsa.
   * Update symbols file.
   * Remove the commented 'testsuite' autopkgtest.
+  * Bump the debhelper compatibility to 12:
+    - switch the debhelper build dependency to debhelper-compat 12
+    - remove debian/compat
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Thu, 19 Sep 2019 19:46:31 +0200
 
