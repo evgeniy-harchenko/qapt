@@ -5,6 +5,9 @@ libqapt (3.0.5-0r1) UNRELEASED; urgency=medium
 
   [ Pino Toscano ]
   * New upstream release.
+  * Update the build dependencies according to the upstream build system:
+    - bump Qt packages to 5.8.0
+    - explicitly add gettext
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Thu, 19 Sep 2019 19:46:31 +0200
 
