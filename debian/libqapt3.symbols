@@ -1,5 +1,6 @@
-# SymbolsHelper-Confirmed: 3.0.3 armel armhf hppa hurd-i386 i386 kfreebsd-i386 m68k mips mipsel powerpc powerpcspe
+# SymbolsHelper-Confirmed: 3.0.5 amd64
 libQApt.so.3 libqapt3 #MINVER#
+* Build-Depends-Package: libqapt-dev
  _ZN4QApt11HistoryItemC1ERK7QString@Base 3.0.0
  _ZN4QApt11HistoryItemC1ERKS0_@Base 3.0.0
  _ZN4QApt11HistoryItemC2ERK7QString@Base 3.0.0
@@ -169,6 +170,7 @@ libQApt.so.3 libqapt3 #MINVER#
  _ZN4QApt7Backend14saveCacheStateEv@Base 3.0.0
  _ZN4QApt7Backend15installPackagesE5QListIPNS_7PackageEE@Base 3.0.0
  _ZN4QApt7Backend15loadPackagePinsEv@Base 3.0.0
+ _ZN4QApt7Backend15loadReleaseDateEv@Base 3.0.5
  _ZN4QApt7Backend15openXapianIndexEv@Base 3.0.0
  _ZN4QApt7Backend15setFrontendCapsENS_12FrontendCapsE@Base 3.0.0
  _ZN4QApt7Backend16downloadArchivesERK7QStringS3_@Base 3.0.0
@@ -311,6 +313,7 @@ libQApt.so.3 libqapt3 #MINVER#
  _ZNK4QApt7Backend10metaObjectEv@Base 3.0.0
  _ZNK4QApt7Backend11installSizeEv@Base 3.0.0
  _ZNK4QApt7Backend11originLabelERK7QString@Base 3.0.0
+ _ZNK4QApt7Backend11releaseDateEv@Base 3.0.5
  _ZNK4QApt7Backend12downloadSizeEv@Base 3.0.0
  _ZNK4QApt7Backend12frontendCapsEv@Base 3.0.0
  _ZNK4QApt7Backend12originLabelsEv@Base 3.0.0
@@ -398,6 +401,7 @@ libQApt.so.3 libqapt3 #MINVER#
  _ZNK4QApt7Package12enhancesListEv@Base 3.0.0
  _ZNK4QApt7Package12providesListEv@Base 3.0.0
  _ZNK4QApt7Package12suggestsListEv@Base 3.0.0
+ _ZNK4QApt7Package13installedSizeEv@Base 3.0.5
  _ZNK4QApt7Package13isForeignArchEv@Base 3.0.0
  _ZNK4QApt7Package13multiArchTypeEv@Base 3.0.0
  _ZNK4QApt7Package13screenshotUrlENS_14ScreenshotTypeE@Base 3.0.0
@@ -444,6 +448,8 @@ libQApt.so.3 libqapt3 #MINVER#
  _ZNK4QApt9Changelog4textEv@Base 3.0.0
  _ZNK4QApt9Changelog7entriesEv@Base 3.0.0
  (optional=templinst|subst)_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineI{size_t}L{size_t}16807EL{size_t}0EL{size_t}2147483647EEEEiRT_RKNS0_10param_typeE@Base 3.0.1
+ (optional=templinst)_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag@Base 3.0.5
+ (optional=templinst)_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag@Base 3.0.5
  _ZTIN4QApt11SourcesListE@Base 3.0.0
  _ZTIN4QApt11TransactionE@Base 3.0.0
  _ZTIN4QApt6ConfigE@Base 3.0.0
