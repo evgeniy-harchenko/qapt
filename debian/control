@@ -35,8 +35,8 @@ Build-Depends: cmake (>= 2.8.12),
                qttools5-dev-tools
 Standards-Version: 4.1.4
 Homepage: https://cgit.kde.org/libqapt.git/
-Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde-extras/qapt
-Vcs-Git: https://salsa.debian.org/qt-kde-team/kde-extras/qapt.git
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/extras/qapt
+Vcs-Git: https://salsa.debian.org/qt-kde-team/extras/qapt.git
 
 Package: libqapt3
 Section: libs
