@@ -1,4 +1,6 @@
-libqapt (3.0.5-0r1) UNRELEASED; urgency=medium
+libqapt (3.0.5-1) unstable; urgency=medium
+
+  * Team upload.
 
   [ Maximiliano Curia ]
   * Drop the transitional package gstreamer0.10-qapt (Closes: 940751)
@@ -23,7 +25,7 @@ libqapt (3.0.5-0r1) UNRELEASED; urgency=medium
   * Bump Standards-Version to 4.5.0, no changes required.
   * Update watch file.
 
- -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Thu, 19 Sep 2019 19:46:31 +0200
+ -- Pino Toscano <pino@debian.org>  Mon, 06 Apr 2020 10:08:09 +0200
 
 libqapt (3.0.4-1.1) unstable; urgency=medium
 
