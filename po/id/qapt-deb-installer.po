@@ -1,22 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # wantoyo <wantoyo@yahoo.com>, 2014.
-# Wantoyo <wantoyek@gmail.com>, 2017, 2018.
+# Wantoyo <wantoyek@gmail.com>, 2017, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: qapt-deb-installer 0001\n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2018-03-03 08:12+0700\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2019-09-01 09:01+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:37
 #, kde-format
@@ -34,14 +33,15 @@ msgstr "<h2>Perubahan Tambahan</h2>"
 #, kde-format
 msgid "This action requires a change to another package:"
 msgid_plural "This action requires changes to other packages:"
-msgstr[0] "Tindakan ini memerlukan sebuah perubahan ke paket yang lain:"
+msgstr[0] "Aksi ini memerlukan sebuah perubahan terhadap paket yang lain:"
+msgstr[1] "Aksi ini memerlukan perubahan terhadap paket-paket yang lain:"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:86
 #: utils/qapt-deb-installer/ChangesDialog.cpp:87
 #, kde-format
 msgctxt "@info:status Requested action"
 msgid "Install"
-msgstr "Pasang"
+msgstr "Instal"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:88
 #, kde-format
@@ -53,7 +53,7 @@ msgstr "Buang"
 #, kde-format
 msgctxt "@info The widget's header label"
 msgid "<title>Installing</title>"
-msgstr "<title>Memasang</title>"
+msgstr "<title>Menginstal</title>"
 
 #: utils/qapt-deb-installer/DebCommitWidget.cpp:105
 #, kde-format
@@ -130,7 +130,7 @@ msgstr "Paket Tidak Cocok"
 #, kde-format
 msgctxt "@label"
 msgid "Install Package"
-msgstr "Pasang Paket"
+msgstr "Instal Paket"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:107
 #, kde-format
@@ -140,7 +140,7 @@ msgid ""
 "Debian package file."
 msgstr ""
 "Tidak bisa membuka <filename>%1</filename>. Itu tidak nampak untuk menjadi "
-"fail paket Debian yang berlaku."
+"file paket Debian yang berlaku."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:115
 #, kde-format
@@ -152,26 +152,27 @@ msgstr "Pemasang Paket - %1"
 #, kde-format
 msgctxt "@info"
 msgid "Error: Wrong architecture '%1'"
-msgstr "Galat: Arsitektur keliru '%1'"
+msgstr "Error: Arsitektur keliru '%1'"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:232
 #, kde-format
 msgctxt "@info Error string when installing would break an existing package"
 msgid "Error: Breaks the existing package \"%1\""
-msgstr "Galat: Kerusakan paket yang ada \"%1\""
+msgstr "Error: Kerusakan paket yang ada \"%1\""
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:241
 #, kde-format
 msgctxt "@info"
 msgid "Error: Cannot satisfy dependencies"
-msgstr "Galat: Tidak bisa memenuhi ketergantungan"
+msgstr "Error: Tidak bisa memenuhi ketergantungan"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:251
 #, kde-format
 msgctxt "@label A note saying that additional packages are needed"
 msgid "Requires the installation of %1 additional package."
 msgid_plural "Requires the installation of %1 additional packages"
-msgstr[0] "Membutuhkan pemasangan %1 paket tambahan."
+msgstr[0] "Membutuhkan penginstalan %1 paket tambahan."
+msgstr[1] "Membutuhkan penginstalan %1 paket tambahan."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:255
 #, kde-format
@@ -190,7 +191,7 @@ msgstr "Versi yang sama tersedia di channel perangkat lunak."
 msgctxt "@info"
 msgid "It is recommended to install the software from the channel instead"
 msgstr ""
-"Disarankan untuk memasang perangkat lunak dari channel sebagai gantinya"
+"Disarankan untuk menginstal perangkat lunak dari channel sebagai gantinya"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:277
 #, kde-format
@@ -205,7 +206,7 @@ msgid ""
 "It is recommended to install the version from the software channel, since it "
 "usually has more support."
 msgstr ""
-"Disarankan untuk memasang versi dari channel perangkat lunak, karena "
+"Disarankan untuk menginstal versi dari channel perangkat lunak, karena "
 "biasanya memiliki lebih banyak dukungan."
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:281
@@ -221,8 +222,8 @@ msgid ""
 "It is strongly advised to install the version from the software channel, "
 "since it usually has more support."
 msgstr ""
-"Hal ini sangat disarankan untuk memasang versi dari channel perangkat lunak, "
-"karena biasanya memiliki lebih banyak dukungan."
+"Hal ini sangat disarankan untuk menginstal versi dari channel perangkat "
+"lunak, karena biasanya memiliki lebih banyak dukungan."
 
 #: utils/qapt-deb-installer/DebViewer.cpp:71
 #, kde-format
@@ -252,7 +253,7 @@ msgstr "Versi:"
 #, kde-format
 msgctxt "@label Label preceding the package size"
 msgid "Installed Size:"
-msgstr "Ukuran Terpasang:"
+msgstr "Ukuran Terinstal:"
 
 #: utils/qapt-deb-installer/DebViewer.cpp:146
 #, kde-format
@@ -288,7 +289,7 @@ msgstr "Perincian"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Included Files"
-msgstr "Fail-fail tercantum"
+msgstr "File-file tercantum"
 
 #: utils/qapt-deb-installer/main.cpp:32
 #, kde-format
@@ -330,4 +331,4 @@ msgstr "port Qt 5"
 #, kde-format
 msgctxt "@info:shell argument"
 msgid ".deb file"
-msgstr "Fail .deb"
+msgstr "File .deb"

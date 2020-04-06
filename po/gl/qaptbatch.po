@@ -1,27 +1,24 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
-# Miguel Branco, 2012, 2013.
 # Marce Villarino <mvillarino@kde-espana.org>, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+#
+# Miguel Branco, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2018-02-01 19:41+0100\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2019-10-19 22:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
-"X-Environment: kde\n"
-"X-Accelerator-Marker: &\n"
-"X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 19.11.70\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
 #, kde-format
@@ -177,9 +174,9 @@ msgid ""
 "must close all other package managers before you will be able to install or "
 "remove any packages."
 msgstr ""
-"Semella que outra aplicativo está a usar o paquete de sistemas ao mesmo "
+"Semella que outra aplicación está a usar o paquete de sistemas ao mesmo "
 "tempo. Tes que pechar todos os xestores de paquetes para poder facer "
-"calquera instalación ou retiración de paquetes."
+"calquera instalación ou desinstalación de paquetes."
 
 #: utils/qapt-batch/qaptbatch.cpp:199
 #, kde-format
@@ -233,7 +230,7 @@ msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr ""
-"Esta operación non pode continuar xa que non se deu a autorización apropiada"
+"Esta operación non pode continuar xa que non se deu a autorización axeitada."
 
 #: utils/qapt-batch/qaptbatch.cpp:224
 #, kde-format
@@ -267,11 +264,11 @@ msgid_plural ""
 "The following packages have not been verified by their authors. Downloading "
 "untrusted packages has been disallowed by your current configuration."
 msgstr[0] ""
-"O seguinte paquete non foi verificado polo seu autor. Descargar paquetes sen "
+"O autor do seguinte paquete non o verificou. Descargar paquetes sen "
 "verificar está desactivado na túa configuración actual."
 msgstr[1] ""
-"Os seguintes paquetes non foron verificados polos seus autores. Descargar "
-"paquetes sen verificar está desactivado na túa configuración actual."
+"Os autores dos seguintes paquetes non os verificaron. Descargar paquetes sen "
+"verificar está desactivado na túa configuración actual."
 
 #: utils/qapt-batch/qaptbatch.cpp:247
 #, kde-format
@@ -331,7 +328,7 @@ msgstr "Estase a agardar a que se inicie."
 #, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
-msgstr "Estase a agardar pola autenticación."
+msgstr "Agardando pola autenticación."
 
 #: utils/qapt-batch/qaptbatch.cpp:325
 #, kde-format

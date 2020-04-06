@@ -21,9 +21,10 @@
  */
 #include "sourceslisttest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 
 #include <apt-pkg/init.h>
+#include <apt-pkg/configuration.h>
 
 QTEST_MAIN(SourcesListTest);
 
@@ -292,11 +293,11 @@ void SourcesListTest::testLoadSourcesOneFile()
     verifySourceEntry(
         "Line #0",
         entries[0],
-        QString::null,
-        QString::null,
-        QString::null,
-        QString::null,
-        QString::null,
+        QString(),
+        QString(),
+        QString(),
+        QString(),
+        QString(),
         false,
         false
     );
@@ -388,11 +389,11 @@ void SourcesListTest::testLoadSourcesOneFile()
     verifySourceEntry(
         "Line #8",
         entries[8],
-        QString::null,
-        QString::null,
-        QString::null,
-        QString::null,
-        QString::null,
+        QString(),
+        QString(),
+        QString(),
+        QString(),
+        QString(),
         true,
         false
     );
@@ -548,7 +549,7 @@ void SourcesListTest::testAddSource()
         "https://foo.com/bar",
         "saucy",
         "main",
-        QString::null,
+        QString(),
         true,
         true
     );
@@ -567,7 +568,7 @@ void SourcesListTest::testAddSource()
         "https://foo.com/bar2",
         "saucy",
         "main",
-        QString::null,
+        QString(),
         true,
         true
     );

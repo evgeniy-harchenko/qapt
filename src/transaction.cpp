@@ -21,7 +21,9 @@
 #include "transaction.h"
 
 // Qt includes
-#include <QtDBus/QDBusPendingCallWatcher>
+#include <QDBusPendingCallWatcher>
+#include <QDBusVariant>
+
 #include <QDebug>
 
 // Own includes

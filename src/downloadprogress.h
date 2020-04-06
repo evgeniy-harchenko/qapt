@@ -21,11 +21,12 @@
 #ifndef DOWNLOADPROGRESS_H
 #define DOWNLOADPROGRESS_H
 
-#include <QtCore/QSharedDataPointer>
-#include <QtCore/QString>
-#include <QtDBus/QDBusArgument>
+#include <QSharedDataPointer>
+#include <QString>
 
 #include "globals.h"
+
+class QDBusArgument;
 
 namespace QApt {
 

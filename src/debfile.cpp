@@ -20,14 +20,21 @@
 
 #include "debfile.h"
 
-#include <QtCore/QDir>
-#include <QtCore/QProcess>
-#include <QtCore/QStringBuilder>
-#include <QtCore/QTemporaryFile>
+#include <QDir>
+#include <QProcess>
+#include <QStringBuilder>
+#include <QTemporaryFile>
+
+// Must be before APT_PKG_ABI checks!
+#include <apt-pkg/macros.h>
 
 #include <apt-pkg/debfile.h>
 #include <apt-pkg/fileutl.h>
+#if APT_PKG_ABI >= 600
+#include <apt-pkg/hashes.h>
+#else
 #include <apt-pkg/md5.h>
+#endif
 #include <apt-pkg/tagfile.h>
 
 #include <QDebug>
@@ -153,7 +160,7 @@ QString DebFile::longDescription() const
 
     for (int i = 0; i < sections.count(); ++i) {
         sections[i].replace(QRegExp(QLatin1String("\n( |\t)+(-|\\*)")),
-                                QLatin1Literal("\n\r ") % QString::fromUtf8("\xE2\x80\xA2"));
+                                QLatin1String("\n\r ") % QString::fromUtf8("\xE2\x80\xA2"));
         // There should be no new lines within a section.
         sections[i].remove(QLatin1Char('\n'));
         // Hack to get the lists working again.
@@ -166,7 +173,7 @@ QString DebFile::longDescription() const
         if (sections[i].startsWith(QLatin1String("\n ") % QString::fromUtf8("\xE2\x80\xA2 ")) || !i) {
             parsedDescription += sections[i];
         }  else {
-            parsedDescription += QLatin1Literal("\n\n") % sections[i];
+            parsedDescription += QLatin1String("\n\n") % sections[i];
         }
     }
     return parsedDescription;
@@ -193,13 +200,21 @@ QByteArray DebFile::md5Sum() const
 {
     FileFd in(d->filePath.toStdString(), FileFd::ReadOnly);
     debDebFile deb(in);
+#if APT_PKG_ABI >= 600
+    Hashes debMD5(Hashes::MD5SUM);
+#else
     MD5Summation debMD5;
+#endif
 
     in.Seek(0);
 
     debMD5.AddFD(in.Fd(), in.Size());
 
-    return QByteArray(debMD5.Result().Value().c_str());
+#if APT_PKG_ABI >= 600
+    return QByteArray::fromStdString(debMD5.GetHashString(Hashes::MD5SUM).HashValue());
+#else
+    return QByteArray::fromStdString(debMD5.Result().Value());
+#endif
 }
 
 QStringList DebFile::fileList() const
@@ -356,8 +371,8 @@ bool DebFile::extractFileFromArchive(const QString &fileName, const QString &des
     dpkg.start(program);
     dpkg.waitForFinished();
 
-    QString program2 = QLatin1Literal("tar -xf") % tempFileName %
-                       QLatin1Literal(" -C ") % destination % ' ' % fileName;
+    QString program2 = QLatin1String("tar -xf") % tempFileName %
+                       QLatin1String(" -C ") % destination % ' ' % fileName;
 
     QProcess tar;
     tar.start(program2);

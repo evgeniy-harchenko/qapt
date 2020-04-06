@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the libqapt package.
 #
-# enolp <enolp@softastur.org>, 2016, 2017.
+# enolp <enolp@softastur.org>, 2018, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2017-02-05 03:05+0100\n"
+"Project-Id-Version: libqapt\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2019-05-14 02:11+0200\n"
 "Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 19.04.1\n"
 
 #: utils/qapt-batch/detailswidget.cpp:51
 #, kde-format
@@ -33,7 +33,7 @@ msgstr "Velocidá:"
 #, kde-format
 msgctxt "@info:progress Remaining time"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconozse"
 
 #: utils/qapt-batch/detailswidget.cpp:116
 #, kde-format
@@ -129,7 +129,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Waiting for authorization"
-msgstr "Esperando pola autorización"
+msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:100 utils/qapt-batch/qaptbatch.cpp:186
 #, kde-format
@@ -143,7 +143,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Initialization error"
-msgstr "Fallu d'aniciu"
+msgstr "Fallu del aniciu"
 
 #: utils/qapt-batch/qaptbatch.cpp:127 utils/qapt-batch/qaptbatch.cpp:254
 #, kde-format
@@ -172,7 +172,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
-msgstr ""
+msgstr "Nun pue consiguise'l bloquéu del sistema de paquetes"
 
 #: utils/qapt-batch/qaptbatch.cpp:204
 #, kde-format
@@ -192,19 +192,19 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
-msgstr ""
+msgstr "Nun pudieron baxase los paquetes"
 
 #: utils/qapt-batch/qaptbatch.cpp:212
 #, kde-format
 msgctxt "@title:window"
 msgid "Download failed"
-msgstr ""
+msgstr "Falló la descarga"
 
 #: utils/qapt-batch/qaptbatch.cpp:216
 #, kde-format
 msgctxt "@label"
 msgid "An error occurred while applying changes:"
-msgstr ""
+msgstr "Asocedió un fallu mentanto s'aplicaben los cambeos:"
 
 #: utils/qapt-batch/qaptbatch.cpp:217
 #, kde-format
@@ -223,7 +223,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
-msgstr ""
+msgstr "Fallu de l'autenticación"
 
 #: utils/qapt-batch/qaptbatch.cpp:228
 #, kde-format
@@ -232,12 +232,14 @@ msgid ""
 "It appears that the QApt worker has either crashed or disappeared. Please "
 "report a bug to the QApt maintainers"
 msgstr ""
+"Paez que'l trabayador de QApt cascó o desapaeció. Informa del fallu a los "
+"caltenedores de QApt"
 
 #: utils/qapt-batch/qaptbatch.cpp:230
 #, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
-msgstr ""
+msgstr "Fallu inesperáu"
 
 #: utils/qapt-batch/qaptbatch.cpp:238
 #, kde-format
@@ -255,7 +257,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
-msgstr ""
+msgstr "Paquetes que nun son d'enfotu"
 
 #: utils/qapt-batch/qaptbatch.cpp:270
 #, kde-format
@@ -273,7 +275,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Warning - Unverified Software"
-msgstr ""
+msgstr "Alvertencia - Software ensin verificar"
 
 #: utils/qapt-batch/qaptbatch.cpp:281
 #, kde-kuit-format
@@ -295,31 +297,31 @@ msgstr[1] ""
 #, kde-format
 msgctxt "@label Progress bar label when waiting to start"
 msgid "Waiting to start."
-msgstr "Esperando pa entamar."
+msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:321
 #, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
-msgstr "Esperando pola autenticación."
+msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:325
 #, kde-format
 msgctxt "@label Status label when waiting for a CD-ROM"
 msgid "Waiting for required media."
-msgstr "Esperando polos medios riquíos"
+msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:330
 #, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
-msgstr "Esperando qu'otros xestores de paquetes colen."
+msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:338
 #, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
-msgstr "Cargando caché de paquetes."
+msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:342
 #, kde-format
@@ -351,13 +353,13 @@ msgstr[1] ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Installing Packages"
-msgstr ""
+msgstr "Instalando paquetes"
 
 #: utils/qapt-batch/qaptbatch.cpp:360
 #, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
-msgstr "Instalación de paquetes"
+msgstr ""
 
 #: utils/qapt-batch/qaptbatch.cpp:364
 #, kde-format

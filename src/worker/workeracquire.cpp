@@ -21,10 +21,10 @@
 #include "workeracquire.h"
 
 // Qt includes
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDebug>
-#include <QtCore/QEventLoop>
-#include <QtCore/QStringBuilder>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QEventLoop>
+#include <QStringBuilder>
 
 // Apt-pkg includes
 #include <apt-pkg/error.h>
@@ -34,6 +34,8 @@
 // Own includes
 #include "aptworker.h"
 #include "transaction.h"
+
+#include <unistd.h>
 
 using namespace std;
 
@@ -151,7 +153,11 @@ bool WorkerAcquire::Pulse(pkgAcquire *Owner)
             continue;
         }
 
+#if APT_PKG_ABI >= 590
+        (*iter->CurrentItem).Owner->PartialSize = iter->CurrentItem->CurrentSize;
+#else
         (*iter->CurrentItem).Owner->PartialSize = iter->CurrentSize;
+#endif
 
         updateStatus(*iter->CurrentItem);
     }
@@ -227,8 +233,8 @@ void WorkerAcquire::updateStatus(const pkgAcquire::ItemDesc &Itm)
 
     if (downloadStatus == QApt::DoneState && errorMsg.size())
         message = errorMsg;
-    else if (Itm.Owner->Mode)
-        message = QString::fromUtf8(Itm.Owner->Mode);
+    else if (!Itm.Owner->ActiveSubprocess.empty())
+        message = QString::fromStdString(Itm.Owner->ActiveSubprocess);
 
     QApt::DownloadProgress dp(URI, downloadStatus, shortDesc,
                               fileSize, fetchedSize, message);
