@@ -5,6 +5,17 @@ libqapt (3.0.4-2~) UNRELEASED; urgency=medium
 
  -- Maximiliano Curia <maxy@debian.org>  Thu, 19 Sep 2019 19:46:31 +0200
 
+libqapt (3.0.4-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * apt 2.0 porting (Closes: #953308)
+    - Port to APT 1.9.0
+    - Import earlier upstream commit that fixes supportedUntil and happens
+      to fix some more apt 1.9 related failures.
+    -  Adapt to apt 1.9.11.
+
+ -- Julian Andres Klode <jak@debian.org>  Sun, 08 Mar 2020 15:33:23 +0100
+
 libqapt (3.0.4-1) unstable; urgency=medium
 
   * Team upload.
