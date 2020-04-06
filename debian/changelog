@@ -8,6 +8,11 @@ libqapt (3.0.5-0r1) UNRELEASED; urgency=medium
   * Update the build dependencies according to the upstream build system:
     - bump Qt packages to 5.8.0
     - explicitly add gettext
+  * Update the patches:
+    - 0001-Fix-Package-supportedUntil-never-getting-the-date.patch: drop,
+      backported from upstream
+    - apt-1.9.0.patch: drop, fixed upstream
+    - apt-1.9.11.patch: drop, fixed upstream
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Thu, 19 Sep 2019 19:46:31 +0200
 
