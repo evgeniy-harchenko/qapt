@@ -33,7 +33,7 @@ Build-Depends: cmake (>= 2.8.12),
                qtbase5-dev (>= 5.8.0),
                qttools5-dev,
                qttools5-dev-tools
-Standards-Version: 4.1.4
+Standards-Version: 4.5.0
 Homepage: https://cgit.kde.org/libqapt.git/
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/extras/qapt
 Vcs-Git: https://salsa.debian.org/qt-kde-team/extras/qapt.git
