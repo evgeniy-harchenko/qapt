@@ -41,6 +41,7 @@
 #include <apt-pkg/indexfile.h>
 #include <apt-pkg/init.h>
 #include <apt-pkg/pkgrecords.h>
+#include <apt-pkg/pkgsystem.h>
 #include <apt-pkg/sourcelist.h>
 #include <apt-pkg/strutl.h>
 #include <apt-pkg/tagfile.h>
@@ -85,7 +86,6 @@ class PackagePrivate
         bool inUpdatePhaseCalculated;
 
         pkgCache::PkgFileIterator searchPkgFileIter(QLatin1String label, const QString &release) const;
-        QString getReleaseFileForOrigin(QLatin1String label, const QString &release) const;
 
         // Calculate state flags that cannot change
         void initStaticState(const pkgCache::VerIterator &ver, pkgDepCache::StateCache &stateCache);
@@ -117,40 +117,6 @@ pkgCache::PkgFileIterator PackagePrivate::searchPkgFileIter(QLatin1String label,
     }
     found = pkgCache::PkgFileIterator(*packageIter.Cache());
     return found;
-}
-
-QString PackagePrivate::getReleaseFileForOrigin(QLatin1String label, const QString &release) const
-{
-    pkgCache::PkgFileIterator pkg = searchPkgFileIter(label, release);
-
-    // Return empty if no package matches the given label and release
-    if (pkg.end())
-        return QString();
-
-    // Search for the matching meta-index
-    pkgSourceList *list = backend->packageSourceList();
-    pkgIndexFile *index;
-
-    // Return empty if the source list doesn't contain an index for the package
-    if (!list->FindIndex(pkg, index))
-        return QString();
-
-    for (auto I = list->begin(); I != list->end(); ++I) {
-        vector<pkgIndexFile *> *ifv = (*I)->GetIndexFiles();
-        if (find(ifv->begin(), ifv->end(), index) == ifv->end())
-            continue;
-
-        // Construct release file path
-        QString uri = backend->config()->findDirectory("Dir::State::lists")
-                % QString::fromStdString(URItoFileName((*I)->GetURI()))
-                % QLatin1String("dists_")
-                % QString::fromStdString((*I)->GetDist())
-                % QLatin1String("_Release");
-
-        return uri;
-    }
-
-    return QString();
 }
 
 void PackagePrivate::initStaticState(const pkgCache::VerIterator &ver, pkgDepCache::StateCache &stateCache)
@@ -247,7 +213,10 @@ int Package::id() const
 
 QLatin1String Package::section() const
 {
-    return QLatin1String(d->packageIter.Section());
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+    if (!ver.end())
+        return QLatin1String(ver.Section());
+    return QLatin1String("");
 }
 
 QString Package::sourcePackage() const
@@ -257,7 +226,7 @@ QString Package::sourcePackage() const
     // In the APT package record format, the only time when a "Source:" field
     // is present is when the binary package name doesn't match the source
     // name
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     if (!ver.end()) {
         pkgRecords::Parser &rec = d->backend->records()->Lookup(ver.FileList());
         sourcePackage = QString::fromStdString(rec.SourcePkg());
@@ -275,7 +244,7 @@ QString Package::sourcePackage() const
 QString Package::shortDescription() const
 {
     QString shortDescription;
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     if (!ver.end()) {
         pkgCache::DescIterator Desc = ver.TranslatedDescription();
         pkgRecords::Parser & parser = d->backend->records()->Lookup(Desc.FileList());
@@ -288,7 +257,7 @@ QString Package::shortDescription() const
 
 QString Package::longDescription() const
 {
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if (!ver.end()) {
         QString rawDescription;
@@ -306,7 +275,7 @@ QString Package::longDescription() const
 
         for (int i = 0; i < sections.count(); ++i) {
             sections[i].replace(QRegExp(QLatin1String("\n( |\t)+(-|\\*)")),
-                                QLatin1Literal("\n\r ") % QString::fromUtf8("\xE2\x80\xA2"));
+                                QLatin1String("\n\r ") % QString::fromUtf8("\xE2\x80\xA2"));
             // There should be no new lines within a section.
             sections[i].remove(QLatin1Char('\n'));
             // Hack to get the lists working again.
@@ -321,7 +290,7 @@ QString Package::longDescription() const
             if (sections[i].startsWith(QLatin1String("\n ") % QString::fromUtf8("\xE2\x80\xA2 ")) || !i) {
                 parsedDescription += sections[i];
             }  else {
-                parsedDescription += QLatin1Literal("\n\n") % sections[i];
+                parsedDescription += QLatin1String("\n\n") % sections[i];
             }
         }
         return parsedDescription;
@@ -333,7 +302,7 @@ QString Package::longDescription() const
 QString Package::maintainer() const
 {
     QString maintainer;
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     if (!ver.end()) {
         pkgRecords::Parser &parser = d->backend->records()->Lookup(ver.FileList());
         maintainer = QString::fromUtf8(parser.Maintainer().data());
@@ -347,7 +316,7 @@ QString Package::maintainer() const
 QString Package::homepage() const
 {
     QString homepage;
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     if (!ver.end()) {
         pkgRecords::Parser &parser = d->backend->records()->Lookup(ver.FileList());
         homepage = QString::fromUtf8(parser.Homepage().data());
@@ -451,7 +420,7 @@ QString Package::availableVersion() const
 
 QString Package::priority() const
 {
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     if (ver.end())
         return QString();
 
@@ -503,7 +472,7 @@ QStringList Package::installedFilesList() const
 
 QString Package::origin() const
 {
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if(Ver.end())
         return QString();
@@ -514,7 +483,7 @@ QString Package::origin() const
 
 QString Package::site() const
 {
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if(Ver.end())
         return QString();
@@ -525,7 +494,7 @@ QString Package::site() const
 
 QStringList Package::archives() const
 {
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if(Ver.end())
         return QStringList();
@@ -553,20 +522,22 @@ QString Package::component() const
 
 QByteArray Package::md5Sum() const
 {
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if(ver.end())
         return QByteArray();
 
     pkgRecords::Parser &rec = d->backend->records()->Lookup(ver.FileList());
 
-    return rec.MD5Hash().c_str();
+    auto MD5HashString = rec.Hashes().find("MD5Sum");
+
+    return MD5HashString ? QByteArray::fromStdString(MD5HashString->HashValue()) : "";
 
 }
 
 QUrl Package::changelogUrl() const
 {
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     if (ver.end())
         return QUrl();
 
@@ -608,45 +579,8 @@ QDateTime Package::supportedUntil() const
         return QDateTime();
     }
 
-    QFile lsb_release(QLatin1String("/etc/lsb-release"));
-    if (!lsb_release.open(QFile::ReadOnly)) {
-        // Though really, your system is screwed if this happens...
-        return QDateTime();
-    }
-
-    pkgTagSection sec;
-    time_t releaseDate = -1;
-    QString release;
-
-    QTextStream stream(&lsb_release);
-    QString line;
-    do {
-        line = stream.readLine();
-        QStringList split = line.split(QLatin1Char('='));
-        if (split.size() != 2) {
-            continue;
-        }
-
-        if (split.at(0) == QLatin1String("DISTRIB_CODENAME")) {
-            release = split.at(1);
-        }
-    } while (!line.isNull());
-
-    // Canonical only provides support for Ubuntu, but we don't have to worry
-    // about Debian systems as long as we assume that this function can fail.
-    QString releaseFile = d->getReleaseFileForOrigin(QLatin1String("Ubuntu"), release);
-
-    if(!FileExists(releaseFile.toStdString())) {
-        // happens e.g. when there is no release file and is harmless
-        return QDateTime();
-    }
-
-    // read the relase file
-    FileFd fd(releaseFile.toStdString(), FileFd::ReadOnly);
-    pkgTagFile tag(&fd);
-    tag.Step(sec);
-
-    if(!RFC1123StrToTime(sec.FindS("Date").data(), releaseDate)) {
+    QDateTime releaseDate = d->backend->releaseDate();
+    if (!releaseDate.isValid()) {
         return QDateTime();
     }
 
@@ -665,9 +599,9 @@ QDateTime Package::supportedUntil() const
     QDateTime supportEnd;
 
     if (unit == QLatin1Char('m')) {
-        supportEnd = QDateTime::fromTime_t(releaseDate).addMonths(supportTime);
+        supportEnd = releaseDate.addMonths(supportTime);
     } else if (unit == QLatin1Char('y')) {
-        supportEnd = QDateTime::fromTime_t(releaseDate).addYears(supportTime);
+        supportEnd = releaseDate.addYears(supportTime);
     }
 
     return supportEnd;
@@ -675,7 +609,7 @@ QDateTime Package::supportedUntil() const
 
 QString Package::controlField(QLatin1String name) const
 {
-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     if (ver.end()) {
         return QString();
     }
@@ -708,6 +642,17 @@ qint64 Package::availableInstalledSize() const
         return qint64(-1);
     }
     return qint64(State.CandidateVerIter(*d->backend->cache()->depCache())->InstalledSize);
+}
+
+qint64 Package::installedSize() const
+{
+    const pkgCache::VerIterator &ver = d->packageIter.CurrentVer();
+
+    if (!ver.end()) {
+        return qint64(ver->InstalledSize);
+    }
+
+    return availableInstalledSize();
 }
 
 qint64 Package::downloadSize() const
@@ -777,8 +722,8 @@ int Package::compareVersion(const QString &v1, const QString &v2)
 {
     // Make deep copies of toStdString(), since otherwise they would
     // go out of scope when we call c_str()
-    string s1 = v1.toStdString();
-    string s2 = v2.toStdString();
+    std::string s1 = v1.toStdString();
+    std::string s2 = v2.toStdString();
 
     const char *a = s1.c_str();
     const char *b = s2.c_str();
@@ -826,19 +771,19 @@ bool Package::isInUpdatePhase() const
         return d->setInUpdatePhase(true);
     }
 
-    // This is a more or less an exact reimplemenation of the update phasing
+    // This is a more or less an exact reimplementation of the update phasing
     // algorithm Ubuntu uses.
     // Deciding whether a machine is in the phasing pool or not happens in
     // two steps.
     // 1. repeatable random number generation between 0..100
-    // 2. comparision of random number with phasing percentage and marking
+    // 2. comparison of random number with phasing percentage and marking
     //    as upgradable if rand is greater than the phasing.
 
     // Repeatable discrete random number generation is based on
     // the MD5 hash of "sourcename-sourceversion-dbusmachineid", this
     // hash is used as seed for the random number generator to provide
     // stable randomness based on the stable seed. Combined with the discrete
-    // quasi-randomiziation we get about even distribution of machines accross
+    // quasi-randomiziation we get about even distribution of machines across
     // phases.
     static QString machineId;
     if (machineId.isNull()) {
@@ -1011,9 +956,9 @@ QStringList Package::dependencyList(bool useCandidateVersion) const
             versionCompare = QLatin1String(D.CompType());
         }
 
-        finalString = QLatin1Literal("<b>") % type % QLatin1Literal(":</b> ");
+        finalString = QLatin1String("<b>") % type % QLatin1String(":</b> ");
         if (isVirtual) {
-            finalString += QLatin1Literal("<i>") % name % QLatin1Literal("</i>");
+            finalString += QLatin1String("<i>") % name % QLatin1String("</i>");
         } else {
             finalString += name;
         }
@@ -1067,7 +1012,7 @@ QStringList Package::recommendsList() const
 {
     QStringList recommends;
 
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if (Ver.end()) {
         return recommends;
@@ -1093,7 +1038,7 @@ QStringList Package::suggestsList() const
 {
     QStringList suggests;
 
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if (Ver.end()) {
         return suggests;
@@ -1119,7 +1064,7 @@ QStringList Package::enhancesList() const
 {
     QStringList enhances;
 
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if (Ver.end()) {
         return enhances;
@@ -1157,7 +1102,7 @@ QStringList Package::enhancedByList() const
 
 QList<QApt::MarkingErrorInfo> Package::brokenReason() const
 {
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
     QList<MarkingErrorInfo> reasons;
 
     // check if there is actually something to install
@@ -1232,7 +1177,7 @@ QList<QApt::MarkingErrorInfo> Package::brokenReason() const
 
 bool Package::isTrusted() const
 {
-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
+    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
 
     if (!Ver)
         return false;
@@ -1307,7 +1252,7 @@ void Package::setInstall()
 
     // FIXME: can't we get rid of it here?
     // if there is something wrong, try to fix it
-    if (!state() & ToInstall || d->backend->cache()->depCache()->BrokenCount() > 0) {
+    if (!(state() & ToInstall) || d->backend->cache()->depCache()->BrokenCount() > 0) {
         pkgProblemResolver Fix(d->backend->cache()->depCache());
         Fix.Clear(d->packageIter);
         Fix.Protect(d->packageIter);

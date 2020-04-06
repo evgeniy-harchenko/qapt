@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2011, 2012, 2014.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2011, 2012, 2014, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2014-12-12 10:29+0100\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2019-08-29 14:32+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 19.08.0\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
 #, kde-format
@@ -306,7 +306,7 @@ msgstr "Wijziging van medium vereist"
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Please insert %1 into <filename>%2</filename>"
-msgstr "Gaarne %1 invoeren in <filename>%2</filename>"
+msgstr "Gaarne %1 invoegen in <filename>%2</filename>"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:341
 #, kde-format

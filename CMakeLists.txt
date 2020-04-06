@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.12)
 
 set(PROJECT_VERSION_MAJOR 3)
 set(PROJECT_VERSION_MINOR 0)
-set(PROJECT_VERSION_PATCH 4)
+set(PROJECT_VERSION_PATCH 5)
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}" )
 set(PROJECT_SOVERSION ${PROJECT_VERSION_MAJOR})
 
@@ -26,7 +26,7 @@ include(ECMGeneratePriFile) # This needs InstallDirs
 # Turn exceptions on
 kde_enable_exceptions()
 
-set(REQUIRED_QT_VERSION 5.2.0) # Used in QAptConfig
+set(REQUIRED_QT_VERSION 5.8.0) # Used in QAptConfig
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus Widgets)
 
 find_package(Xapian REQUIRED)

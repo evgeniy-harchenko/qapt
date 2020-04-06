@@ -21,8 +21,9 @@
 #include "downloadprogress.h"
 
 // Qt includes
-#include <QtCore/QSharedData>
-#include <QtDBus/QDBusMetaType>
+#include <QSharedData>
+#include <QDBusMetaType>
+#include <QDBusArgument>
 #include <QDebug>
 
 namespace QApt {

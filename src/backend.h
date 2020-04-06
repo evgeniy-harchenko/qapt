@@ -21,9 +21,9 @@
 #ifndef QAPT_BACKEND_H
 #define QAPT_BACKEND_H
 
-#include <QtCore/QHash>
-#include <QtCore/QStringList>
-#include <QtCore/QVariantMap>
+#include <QHash>
+#include <QStringList>
+#include <QVariantMap>
 
 #include "globals.h"
 #include "package.h"
@@ -109,6 +109,18 @@ public:
     * Returns the native CPU architecture of the computer
     */
     QString nativeArchitecture() const;
+
+    /**
+     * Returns the date when the distribution release was issued.
+     *
+     * E.g. for Ubuntu 18.04.1 it returns Thu, 26 Apr 2018 23:37:48 UTC.
+     *
+     * @return Distribution release date or invalid QDateTime if could not
+     * be determined.
+     *
+     * @since 3.1
+     */
+    QDateTime releaseDate() const;
 
     /**
      * Returns whether the undo stack is empty
@@ -452,6 +464,7 @@ private:
 
     void setInitError();
     void loadPackagePins();
+    void loadReleaseDate();
 
 Q_SIGNALS:
     /**

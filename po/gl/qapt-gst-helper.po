@@ -4,24 +4,21 @@
 # Miguel Branco, 2012, 2013.
 # Marce Villarino <mvillarino@kde-espana.org>, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2018-02-01 19:41+0100\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2019-10-19 22:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
-"X-Environment: kde\n"
-"X-Accelerator-Marker: &\n"
-"X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 19.11.70\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
 #, kde-format
@@ -82,19 +79,20 @@ msgstr "Información de instalación de GStreamer"
 msgctxt "@info Error message"
 msgid "No valid plugin info was provided, so no plugins could be found."
 msgstr ""
-"Non se deu información correcta dos plugins co cal non se puideron atopar."
+"Non se deu información correcta dos complementos co cal non se puideron "
+"atopar."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Couldn't Find Plugins"
-msgstr "Non se puideron atopar plugins"
+msgstr "Non se puideron atopar complementos"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:95
 #, kde-format
 msgctxt "@info:progress"
 msgid "Looking for plugins"
-msgstr "Buscando plugins"
+msgstr "Buscando complementos"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:129
 #: utils/qapt-gst-helper/PluginHelper.cpp:244
@@ -123,30 +121,32 @@ msgid_plural ""
 "The following plugins are required: <ul><li>%2</li></ul>Do you want to "
 "search for these now?"
 msgstr[0] ""
-"Precísase o seguinte plugin: <ul><li>%2</li></ul>Queres buscalo agora mesmo?"
-msgstr[1] ""
-"Precísanse os seguintes plugins: <ul><li>%2</li></ul>Queres buscalos agora "
+"Precísase o seguinte complemento: <ul><li>%2</li></ul>Queres buscalo agora "
 "mesmo?"
+msgstr[1] ""
+"Precísanse os seguintes complementos: <ul><li>%2</li></ul>Queres buscalos "
+"agora mesmo?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:158
 #, kde-format
 msgctxt "A program for which we have no name"
 msgid "A program"
-msgstr "Un aplicativo"
+msgstr "Un programa"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:165
 #, kde-format
 msgid "%2 requires an additional plugin to encode this file"
 msgid_plural "%2 requires additional plugins to encode this file"
-msgstr[0] "%2 precisa dun plugin adicional para codificar este ficheiro"
-msgstr[1] "%2 precisa dun plugins adicionais para codificar estes ficheiros"
+msgstr[0] "%2 precisa dun complemento adicional para codificar este ficheiro"
+msgstr[1] "%2 precisa complementos adicionais para codificar estes ficheiros"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:171
 #, kde-format
 msgid "%2 requires an additional plugin to decode this file"
 msgid_plural "%2 requires additional plugins to decode this file"
-msgstr[0] "%2 precisa dun plugin adicional para descodificar este ficheiro"
-msgstr[1] "%2 precisa dun plugin adicional para descodificar estes ficheiros"
+msgstr[0] ""
+"%2 precisa dun complemento adicional para descodificar este ficheiro"
+msgstr[1] "%2 precisa complementos adicionais para descodificar este ficheiro"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:183
 #, kde-format
@@ -180,9 +180,9 @@ msgid ""
 "must close all other package managers before you will be able to install or "
 "remove any packages."
 msgstr ""
-"Semella que outra aplicativo está a usar o paquete de sistemas ao mesmo "
+"Semella que outra aplicación está a usar o paquete de sistemas ao mesmo "
 "tempo. Tes que pechar todos os xestores de paquetes para poder facer "
-"calquera instalación ou retiración de paquetes."
+"calquera instalación ou desinstalación de paquetes."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:258
 #, kde-format
@@ -236,7 +236,7 @@ msgctxt "@label"
 msgid ""
 "This operation cannot continue since proper authorization was not provided"
 msgstr ""
-"Esta operación non pode continuar xa que non se deu a autorización apropiada"
+"Esta operación non pode continuar xa que non se deu a autorización axeitada."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:284
 #, kde-format
@@ -270,11 +270,11 @@ msgid_plural ""
 "The following packages have not been verified by their authors. Downloading "
 "untrusted packages has been disallowed by your current configuration."
 msgstr[0] ""
-"O seguinte paquete non foi verificado polo seu autor. Descargar paquetes sen "
+"O autor do seguinte paquete non o verificou. Descargar paquetes sen "
 "verificar está desactivado na túa configuración actual."
 msgstr[1] ""
-"Os seguintes paquetes non foron verificado polo seu autor. A descarga de "
-"paquetes sen verificar está desactivada na túa configuración actual."
+"Os autores dos seguintes paquetes non os verificaron. Descargar paquetes sen "
+"verificar está desactivado na túa configuración actual."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:307
 #, kde-format
@@ -350,7 +350,7 @@ msgstr "Estase a agardar a que se inicie."
 #, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
-msgstr "Estase a agardar pola autenticación."
+msgstr "Agardando pola autenticación."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:382
 #, kde-format

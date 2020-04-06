@@ -5,18 +5,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2014-12-28 11:38+0100\n"
-"Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2020-02-25 17:15+0100\n"
+"Last-Translator: \n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 2.3\n"
 
 #: utils/qapt-deb-installer/ChangesDialog.cpp:37
 #, kde-format
@@ -34,8 +35,8 @@ msgstr "<h2>Dodatne spremembe</h2>"
 #, kde-format
 msgid "This action requires a change to another package:"
 msgid_plural "This action requires changes to other packages:"
-msgstr[0] "To dejanje zahteva spremembo drugih paketov:"
-msgstr[1] "To dejanje zahteva spremembo drugega paketa:"
+msgstr[0] "To dejanje zahteva spremembo drugega paketa:"
+msgstr[1] "To dejanje zahteva spremembo drugih paketov:"
 msgstr[2] "To dejanje zahteva spremembo drugih paketov:"
 msgstr[3] "To dejanje zahteva spremembo drugih paketov:"
 
@@ -174,8 +175,8 @@ msgstr "Napaka: ne more zadovoljiti odvisnosti"
 msgctxt "@label A note saying that additional packages are needed"
 msgid "Requires the installation of %1 additional package."
 msgid_plural "Requires the installation of %1 additional packages"
-msgstr[0] "Zahteva namestitev %1 dodatnih paketov."
-msgstr[1] "Zahteva namestitev %1 dodatnega paketa."
+msgstr[0] "Zahteva namestitev %1 dodatnega paketa."
+msgstr[1] "Zahteva namestitev %1 dodatnih paketov."
 msgstr[2] "Zahteva namestitev %1 dodatnih paketov."
 msgstr[3] "Zahteva namestitev %1 dodatnih paketov."
 
@@ -195,7 +196,7 @@ msgstr "Enaka različica je na voljo v programskem kanalu."
 #, kde-format
 msgctxt "@info"
 msgid "It is recommended to install the software from the channel instead"
-msgstr "Priporočljivo je, da raje namestite programsko opremo iz kanala."
+msgstr "Priporočljivo je, da raje namestite programsko opremo iz kanala"
 
 #: utils/qapt-deb-installer/DebInstaller.cpp:277
 #, kde-format

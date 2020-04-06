@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
 "PO-Revision-Date: 2014-08-25 12:54+0200\n"
 "Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr "Harald Sitter"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Qt 5 port"
-msgstr ""
+msgstr "Port do Qt 5"
 
 #: utils/qapt-gst-helper/main.cpp:64
 #, kde-format

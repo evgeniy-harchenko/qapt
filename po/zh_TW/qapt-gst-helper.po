@@ -1,23 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
-# Franklin Weng <franklin@goodhorse.idv.tw>, 2011.
-# Franklin Weng <franklin@mail.everfocus.com.tw>, 2012, 2013.
+# Franklin Weng <franklin@mail.everfocus.com.tw>, 2011, 2012, 2013.
 # Jeff Huang <s8321414@gmail.com>, 2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2016-12-04 16:31+0800\n"
-"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2018-03-29 13:48+0800\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
 #, kde-format
@@ -98,7 +97,7 @@ msgctxt "@label"
 msgid ""
 "The package system could not be initialized, your configuration may be "
 "broken."
-msgstr "套件系統無法被初始化，您的設定可能有問題。"
+msgstr "軟體包系統無法被初始化，您的設定可能有問題。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:131
 #: utils/qapt-gst-helper/PluginHelper.cpp:246
@@ -150,7 +149,7 @@ msgstr "確認變更"
 #, kde-format
 msgid "Install the following package?"
 msgid_plural "Install the following packages?"
-msgstr[0] "要安裝以下的套件嗎？"
+msgstr[0] "要安裝以下的軟體包嗎？"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:215
 #, kde-format
@@ -166,14 +165,14 @@ msgid ""
 "must close all other package managers before you will be able to install or "
 "remove any packages."
 msgstr ""
-"另一個應用程式似乎正在使用套件系統。您必須關閉另一個套件管理程式，才能繼續安"
-"裝或移除套件。"
+"另一個應用程式似乎正在使用軟體包系統。您必須關閉另一個軟體包管理程式，才能繼"
+"續安裝或移除軟體包。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:258
 #, kde-format
 msgctxt "@title:window"
 msgid "Unable to obtain package system lock"
-msgstr "無法鎖定套件系統"
+msgstr "無法鎖定軟體包系統"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:263
 #, kde-format
@@ -193,7 +192,7 @@ msgstr "磁碟空間過低"
 #, kde-format
 msgctxt "@label"
 msgid "Could not download packages"
-msgstr "無法下載套件"
+msgstr "無法下載軟體包"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:270
 #, kde-format
@@ -249,13 +248,14 @@ msgid ""
 msgid_plural ""
 "The following packages have not been verified by their authors. Downloading "
 "untrusted packages has been disallowed by your current configuration."
-msgstr[0] "以下的套件尚未經過作者檢查。您目前的設定不允許下載不受信任的套件。"
+msgstr[0] ""
+"以下的軟體包尚未經過作者檢查。您目前的設定不允許下載不受信任的軟體包。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:307
 #, kde-format
 msgctxt "@title:window"
 msgid "Untrusted Packages"
-msgstr "未受信任的套件"
+msgstr "未受信任的軟體包"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:314
 #, kde-format
@@ -263,13 +263,13 @@ msgctxt "@label"
 msgid ""
 "The package \"%1\" has not been found among your software sources. "
 "Therefore, it cannot be installed. "
-msgstr "套件 %1 並未在您的軟體來源中找到。因此無法安裝。"
+msgstr "軟體包 %1 並未在您的軟體來源中找到。因此無法安裝。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:317
 #, kde-format
 msgctxt "@title:window"
 msgid "Package Not Found"
-msgstr "找不到套件"
+msgstr "找不到軟體包"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:331
 #, kde-format
@@ -328,13 +328,13 @@ msgstr "等待請求的媒體中。"
 #, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
-msgstr "等待其他的套件管理員離開中。"
+msgstr "等待其他的軟體包管理員離開中。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:395
 #, kde-format
 msgctxt "@label Status label"
 msgid "Loading package cache."
-msgstr "載入套件快取中。"
+msgstr "載入軟體包快取中。"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:398
 #, kde-format
@@ -364,7 +364,7 @@ msgstr "安裝編解碼器中"
 #, kde-format
 msgctxt "@label"
 msgid "Package installation finished with errors."
-msgstr "套件安裝完成，但是有錯誤"
+msgstr "軟體包安裝完成，但是有錯誤"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:410
 #, kde-format

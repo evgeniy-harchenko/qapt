@@ -21,13 +21,13 @@
 #ifndef QAPT_TRANSACTION_H
 #define QAPT_TRANSACTION_H
 
-#include <QtCore/QObject>
-#include <QtCore/QVariantMap>
-#include <QtDBus/QDBusVariant>
+#include <QObject>
+#include <QVariantMap>
 
 #include "downloadprogress.h"
 
 class QDBusPendingCallWatcher;
+class QDBusVariant;
 
 #ifdef __CURRENTLY_UNIT_TESTING__
 class TransactionErrorHandlingTest;

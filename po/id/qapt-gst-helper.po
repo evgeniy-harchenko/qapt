@@ -1,22 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # wantoyo <wantoyo@yahoo.com>, 2014.
-# Wantoyo <wantoyek@gmail.com>, 2017, 2018.
+# Wantoyo <wantoyek@gmail.com>, 2017, 2018, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: qapt-gst-helper 0001\n"
-"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-11-19 20:10+0100\n"
-"PO-Revision-Date: 2018-03-03 08:12+0700\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:52+0200\n"
+"PO-Revision-Date: 2019-09-01 09:01+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 19.12.1\n"
 
 #: utils/qapt-gst-helper/main.cpp:34
 #, kde-format
@@ -58,7 +58,7 @@ msgstr "port Qt 5"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Attaches the window to an X app specified by winid"
-msgstr "Anggota jendela untuk sebuah X app ditetapkan menurut winid"
+msgstr "Melampirkan window untuk sebuah apl X yang ditentukan oleh winid"
 
 #: utils/qapt-gst-helper/main.cpp:65
 #, kde-format
@@ -77,7 +77,7 @@ msgstr "Info pasang GStreamer"
 msgctxt "@info Error message"
 msgid "No valid plugin info was provided, so no plugins could be found."
 msgstr ""
-"Tidak sah Info plugin yang diberikan, sehingga tidak ada plugin yang dapat "
+"Tidak absah Info plugin yang diberikan, sehingga tidak ada plugin yang dapat "
 "ditemukan."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:89
@@ -118,7 +118,10 @@ msgid_plural ""
 "The following plugins are required: <ul><li>%2</li></ul>Do you want to "
 "search for these now?"
 msgstr[0] ""
-"Plugin berikut telah dibutuhkan: <ul><li>%2</li></ul> Apakah anda ingin "
+"Plugin berikut ini adalah diperlukan: <ul><li>%2</li></ul> Apakah kamu ingin "
+"mencari ini sekarang?"
+msgstr[1] ""
+"Plugin berikut ini yang diperlukan: <ul><li>%2</li></ul> Apakah kamu ingin "
 "mencari tersebut sekarang?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:158
@@ -131,13 +134,15 @@ msgstr "Sebuah program"
 #, kde-format
 msgid "%2 requires an additional plugin to encode this file"
 msgid_plural "%2 requires additional plugins to encode this file"
-msgstr[0] "%2 membutuhkan plugin tambahan untuk mengkode fail ini"
+msgstr[0] "%2 membutuhkan sebuah plugin tambahan untuk mengenkode file ini"
+msgstr[1] "%2 membutuhkan plugin-plugin tambahan untuk mengenkode file ini"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:171
 #, kde-format
 msgid "%2 requires an additional plugin to decode this file"
 msgid_plural "%2 requires additional plugins to decode this file"
-msgstr[0] "%2 membutuhkan plugin tambahan untuk membaca kode fail ini"
+msgstr[0] "%2 membutuhkan sebuah plugin tambahan untuk membaca kode file ini"
+msgstr[1] "%2 membutuhkan plugin-plugin tambahan untuk membaca kode file ini"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:183
 #, kde-format
@@ -154,13 +159,14 @@ msgstr "Konfirmasi Perubahan"
 #, kde-format
 msgid "Install the following package?"
 msgid_plural "Install the following packages?"
-msgstr[0] "Pasang pake-paket berikut?"
+msgstr[0] "Instal paket berikut ini?"
+msgstr[1] "Instal pake-paket berikut ini?"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:215
 #, kde-format
 msgctxt "Install packages"
 msgid "Install"
-msgstr "Pasang"
+msgstr "Instal"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:254
 #, kde-format
@@ -171,8 +177,8 @@ msgid ""
 "remove any packages."
 msgstr ""
 "Aplikasi lain tampaknya menggunakan sistem paket pada saat ini. Anda harus "
-"menutup semua pengelola paket lain sebelum anda bisa memasang atau membuang "
-"paket manapun."
+"menutup semua pengelola paket lain sebelum anda bisa menginstal atau "
+"membuang paket manapun."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:258
 #, kde-format
@@ -218,7 +224,7 @@ msgstr "Terjadi kesalahan ketika menerapkan perubahan:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Commit Error"
-msgstr "Galat Melakukan"
+msgstr "Error Melakukan"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:282
 #, kde-format
@@ -233,7 +239,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Authentication error"
-msgstr "Galat pengesahan"
+msgstr "Galat autentikasi"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:288
 #, kde-format
@@ -249,7 +255,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Unexpected Error"
-msgstr "Galat Tidak Terduga"
+msgstr "Error Tidak Terduga"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:298
 #, kde-format
@@ -261,8 +267,11 @@ msgid_plural ""
 "The following packages have not been verified by their authors. Downloading "
 "untrusted packages has been disallowed by your current configuration."
 msgstr[0] ""
+"Paket berikut ini belum diverifikasi oleh penulisnya. Mengunduh paket tidak "
+"dipercaya telah dianulir menurut konfigurasimu saat ini."
+msgstr[1] ""
 "Paket-paket berikut belum diverifikasi oleh penulisnya. Mengunduh paket "
-"tidak dipercaya telah dianulir menurut konfigurasi anda saat ini."
+"tidak dipercaya telah dianulir menurut konfigurasimu saat ini."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:307
 #, kde-format
@@ -278,7 +287,7 @@ msgid ""
 "Therefore, it cannot be installed. "
 msgstr ""
 "Paket \"%1\" tidak dapat ditemukan di antara sumber perangkat lunak anda. "
-"Oleh karena itu, tidak bisa dipasang. "
+"Oleh karena itu, tidak bisa diinstal. "
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:317
 #, kde-format
@@ -319,7 +328,12 @@ msgid_plural ""
 "you wish to continue?"
 msgstr[0] ""
 "Potongan perangkat lunak berikut tidak bisa dibuktikan keasliannya. "
-"<warning>Memasang perangkat lunak tanpa diverifikasi merupakan risiko "
+"<warning>Menginstal perangkat lunak tanpa diverifikasi merupakan risiko "
+"keamanan, seperti adanya perangkat lunak yang tanpa terverifikasi merupakan "
+"pertanda dapat merusak.</warning> Apakah anda ingin melanjutkan?"
+msgstr[1] ""
+"Potongan perangkat lunak berikut tidak bisa dibuktikan keasliannya. "
+"<warning>Menginstal perangkat lunak tanpa diverifikasi merupakan risiko "
 "keamanan, seperti adanya perangkat lunak yang tanpa terverifikasi merupakan "
 "pertanda dapat merusak.</warning> Apakah anda ingin melanjutkan?"
 
@@ -333,7 +347,7 @@ msgstr "Menunggu untuk memulai."
 #, kde-format
 msgctxt "@label Status label when waiting for a password"
 msgid "Waiting for authentication."
-msgstr "Menunggu pengesahan."
+msgstr "Menunggu autentikasi."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:382
 #, kde-format
@@ -345,7 +359,7 @@ msgstr "Menunggu media yang diperlukan."
 #, kde-format
 msgctxt "@label Status label"
 msgid "Waiting for other package managers to quit."
-msgstr "Menunggu pengelola paket lainnya keluar."
+msgstr "Menunggu pengelola paket lainnya berhenti."
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:395
 #, kde-format
@@ -369,13 +383,13 @@ msgstr "Mengunduh codec"
 #, kde-format
 msgctxt "@title:window"
 msgid "Installing"
-msgstr "Memasang"
+msgstr "Menginstal"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:403
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing codecs"
-msgstr "Memasang codec"
+msgstr "Menginstal codec"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:409
 #, kde-format
@@ -387,19 +401,19 @@ msgstr "Pemasangan paket selesai dengan kesalahan."
 #, kde-format
 msgctxt "@title:window"
 msgid "Installation Failed"
-msgstr "Pemasangan Gagal"
+msgstr "Penginstalan Gagal"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:412
 #, kde-format
 msgctxt "@label"
 msgid "Codecs successfully installed"
-msgstr "Codec dengan sukses terpasang"
+msgstr "Codec dengan sukses terinstal"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:413
 #, kde-format
 msgctxt "@title:window"
 msgid "Installation Complete"
-msgstr "Pemasangan Lengkap"
+msgstr "Penginstalan Lengkap"
 
 #: utils/qapt-gst-helper/PluginHelper.cpp:449
 #, kde-format
