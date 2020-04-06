@@ -21,6 +21,7 @@ libqapt (3.0.5-0r1) UNRELEASED; urgency=medium
     - switch the debhelper build dependency to debhelper-compat 12
     - remove debian/compat
   * Bump Standards-Version to 4.5.0, no changes required.
+  * Update watch file.
 
  -- Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Thu, 19 Sep 2019 19:46:31 +0200
 
