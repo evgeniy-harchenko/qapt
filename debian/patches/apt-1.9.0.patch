@@ -1,0 +1,695 @@
+From: Julian Andres Klode <julian.klode@canonical.com>
+Date: Wed Jun 19 12:01:15 2019 +0200
+Forwarded: https://phabricator.kde.org/D21896
+Subject: Port to APT 1.9.0
+
+commit ed4f360b7f2488b6712291699e5cf70c8b0207e4
+
+    Use APT::Progress::PackageManager for install progress
+
+commit 926793a426611a1d044f8dd8bdb6e764a1cf8f7d
+
+    Use ActiveSubprocess instead of Mode
+
+commit 27f72cae73434a1da70a7f0b68f34795a6396816
+
+    Read CurrentSize from CurrentItem rather than worker
+    
+    APT 1.9.0 moves CurrentSize to items, so we use CurrentItem
+    for now - but that should go away so we can have multiple
+    current items for http/2 later.
+
+commit 2e7d9dff47c95f7890fbb6cad497593ce9071b4a
+
+    worker: Include unistd.h for usleep()
+    
+    usleep() is defined in that header, but the header is not
+    included.
+
+commit 2cec444890da35646252f57dd425e979cc542cc9
+
+    Use all hashes in aptWorker when acquiring files
+    
+    Seriously
+
+commit cb19796f31c98be4c2e827da4850a0b0dec99afd
+
+    Port pkgAcquire setup to use constructor
+    
+    The Setup() method went away, use the constructor instead.
+
+commit b8d623587ec1707ac0f827788826e84c982ffab9
+
+    Port Package::md5Sum()
+    
+    Probably want to export HashStringList instead
+
+commit d0ec0481bb134dba3d04df63a2506a977dac63a1
+
+    src/package.cpp: Use candidate version's section
+    
+    Packages do not really have a section, this moved to Version a few
+    years ago (they can differ between versions). Let's just use the
+    candidate's section, if there is one.
+
+commit 912f2e7bc51208eabc1997d147bf514ab6894107
+
+    Use GetCandidateVersion() instead of GetCandidateVer()
+    
+    GetCandidateVer() never actually returned the correct candidate,
+    so this probably also fixes something.
+
+commit 9253eb628a9f32e3c510c243ad1c9aa67ab6a69b
+
+    Port pin writing to pkgTagSection::Write()
+
+commit 46c91979a06f4a2977b220f939997dd946cc2040
+
+    Port to APT::Upgrade
+
+commit 674e4e541e0ce673dcf4152f2e16af738955fedf
+
+    Use std::string instead of string
+    
+    APT 1.9 drops a few "using" uses in headers, so we have to use
+    the namespaced name now.
+
+commit 417dd6b4102f55a8f4c05293ee7918ec6d54503a
+
+    Include additional headers needed in apt 1.9
+    
+    APT 1.9 dropped some includes from headers, so we actually
+    need to include the headers we're using.
+
+commit 2a2901a66ba37b540d40804f22c103a9abd31f55
+
+    Ignore missing apt-inst library, merged into apt-pkg in apt 1.9
+--- a/autotests/sourceslisttest.cpp
++++ b/autotests/sourceslisttest.cpp
+@@ -24,6 +24,7 @@
+ #include <QtTest/QtTest>
+ 
+ #include <apt-pkg/init.h>
++#include <apt-pkg/configuration.h>
+ 
+ QTEST_MAIN(SourcesListTest);
+ 
+--- a/cmake/modules/FindAptPkg.cmake
++++ b/cmake/modules/FindAptPkg.cmake
+@@ -23,6 +23,11 @@ FIND_PATH( APTPKG_INCLUDE_DIR apt-pkg/in
+ FIND_LIBRARY(APTPKG_LIBRARY_RELEASE NAMES apt-pkg )
+ FIND_LIBRARY(APTINST_LIBRARY NAMES apt-inst )
+ 
++# apt-inst is optional these days!
++IF ( NOT APTINST_LIBRARY )
++    SET( APTINST_LIBRARY "" )
++ENDIF( )
++
+ FIND_LIBRARY(APTPKG_LIBRARY_DEBUG NAMES apt-pkg apt-pkgd  HINTS /usr/lib/debug/usr/lib/ )
+ 
+ IF( APTPKG_LIBRARY_RELEASE OR APTPKG_LIBRARY_DEBUG AND APTPKG_INCLUDE_DIR )
+--- a/src/backend.cpp
++++ b/src/backend.cpp
+@@ -26,6 +26,7 @@
+ #include <QtDBus/QDBusConnection>
+ 
+ // Apt includes
++#include <apt-pkg/acquire.h>
+ #include <apt-pkg/algorithms.h>
+ #include <apt-pkg/aptconfiguration.h>
+ #include <apt-pkg/depcache.h>
+@@ -33,10 +34,13 @@
+ #include <apt-pkg/fileutl.h>
+ #include <apt-pkg/gpgv.h>
+ #include <apt-pkg/init.h>
++#include <apt-pkg/pkgrecords.h>
++#include <apt-pkg/pkgsystem.h>
+ #include <apt-pkg/policy.h>
+ #include <apt-pkg/sourcelist.h>
+ #include <apt-pkg/strutl.h>
+ #include <apt-pkg/tagfile.h>
++#include <apt-pkg/upgrade.h>
+ 
+ // Xapian includes
+ #undef slots
+@@ -324,7 +328,7 @@ void Backend::setInitError()
+ {
+     Q_D(Backend);
+ 
+-    string message;
++    std::string message;
+     if (_error->PopMessage(message))
+         d->initErrorMessage = QString::fromStdString(message);
+ }
+@@ -356,7 +360,7 @@ void Backend::loadPackagePins()
+ 
+         pkgTagSection tags;
+         while (tagFile.Step(tags)) {
+-            string name = tags.FindS("Package");
++            std::string name = tags.FindS("Package");
+             Package *pkg = package(QLatin1String(name.c_str()));
+             if (pkg)
+                 pkg->setPinned(true);
+@@ -635,7 +639,7 @@ PackageList Backend::search(const QStrin
+         return QApt::PackageList();
+     }
+ 
+-    string unsplitSearchString = searchString.toStdString();
++    std::string unsplitSearchString = searchString.toStdString();
+     static int qualityCutoff = 15;
+     PackageList searchResult;
+ 
+@@ -660,8 +664,8 @@ PackageList Backend::search(const QStrin
+         * index is built with the full package name
+         */
+         // Always search for the package name
+-        string xpString = "name:";
+-        string::size_type pos = unsplitSearchString.find_first_of(" ,;");
++        std::string xpString = "name:";
++        std::string::size_type pos = unsplitSearchString.find_first_of(" ,;");
+         if (pos > 0) {
+             xpString += unsplitSearchString.substr(0,pos);
+         } else {
+@@ -670,7 +674,7 @@ PackageList Backend::search(const QStrin
+         Xapian::Query xpQuery = parser.parse_query(xpString);
+ 
+         pos = 0;
+-        while ( (pos = unsplitSearchString.find("-", pos)) != string::npos ) {
++        while ( (pos = unsplitSearchString.find("-", pos)) != std::string::npos ) {
+             unsplitSearchString.replace(pos, 1, " ");
+             pos+=1;
+         }
+@@ -1022,7 +1026,7 @@ void Backend::markPackagesForUpgrade()
+ {
+     Q_D(Backend);
+ 
+-    pkgAllUpgrade(*d->cache->depCache());
++    APT::Upgrade::Upgrade(*d->cache->depCache(), APT::Upgrade::FORBID_REMOVE_PACKAGES | APT::Upgrade::FORBID_INSTALL_NEW_PACKAGES);
+     emit packageChanged();
+ }
+ 
+@@ -1030,7 +1034,7 @@ void Backend::markPackagesForDistUpgrade
+ {
+     Q_D(Backend);
+ 
+-    pkgDistUpgrade(*d->cache->depCache());
++    APT::Upgrade::Upgrade(*d->cache->depCache(), APT::Upgrade::ALLOW_EVERYTHING);
+     emit packageChanged();
+ }
+ 
+@@ -1513,8 +1517,8 @@ bool Backend::setPackagePinned(Package *
+             tempFile.close();
+ 
+             QString tempFileName = tempFile.fileName();
+-            FILE *out = fopen(tempFileName.toUtf8(), "w");
+-            if (!out) {
++            FileFd out(tempFileName.toUtf8().toStdString(), FileFd::WriteOnly|FileFd::Create|FileFd::Empty);
++            if (!out.IsOpen()) {
+                 return false;
+             }
+ 
+@@ -1522,7 +1526,6 @@ bool Backend::setPackagePinned(Package *
+ 
+             pkgTagFile tagFile(&Fd);
+             if (_error->PendingError()) {
+-                fclose(out);
+                 return false;
+             }
+ 
+@@ -1536,15 +1539,11 @@ bool Backend::setPackagePinned(Package *
+ 
+                 // Include all but the matching name in the new pinfile
+                 if (name != package->name()) {
+-                    TFRewriteData tfrd;
+-                    tfrd.Tag = 0;
+-                    tfrd.Rewrite = 0;
+-                    tfrd.NewTag = 0;
+-                    TFRewrite(out, tags, TFRewritePackageOrder, &tfrd);
+-                    fprintf(out, "\n");
++                    tags.Write(out, TFRewritePackageOrder, {});
++                    out.Write("\n", 1);
+                 }
+             }
+-            fclose(out);
++            out.Close();
+ 
+             if (!tempFile.open()) {
+                 return false;
+--- a/src/dependencyinfo.cpp
++++ b/src/dependencyinfo.cpp
+@@ -102,11 +102,11 @@ DependencyInfo &DependencyInfo::operator
+ 
+ QList<DependencyItem> DependencyInfo::parseDepends(const QString &field, DependencyType type)
+ {
+-    string package;
+-    string version;
++    std::string package;
++    std::string version;
+     unsigned int op;
+ 
+-    string fieldStr = field.toStdString();
++    std::string fieldStr = field.toStdString();
+ 
+     const char *start = fieldStr.c_str();
+     const char *stop = start + strlen(start);
+--- a/src/package.cpp
++++ b/src/package.cpp
+@@ -41,6 +41,7 @@
+ #include <apt-pkg/indexfile.h>
+ #include <apt-pkg/init.h>
+ #include <apt-pkg/pkgrecords.h>
++#include <apt-pkg/pkgsystem.h>
+ #include <apt-pkg/sourcelist.h>
+ #include <apt-pkg/strutl.h>
+ #include <apt-pkg/tagfile.h>
+@@ -212,7 +213,10 @@ int Package::id() const
+ 
+ QLatin1String Package::section() const
+ {
+-    return QLatin1String(d->packageIter.Section());
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
++    if (!ver.end())
++        return QLatin1String(ver.Section());
++    return QLatin1String("");
+ }
+ 
+ QString Package::sourcePackage() const
+@@ -222,7 +226,7 @@ QString Package::sourcePackage() const
+     // In the APT package record format, the only time when a "Source:" field
+     // is present is when the binary package name doesn't match the source
+     // name
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     if (!ver.end()) {
+         pkgRecords::Parser &rec = d->backend->records()->Lookup(ver.FileList());
+         sourcePackage = QString::fromStdString(rec.SourcePkg());
+@@ -240,7 +244,7 @@ QString Package::sourcePackage() const
+ QString Package::shortDescription() const
+ {
+     QString shortDescription;
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     if (!ver.end()) {
+         pkgCache::DescIterator Desc = ver.TranslatedDescription();
+         pkgRecords::Parser & parser = d->backend->records()->Lookup(Desc.FileList());
+@@ -253,7 +257,7 @@ QString Package::shortDescription() cons
+ 
+ QString Package::longDescription() const
+ {
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if (!ver.end()) {
+         QString rawDescription;
+@@ -298,7 +302,7 @@ QString Package::longDescription() const
+ QString Package::maintainer() const
+ {
+     QString maintainer;
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     if (!ver.end()) {
+         pkgRecords::Parser &parser = d->backend->records()->Lookup(ver.FileList());
+         maintainer = QString::fromUtf8(parser.Maintainer().data());
+@@ -312,7 +316,7 @@ QString Package::maintainer() const
+ QString Package::homepage() const
+ {
+     QString homepage;
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     if (!ver.end()) {
+         pkgRecords::Parser &parser = d->backend->records()->Lookup(ver.FileList());
+         homepage = QString::fromUtf8(parser.Homepage().data());
+@@ -416,7 +420,7 @@ QString Package::availableVersion() cons
+ 
+ QString Package::priority() const
+ {
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     if (ver.end())
+         return QString();
+ 
+@@ -468,7 +472,7 @@ QStringList Package::installedFilesList(
+ 
+ QString Package::origin() const
+ {
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if(Ver.end())
+         return QString();
+@@ -479,7 +483,7 @@ QString Package::origin() const
+ 
+ QString Package::site() const
+ {
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if(Ver.end())
+         return QString();
+@@ -490,7 +494,7 @@ QString Package::site() const
+ 
+ QStringList Package::archives() const
+ {
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if(Ver.end())
+         return QStringList();
+@@ -518,20 +522,22 @@ QString Package::component() const
+ 
+ QByteArray Package::md5Sum() const
+ {
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if(ver.end())
+         return QByteArray();
+ 
+     pkgRecords::Parser &rec = d->backend->records()->Lookup(ver.FileList());
+ 
+-    return rec.MD5Hash().c_str();
++    auto MD5HashString = rec.Hashes().find("MD5Sum");
++
++    return MD5HashString ? QByteArray::fromStdString(MD5HashString->HashValue()) : "";
+ 
+ }
+ 
+ QUrl Package::changelogUrl() const
+ {
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     if (ver.end())
+         return QUrl();
+ 
+@@ -603,7 +609,7 @@ QDateTime Package::supportedUntil() cons
+ 
+ QString Package::controlField(QLatin1String name) const
+ {
+-    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     if (ver.end()) {
+         return QString();
+     }
+@@ -705,8 +711,8 @@ int Package::compareVersion(const QStrin
+ {
+     // Make deep copies of toStdString(), since otherwise they would
+     // go out of scope when we call c_str()
+-    string s1 = v1.toStdString();
+-    string s2 = v2.toStdString();
++    std::string s1 = v1.toStdString();
++    std::string s2 = v2.toStdString();
+ 
+     const char *a = s1.c_str();
+     const char *b = s2.c_str();
+@@ -995,7 +1001,7 @@ QStringList Package::recommendsList() co
+ {
+     QStringList recommends;
+ 
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if (Ver.end()) {
+         return recommends;
+@@ -1021,7 +1027,7 @@ QStringList Package::suggestsList() cons
+ {
+     QStringList suggests;
+ 
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if (Ver.end()) {
+         return suggests;
+@@ -1047,7 +1053,7 @@ QStringList Package::enhancesList() cons
+ {
+     QStringList enhances;
+ 
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if (Ver.end()) {
+         return enhances;
+@@ -1085,7 +1091,7 @@ QStringList Package::enhancedByList() co
+ 
+ QList<QApt::MarkingErrorInfo> Package::brokenReason() const
+ {
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+     QList<MarkingErrorInfo> reasons;
+ 
+     // check if there is actually something to install
+@@ -1160,7 +1166,7 @@ QList<QApt::MarkingErrorInfo> Package::b
+ 
+ bool Package::isTrusted() const
+ {
+-    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVer(d->packageIter);
++    const pkgCache::VerIterator &Ver = (*d->backend->cache()->depCache()).GetCandidateVersion(d->packageIter);
+ 
+     if (!Ver)
+         return false;
+--- a/src/worker/aptworker.cpp
++++ b/src/worker/aptworker.cpp
+@@ -37,6 +37,11 @@
+ #include <apt-pkg/init.h>
+ #include <apt-pkg/pkgrecords.h>
+ #include <apt-pkg/pkgsystem.h>
++#include <apt-pkg/progress.h>
++#include <apt-pkg/sourcelist.h>
++#include <apt-pkg/update.h>
++#include <apt-pkg/upgrade.h>
++#include <apt-pkg/versionmatch.h>
+ #include <string>
+ 
+ // System includes
+@@ -299,15 +304,14 @@ void AptWorker::updateCache()
+     acquire->setTransaction(m_trans);
+ 
+     // Initialize fetcher with our progress watcher
+-    pkgAcquire fetcher;
+-    fetcher.Setup(acquire);
++    pkgAcquire fetcher(acquire);
+ 
+     // Fetch the lists.
+     if (!ListUpdate(*acquire, *m_cache->GetSourceList())) {
+         if (!m_trans->isCancelled()) {
+             m_trans->setError(QApt::FetchError);
+ 
+-            string message;
++            std::string message;
+             while(_error->PopMessage(message))
+                 m_trans->setErrorDetails(m_trans->errorDetails() +
+                                          QString::fromStdString(message));
+@@ -417,7 +421,7 @@ bool AptWorker::markChanges()
+     {
+         // We've failed to mark the packages
+         m_trans->setError(QApt::MarkingError);
+-        string message;
++        std::string message;
+         if (_error->PopMessage(message))
+             m_trans->setErrorDetails(QString::fromStdString(message));
+ 
+@@ -430,9 +434,9 @@ bool AptWorker::markChanges()
+ void AptWorker::upgradeSystem()
+ {
+     if (m_trans->safeUpgrade())
+-        pkgAllUpgrade(*m_cache);
++        APT::Upgrade::Upgrade(*m_cache, APT::Upgrade::FORBID_REMOVE_PACKAGES | APT::Upgrade::FORBID_INSTALL_NEW_PACKAGES);
+     else
+-        pkgDistUpgrade(*m_cache);
++        APT::Upgrade::Upgrade(*m_cache, APT::Upgrade::ALLOW_EVERYTHING);
+ 
+     commitChanges();
+ }
+@@ -443,8 +447,7 @@ void AptWorker::commitChanges()
+     WorkerAcquire *acquire = new WorkerAcquire(this, 15, 50);
+     acquire->setTransaction(m_trans);
+ 
+-    pkgAcquire fetcher;
+-    fetcher.Setup(acquire);
++    pkgAcquire fetcher(acquire);
+ 
+     pkgPackageManager *packageManager;
+     packageManager = _system->CreatePM(*m_cache);
+@@ -462,7 +465,7 @@ void AptWorker::commitChanges()
+     double FetchPBytes = fetcher.PartialPresent();
+ 
+     struct statvfs Buf;
+-    string OutputDir = _config->FindDir("Dir::Cache::Archives");
++    std::string OutputDir = _config->FindDir("Dir::Cache::Archives");
+     if (statvfs(OutputDir.c_str(),&Buf) != 0) {
+         m_trans->setError(QApt::DiskSpaceError);
+         delete acquire;
+@@ -570,8 +573,7 @@ void AptWorker::downloadArchives()
+     WorkerAcquire *acquire = new WorkerAcquire(this, 15, 100);
+     acquire->setTransaction(m_trans);
+ 
+-    pkgAcquire fetcher;
+-    fetcher.Setup(acquire);
++    pkgAcquire fetcher(acquire);
+ 
+     pkgIndexFile *index;
+ 
+@@ -581,7 +583,7 @@ void AptWorker::downloadArchives()
+         if (!iter)
+             continue; // Package not found
+ 
+-        pkgCache::VerIterator ver = (*m_cache)->GetCandidateVer(iter);
++        pkgCache::VerIterator ver = (*m_cache)->GetCandidateVersion(iter);
+ 
+         if (!ver || !ver.Downloadable() || !ver.Arch())
+             continue; // Virtual package or not downloadable or broken
+@@ -594,8 +596,8 @@ void AptWorker::downloadArchives()
+         if (!m_cache->GetSourceList()->FindIndex(vf.File(), index))
+             continue;
+ 
+-        string fileName = rec.FileName();
+-        string MD5sum = rec.MD5Hash();
++        std::string fileName = rec.FileName();
++        auto hashes = rec.Hashes();
+ 
+         if (fileName.empty()) {
+             m_trans->setError(QApt::NotFoundError);
+@@ -606,7 +608,7 @@ void AptWorker::downloadArchives()
+ 
+         new pkgAcqFile(&fetcher,
+                        index->ArchiveURI(fileName),
+-                       MD5sum,
++                       hashes,
+                        ver->Size,
+                        index->ArchiveInfo(ver),
+                        ver.ParentPkg().Name(),
+--- a/src/worker/workeracquire.cpp
++++ b/src/worker/workeracquire.cpp
+@@ -35,6 +35,8 @@
+ #include "aptworker.h"
+ #include "transaction.h"
+ 
++#include <unistd.h>
++
+ using namespace std;
+ 
+ WorkerAcquire::WorkerAcquire(QObject *parent, int begin, int end)
+@@ -151,7 +153,11 @@ bool WorkerAcquire::Pulse(pkgAcquire *Ow
+             continue;
+         }
+ 
++#if APT_PKG_ABI >= 590
++        (*iter->CurrentItem).Owner->PartialSize = iter->CurrentItem->CurrentSize;
++#else
+         (*iter->CurrentItem).Owner->PartialSize = iter->CurrentSize;
++#endif
+ 
+         updateStatus(*iter->CurrentItem);
+     }
+@@ -227,8 +233,8 @@ void WorkerAcquire::updateStatus(const p
+ 
+     if (downloadStatus == QApt::DoneState && errorMsg.size())
+         message = errorMsg;
+-    else if (Itm.Owner->Mode)
+-        message = QString::fromUtf8(Itm.Owner->Mode);
++    else if (!Itm.Owner->ActiveSubprocess.empty())
++        message = QString::fromStdString(Itm.Owner->ActiveSubprocess);
+ 
+     QApt::DownloadProgress dp(URI, downloadStatus, shortDesc,
+                               fileSize, fetchedSize, message);
+--- a/src/worker/workeracquire.h
++++ b/src/worker/workeracquire.h
+@@ -41,7 +41,7 @@ public:
+     void Done(pkgAcquire::ItemDesc &Itm);
+     void Fail(pkgAcquire::ItemDesc &Itm);
+     void Stop();
+-    bool MediaChange(string Media, string Drive);
++    bool MediaChange(std::string Media, std::string Drive);
+ 
+     bool Pulse(pkgAcquire *Owner);
+ 
+--- a/src/worker/workerinstallprogress.cpp
++++ b/src/worker/workerinstallprogress.cpp
+@@ -27,6 +27,7 @@
+ #include <QDebug>
+ 
+ #include <apt-pkg/error.h>
++#include <apt-pkg/install-progress.h>
+ 
+ #include <errno.h>
+ #include <sys/statvfs.h>
+@@ -34,6 +35,7 @@
+ #include <sys/wait.h>
+ #include <sys/fcntl.h>
+ #include <pty.h>
++#include <unistd.h>
+ 
+ #include <iostream>
+ #include <stdlib.h>
+@@ -107,7 +109,8 @@ pkgPackageManager::OrderResult WorkerIns
+         // close pipe we don't need
+         close(readFromChildFD[0]);
+ 
+-        res = pm->DoInstallPostFork(readFromChildFD[1]);
++        APT::Progress::PackageManagerProgressFd progress(readFromChildFD[1]);
++        res = pm->DoInstallPostFork(&progress);
+ 
+         // dump errors into cerr (pass it to the parent process)
+         _error->DumpErrors();
+--- a/utils/qapt-deb-installer/DebInstaller.cpp
++++ b/utils/qapt-deb-installer/DebInstaller.cpp
+@@ -335,8 +335,8 @@ QApt::PackageList DebInstaller::checkCon
+                 continue;
+             }
+ 
+-            string pkgVer = pkg->version().toStdString();
+-            string depVer = info.packageVersion().toStdString();
++            std::string pkgVer = pkg->version().toStdString();
++            std::string depVer = info.packageVersion().toStdString();
+ 
+             ok = _system->VS->CheckDep(pkgVer.c_str(),
+                                        info.relationType(),
+@@ -359,7 +359,7 @@ QApt::PackageList DebInstaller::checkCon
+ QApt::Package *DebInstaller::checkBreaksSystem()
+ {
+     QApt::PackageList systemPackages = m_backend->availablePackages();
+-    string debVer = m_debFile->version().toStdString();
++    std::string debVer = m_debFile->version().toStdString();
+ 
+     foreach (QApt::Package *pkg, systemPackages) {
+         if (!pkg->isInstalled()) {
+@@ -373,7 +373,7 @@ QApt::Package *DebInstaller::checkBreaks
+                     continue;
+                 }
+ 
+-                string depVer = dep.packageVersion().toStdString();
++                std::string depVer = dep.packageVersion().toStdString();
+ 
+                 if (!_system->VS->CheckDep(debVer.c_str(), dep.relationType(),
+                                            depVer.c_str())) {
+@@ -390,7 +390,7 @@ QApt::Package *DebInstaller::checkBreaks
+                     continue;
+                 }
+ 
+-                string conflictVer = conflict.packageVersion().toStdString();
++                std::string conflictVer = conflict.packageVersion().toStdString();
+ 
+                 if (_system->VS->CheckDep(debVer.c_str(),
+                                           conflict.relationType(),
+@@ -419,11 +419,11 @@ bool DebInstaller::satisfyDepends()
+                 continue;
+             }
+ 
+-            string debVersion = dep.packageVersion().toStdString();
++            std::string debVersion = dep.packageVersion().toStdString();
+ 
+             // If we're installed, see if we already satisfy the dependency
+             if (pkg->isInstalled()) {
+-                string pkgVersion = pkg->installedVersion().toStdString();
++                std::string pkgVersion = pkg->installedVersion().toStdString();
+ 
+                 if (_system->VS->CheckDep(pkgVersion.c_str(),
+                                           dep.relationType(),
+@@ -434,7 +434,7 @@ bool DebInstaller::satisfyDepends()
+             }
+ 
+             // else check if cand ver will satisfy, then mark
+-            string candVersion = pkg->availableVersion().toStdString();
++            std::string candVersion = pkg->availableVersion().toStdString();
+ 
+             if (!_system->VS->CheckDep(candVersion.c_str(),
+                                        dep.relationType(),
