@@ -1,7 +1,7 @@
 Author: Pino Toscano <pino@debian.org>
 Description: Add missing include
  Include system headers needed for stdlib functions:
- - <unistd.h> for close()
+ - <unistd.h> for close(), sleep(), usleep()
 Last-Update: 2022-07-24
 Forwarded: no
 
@@ -16,3 +16,13 @@ Forwarded: no
  AptLock::AptLock(const QString &path)
      : m_path(path.toUtf8())
      , m_fd(-1)
+--- a/src/worker/aptworker.cpp
++++ b/src/worker/aptworker.cpp
+@@ -47,6 +47,7 @@
+ // System includes
+ #include <sys/statvfs.h>
+ #include <sys/statfs.h>
++#include <unistd.h>
+ #define RAMFS_MAGIC     0x858458f6
+ 
+ // Own includes
