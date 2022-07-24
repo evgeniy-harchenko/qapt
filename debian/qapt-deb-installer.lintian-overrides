@@ -1,2 +1,2 @@
 # doesn't need a man, is only used from scripts/internally
-qapt-deb-installer: no-manual-page usr/bin/qapt-deb-installer
+qapt-deb-installer: no-manual-page [usr/bin/qapt-deb-installer]
