@@ -1,0 +1,18 @@
+Author: Pino Toscano <pino@debian.org>
+Description: Add missing include
+ Include system headers needed for stdlib functions:
+ - <unistd.h> for close()
+Last-Update: 2022-07-24
+Forwarded: no
+
+--- a/src/worker/aptlock.cpp
++++ b/src/worker/aptlock.cpp
+@@ -23,6 +23,8 @@
+ #include <apt-pkg/error.h>
+ #include <QDebug>
+ 
++#include <unistd.h>
++
+ AptLock::AptLock(const QString &path)
+     : m_path(path.toUtf8())
+     , m_fd(-1)
