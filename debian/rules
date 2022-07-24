@@ -7,9 +7,6 @@ export DEB_LDFLAGS_MAINT_APPEND := -Wl,--as-needed
 %:
 	dh $@ --with kf5,pkgkde_symbolshelper
 
-override_dh_missing:
-	dh_missing --fail-missing
-
 override_dh_auto_test:
 	# Disable dh_auto_test
 	:
