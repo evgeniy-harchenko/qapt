@@ -1,2 +1,2 @@
 # doesn't need a manpage, is only run from scripts/internally
-libqapt3-runtime: binary-without-manpage usr/bin/qaptworker3
+libqapt3-runtime: no-manual-page usr/bin/qaptworker3
