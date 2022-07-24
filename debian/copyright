@@ -56,8 +56,7 @@ License: LGPL-2.1+3+KDEeV
  the full text of the GNU Lesser General Public License version 3 can be found
  in `/usr/share/common-licenses/LGPL-3'.
 
-Files: cmake/modules/COPYING-CMAKE-SCRIPTS
-       cmake/modules/FindAptPkg.cmake
+Files: cmake/modules/FindAptPkg.cmake
        cmake/modules/FindGLIB2.cmake
        cmake/modules/FindXapian.cmake
        cmake/modules/FindGStreamer.cmake
