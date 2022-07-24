@@ -1,7 +1,7 @@
 Source: libqapt
 Section: kde
 Priority: optional
-Maintainer: Debian/Kubuntu KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
+Maintainer: Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
 Uploaders: Pino Toscano <pino@debian.org>,
 Build-Depends: cmake (>= 2.8.12),
                debhelper-compat (= 13),
