@@ -4,3 +4,4 @@ include:
 variables:
   SALSA_CI_DISABLE_MISSING_BREAKS: 'no'
   SALSA_CI_DISABLE_RC_BUGS: 'no'
+  SALSA_CI_REPROTEST_ARGS: '--variations=-build-path'
