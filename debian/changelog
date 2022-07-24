@@ -9,7 +9,7 @@ libqapt (3.0.5-2) UNRELEASED; urgency=medium
   * Remove listed license files (cmake/modules/COPYING-CMAKE-SCRIPTS) from
     copyright.
   * Bump watch file to v4, no changes required.
-  * Switch Homepage to the current upstream repository.
+  * Switch Homepage & Source to the current upstream repository.
   * Remove the explicit as-needed linking, as it is done by binutils now.
   * Add Rules-Requires-Root: no.
   * Drop the migration from qapt-dbg, no more needed after two Debian stable

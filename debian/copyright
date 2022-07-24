@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: qapt
 Upstream-Contact: Jonathan Thomas <echidnaman@kubuntu.org>
-Source: git://anongit.kde.org/libqapt
+Source: https://invent.kde.org/system/libqapt.git
 
 Files: *
 Copyright: 2004, Canonical <mvo@debian.org>
