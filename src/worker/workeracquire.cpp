@@ -53,7 +53,7 @@ void WorkerAcquire::setTransaction(Transaction *trans)
 {
     m_trans = trans;
     if (!trans->proxy().isEmpty())
-        setenv("http_proxy", m_trans->proxy().toLatin1(), 1);
+        setenv("http_proxy", m_trans->proxy().toStdString().c_str(), 1);
 }
 
 void WorkerAcquire::Start()
@@ -107,7 +107,7 @@ void WorkerAcquire::Fail(pkgAcquire::ItemDesc &item)
         QString errorText = QString::fromStdString(item.Owner->ErrorText);
 
         m_trans->setErrorDetails(m_trans->errorDetails() % failedItem %
-                                 '\n' % errorText % "\n\n");
+                                         QChar::fromLatin1('\n') % errorText % QStringLiteral("\n\n"));
     }
 
     Update = true;

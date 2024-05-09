@@ -36,7 +36,7 @@ class TransactionErrorHandlingTest : public QObject
     
     QApt::Transaction *subject;
     
-private slots:
+private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
 

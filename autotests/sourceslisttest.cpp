@@ -76,22 +76,22 @@ void SourcesListTest::verifySourceEntry(
     
     // Verify components...
     QVERIFY2(
-        entry.components().join("!").compare(components) == 0,
+        entry.components().join(QStringLiteral("!")).compare(components) == 0,
         qPrintable(
             label
             + ": The components (joined with !) aren't \""+ components +"\", they're \""
-            + entry.components().join("!")
+            + entry.components().join(QStringLiteral("!"))
             + "\"!"
         )
     );
     
     // Verify architectures...
     QVERIFY2(
-        entry.architectures().join("!").compare(archs) == 0,
+        entry.architectures().join(QStringLiteral("!")).compare(archs) == 0,
         qPrintable(
             label
             + ": The archs (joined with !) aren't \""+ archs +"\", they're \""
-            + entry.architectures().join("!")
+            + entry.architectures().join(QStringLiteral("!"))
             + "\"!"
         )
     );
@@ -121,24 +121,24 @@ void SourcesListTest::initTestCase()
     
     // Called before the first testfunction is executed
     QString cwd = QCoreApplication::applicationDirPath();
-    sampleSourcesHasOneFile = QStringList(QString(cwd+"/data/test1.list"));
+    sampleSourcesHasOneFile = QStringList(QString(cwd+QStringLiteral("/data/test1.list")));
     sampleSourcesHasTwoFiles = QStringList(
         {
-            QString(cwd+"/data/test1.list"),
-            QString(cwd+"/data/test2.list")
+            QString(cwd+QStringLiteral("/data/test1.list")),
+            QString(cwd+QStringLiteral("/data/test2.list"))
         }
     );
     sampleSourcesHasDuplicateFiles = QStringList(
         {
-            QString(cwd+"/data/test1.list"),
-            QString(cwd+"/data/test1.list"),
-            QString(cwd+"/data/test2.list")
+            QString(cwd+QStringLiteral("/data/test1.list")),
+            QString(cwd+QStringLiteral("/data/test1.list")),
+            QString(cwd+QStringLiteral("/data/test2.list"))
         }
     );
     
     
-    outputFile = QString(cwd+"/data/write_test.list");
-    dummyFile = QString(cwd+"/data/dummy_file.list");
+    outputFile = QString(cwd+QStringLiteral("/data/write_test.list"));
+    dummyFile = QString(cwd+QStringLiteral("/data/dummy_file.list"));
 }
 
 void SourcesListTest::cleanupTestCase()
@@ -169,7 +169,7 @@ void SourcesListTest::cleanup()
 void SourcesListTest::testConstructor()
 {
     QObject parentObject;
-    parentObject.setProperty("propertyName", QString("propertyValue"));
+    parentObject.setProperty("propertyName", QStringLiteral("propertyValue"));
     
     QApt::SourcesList subjectDefaultConstructor;
     QStringList shouldntBeEmpty = subjectDefaultConstructor.sourceFiles();
@@ -181,7 +181,7 @@ void SourcesListTest::testConstructor()
         shouldntBeEmpty.count() > 0,
         qPrintable(
             "The default constructor should have given us an empty file list, but it didn't. I got these: "
-            + shouldntBeEmpty.join("!")
+            + shouldntBeEmpty.join(QStringLiteral("!"))
             + " which is "
             + QString::number(shouldntBeEmpty.count())
         )
@@ -283,7 +283,7 @@ void SourcesListTest::testLoadSourcesOneFile()
     // Now we're going to go through each of the lines in the file and verify that
     // it loaded properly...
     QVERIFY2(
-        entries[0].toString().compare("## First test") == 0,
+        entries[0].toString().compare(QStringLiteral("## First test")) == 0,
         qPrintable(
             "I was expecting \"## First test\" as the first line, but I got "
             + entries[0].toString()
@@ -291,7 +291,7 @@ void SourcesListTest::testLoadSourcesOneFile()
     );
     // A commented line is inactive and invalid
     verifySourceEntry(
-        "Line #0",
+            QStringLiteral("Line #0"),
         entries[0],
         QString(),
         QString(),
@@ -302,68 +302,68 @@ void SourcesListTest::testLoadSourcesOneFile()
         false
     );
     verifySourceEntry(
-        "Line #1",
+            QStringLiteral("Line #1"),
         entries[1],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "partner",
-        "",
+            QStringLiteral("deb"),
+            QStringLiteral("http://apttest/ubuntu"),
+            QStringLiteral("saucy"),
+            QStringLiteral("partner"),
+            QStringLiteral(""),
         true,
         true
     );
     verifySourceEntry(
-        "Line #2",
+            QStringLiteral("Line #2"),
         entries[2],
-        "deb-src",
-        "http://apttest/ubuntu",
-        "saucy",
-        "partner",
-        "",
+            QStringLiteral("deb-src"),
+            QStringLiteral("http://apttest/ubuntu"),
+            QStringLiteral("saucy"),
+            QStringLiteral("partner"),
+            QStringLiteral(""),
         true,
         true
     );
     verifySourceEntry(
-        "Line #3",
+            QStringLiteral("Line #3"),
         entries[3],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "contrib!main!partner",
-        "",
+        QStringLiteral("deb"),
+        QStringLiteral("http://apttest/ubuntu"),
+        QStringLiteral("saucy"),
+        QStringLiteral("contrib!main!partner"),
+        QStringLiteral(""),
         true,
         true
     );
     verifySourceEntry(
-        "Line #4",
+            QStringLiteral("Line #4"),
         entries[4],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "partner",
-        "i386",
+        QStringLiteral("deb"),
+        QStringLiteral("http://apttest/ubuntu"),
+        QStringLiteral("saucy"),
+        QStringLiteral("partner"),
+        QStringLiteral("i386"),
         true,
         true
     );
     verifySourceEntry(
-        "Line #5",
+            QStringLiteral("Line #5"),
         entries[5],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "partner",
-        "i386!ppc",
+        QStringLiteral("deb"),
+        QStringLiteral("http://apttest/ubuntu"),
+        QStringLiteral("saucy"),
+        QStringLiteral("partner"),
+        QStringLiteral("i386!ppc"),
         true,
         true
     );
     verifySourceEntry(
-        "Line #6",
+            QStringLiteral("Line #6"),
         entries[6],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "contrib!main!partner",
-        "i386!ppc",
+        QStringLiteral("deb"),
+        QStringLiteral("http://apttest/ubuntu"),
+        QStringLiteral("saucy"),
+        QStringLiteral("contrib!main!partner"),
+        QStringLiteral("i386!ppc"),
         true,
         true
     );

@@ -58,24 +58,24 @@ Transaction::Transaction(TransactionQueue *queue, int userId,
     , m_safeUpgrade(true)
     , m_replaceConfFile(false)
     , m_frontendCaps(QApt::NoCaps)
-    , m_dataMutex(QMutex::Recursive)
+    , m_dataMutex()
 {
     new TransactionAdaptor(this);
     QDBusConnection connection = QDBusConnection::systemBus();
 
     QString tid = QUuid::createUuid().toString();
     // Remove parts of the uuid that can't be part of a D-Bus path
-    tid.remove('{').remove('}').remove('-');
-    m_tid = "/org/kubuntu/qaptworker/transaction" + tid;
+    tid.remove(QChar::fromLatin1('{')).remove(QChar::fromLatin1('}')).remove(QChar::fromLatin1('-'));
+    m_tid = QStringLiteral("/org/kubuntu/qaptworker/transaction") + tid;
 
     if (!connection.registerObject(m_tid, this))
         qWarning() << "Unable to register transaction on DBus";
 
-    m_roleActionMap[QApt::EmptyRole] = QString("");
+    m_roleActionMap[QApt::EmptyRole] = QStringLiteral("");
     m_roleActionMap[QApt::UpdateCacheRole] = dbusActionUri("updatecache");
     m_roleActionMap[QApt::UpgradeSystemRole] = dbusActionUri("commitchanges");
     m_roleActionMap[QApt::CommitChangesRole] = dbusActionUri("commitchanges");
-    m_roleActionMap[QApt::DownloadArchivesRole] = QString("");
+    m_roleActionMap[QApt::DownloadArchivesRole] = QStringLiteral("");
     m_roleActionMap[QApt::InstallFileRole] = dbusActionUri("commitchanges");
 
     m_queue->addPending(this);
@@ -119,7 +119,7 @@ void Transaction::setRole(int role)
 
     m_role = (QApt::TransactionRole)role;
 
-    emit propertyChanged(QApt::RoleProperty, QDBusVariant(role));
+    Q_EMIT propertyChanged(QApt::RoleProperty, QDBusVariant(role));
 }
 
 int Transaction::status()
@@ -133,7 +133,7 @@ void Transaction::setStatus(QApt::TransactionStatus status)
 {
     QMutexLocker lock(&m_dataMutex);
     m_status = status;
-    emit propertyChanged(QApt::StatusProperty, QDBusVariant((int)status));
+    Q_EMIT propertyChanged(QApt::StatusProperty, QDBusVariant((int)status));
 
     if (m_status != QApt::SetupStatus && m_idleTimer) {
         m_idleTimer->stop(); // We are now queued and are no longer idle
@@ -153,7 +153,7 @@ int Transaction::error()
 void Transaction::setError(QApt::ErrorCode code)
 {
     m_error = code;
-    emit propertyChanged(QApt::ErrorProperty, QDBusVariant((int)code));
+    Q_EMIT propertyChanged(QApt::ErrorProperty, QDBusVariant((int)code));
 }
 
 QString Transaction::locale()
@@ -173,7 +173,7 @@ void Transaction::setLocale(QString locale)
     }
 
     m_locale = locale;
-    emit propertyChanged(QApt::LocaleProperty, QDBusVariant(locale));
+    Q_EMIT propertyChanged(QApt::LocaleProperty, QDBusVariant(locale));
 }
 
 QString Transaction::proxy()
@@ -193,7 +193,7 @@ void Transaction::setProxy(QString proxy)
     }
 
     m_proxy = proxy;
-    emit propertyChanged(QApt::ProxyProperty, QDBusVariant(proxy));
+    Q_EMIT propertyChanged(QApt::ProxyProperty, QDBusVariant(proxy));
 }
 
 QString Transaction::debconfPipe()
@@ -220,7 +220,7 @@ void Transaction::setDebconfPipe(QString pipe)
     }
 
     m_debconfPipe = pipe;
-    emit propertyChanged(QApt::DebconfPipeProperty, QDBusVariant(pipe));
+    Q_EMIT propertyChanged(QApt::DebconfPipeProperty, QDBusVariant(pipe));
 }
 
 QVariantMap Transaction::packages()
@@ -240,7 +240,7 @@ void Transaction::setPackages(QVariantMap packageList)
     }
 
     m_packages = packageList;
-    emit propertyChanged(QApt::PackagesProperty, QDBusVariant(packageList));
+    Q_EMIT propertyChanged(QApt::PackagesProperty, QDBusVariant(packageList));
 }
 
 bool Transaction::isCancellable()
@@ -255,7 +255,7 @@ void Transaction::setCancellable(bool cancellable)
     QMutexLocker lock(&m_dataMutex);
 
     m_isCancellable = cancellable;
-    emit propertyChanged(QApt::CancellableProperty, QDBusVariant(cancellable));
+    Q_EMIT propertyChanged(QApt::CancellableProperty, QDBusVariant(cancellable));
 }
 
 bool Transaction::isCancelled()
@@ -277,9 +277,9 @@ void Transaction::setExitStatus(QApt::ExitStatus exitStatus)
     QMutexLocker lock(&m_dataMutex);
 
     m_exitStatus = exitStatus;
-    emit propertyChanged(QApt::ExitStatusProperty, QDBusVariant(exitStatus));
+    Q_EMIT propertyChanged(QApt::ExitStatusProperty, QDBusVariant(exitStatus));
     setStatus(QApt::FinishedStatus);
-    emit finished(exitStatus);
+    Q_EMIT finished(exitStatus);
 }
 
 QString Transaction::medium()
@@ -296,7 +296,7 @@ void Transaction::setMediumRequired(const QString &label, const QString &medium)
     m_medium = medium;
     m_isPaused = true;
 
-    emit mediumRequired(label, medium);
+    Q_EMIT mediumRequired(label, medium);
 }
 
 void Transaction::setConfFileConflict(const QString &currentPath, const QString &newPath)
@@ -306,7 +306,7 @@ void Transaction::setConfFileConflict(const QString &currentPath, const QString 
     m_isPaused = true;
     m_currentConfPath = currentPath;
 
-    emit configFileConflict(currentPath, newPath);
+    Q_EMIT configFileConflict(currentPath, newPath);
 }
 
 bool Transaction::isPaused()
@@ -335,7 +335,7 @@ void Transaction::setStatusDetails(const QString &details)
     QMutexLocker lock(&m_dataMutex);
 
     m_statusDetails = details;
-    emit propertyChanged(QApt::StatusDetailsProperty, QDBusVariant(details));
+    Q_EMIT propertyChanged(QApt::StatusDetailsProperty, QDBusVariant(details));
 }
 
 int Transaction::progress()
@@ -350,7 +350,7 @@ void Transaction::setProgress(int progress)
     QMutexLocker lock(&m_dataMutex);
 
     m_progress = progress;
-    emit propertyChanged(QApt::ProgressProperty, QDBusVariant(progress));
+    Q_EMIT propertyChanged(QApt::ProgressProperty, QDBusVariant(progress));
 }
 
 QString Transaction::service() const
@@ -370,7 +370,7 @@ void Transaction::setDownloadProgress(const QApt::DownloadProgress &downloadProg
     QMutexLocker lock(&m_dataMutex);
 
     m_downloadProgress = downloadProgress;
-    emit propertyChanged(QApt::DownloadProgressProperty,
+    Q_EMIT propertyChanged(QApt::DownloadProgressProperty,
                          QDBusVariant(QVariant::fromValue((downloadProgress))));
 }
 
@@ -391,11 +391,11 @@ void Transaction::setUntrustedPackages(const QStringList &untrusted, bool prompt
     QMutexLocker lock(&m_dataMutex);
 
     m_untrusted = untrusted;
-    emit propertyChanged(QApt::UntrustedPackagesProperty, QDBusVariant(untrusted));
+    Q_EMIT propertyChanged(QApt::UntrustedPackagesProperty, QDBusVariant(untrusted));
 
     if (promptUser) {
         m_isPaused = true;
-        emit promptUntrusted(untrusted);
+        Q_EMIT promptUntrusted(untrusted);
     }
 }
 
@@ -416,7 +416,7 @@ void Transaction::setDownloadSpeed(quint64 downloadSpeed)
     QMutexLocker lock(&m_dataMutex);
 
     m_downloadSpeed = downloadSpeed;
-    emit propertyChanged(QApt::DownloadSpeedProperty, QDBusVariant(downloadSpeed));
+    Q_EMIT propertyChanged(QApt::DownloadSpeedProperty, QDBusVariant(downloadSpeed));
 }
 
 quint64 Transaction::downloadETA()
@@ -431,7 +431,7 @@ void Transaction::setETA(quint64 ETA)
     QMutexLocker lock(&m_dataMutex);
 
     m_ETA = ETA;
-    emit propertyChanged(QApt::DownloadETAProperty, QDBusVariant(ETA));
+    Q_EMIT propertyChanged(QApt::DownloadETAProperty, QDBusVariant(ETA));
 }
 
 QString Transaction::filePath()
@@ -446,7 +446,7 @@ void Transaction::setFilePath(const QString &filePath)
     QMutexLocker lock(&m_dataMutex);
 
     m_filePath = filePath;
-    emit propertyChanged(QApt::FilePathProperty, QDBusVariant(filePath));
+    Q_EMIT propertyChanged(QApt::FilePathProperty, QDBusVariant(filePath));
 }
 
 QString Transaction::errorDetails()
@@ -461,7 +461,7 @@ void Transaction::setErrorDetails(const QString &errorDetails)
     QMutexLocker lock(&m_dataMutex);
 
     m_errorDetails = errorDetails;
-    emit propertyChanged(QApt::ErrorDetailsProperty, QDBusVariant(errorDetails));
+    Q_EMIT propertyChanged(QApt::ErrorDetailsProperty, QDBusVariant(errorDetails));
 }
 
 bool Transaction::safeUpgrade() const
@@ -582,7 +582,7 @@ void Transaction::cancel()
 
     m_isCancelled = true;
     m_isPaused = false;
-    emit propertyChanged(QApt::CancelledProperty, QDBusVariant(m_isCancelled));
+    Q_EMIT propertyChanged(QApt::CancelledProperty, QDBusVariant(m_isCancelled));
 }
 
 void Transaction::provideMedium(const QString &medium)
@@ -637,5 +637,5 @@ void Transaction::setFrontendCaps(int frontendCaps)
 
 void Transaction::emitIdleTimeout()
 {
-    emit idleTimeout(this);
+    Q_EMIT idleTimeout(this);
 }

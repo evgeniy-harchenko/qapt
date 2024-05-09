@@ -50,7 +50,7 @@ public:
         , multiArchAnnotation()
     {
         // Check for Multiarch annotation.
-        QStringList parts = package.split(':');
+        QStringList parts = package.split(QChar::fromLatin1(':'));
         Q_ASSERT(parts.size() <= 2);
         if (parts.size() >= 2) {
             packageName = parts.takeFirst();

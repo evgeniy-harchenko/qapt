@@ -374,7 +374,7 @@ void Transaction::updateProgress(int progress)
 {
     if (d->progress != progress) {
         d->progress = progress;
-        emit progressChanged(d->progress);
+        Q_EMIT progressChanged(d->progress);
     }
 }
 
@@ -543,12 +543,12 @@ void Transaction::onCallFinished(QDBusPendingCallWatcher *watcher)
         {
         case QDBusError::AccessDenied:
             updateError(QApt::AuthError);
-            emit errorOccurred(QApt::AuthError);
+            Q_EMIT errorOccurred(QApt::AuthError);
             qWarning() << "auth error reply!";
             break;
         case QDBusError::NoReply:
             updateError(QApt::AuthError);
-            emit errorOccurred(QApt::AuthError);
+            Q_EMIT errorOccurred(QApt::AuthError);
             qWarning() << "No reply error!";
             break;
         default:
@@ -566,25 +566,25 @@ void Transaction::serviceOwnerChanged(QString name, QString oldOwner, QString ne
 
     if (newOwner.isEmpty() && d->exitStatus == QApt::ExitUnfinished) {
         updateError(QApt::WorkerDisappeared);
-        emit errorOccurred(QApt::WorkerDisappeared);
+        Q_EMIT errorOccurred(QApt::WorkerDisappeared);
 
         updateCancellable(false);
-        emit cancellableChanged(false);
+        Q_EMIT cancellableChanged(false);
 
         updateStatus(QApt::FinishedStatus);
-        emit statusChanged(QApt::FinishedStatus);
+        Q_EMIT statusChanged(QApt::FinishedStatus);
 
         updateExitStatus(QApt::ExitFailed);
-        emit finished(exitStatus());
+        Q_EMIT finished(exitStatus());
     }
 }
 
 void Transaction::sync()
 {
-    QString arg = QString("%1.%2").arg(QLatin1String(s_workerReverseDomainName),
+    QString arg = QStringLiteral("%1.%2").arg(QLatin1String(s_workerReverseDomainName),
                                        QLatin1String("transaction"));
     QDBusMessage call = QDBusMessage::createMethodCall(d->dbus->service(), d->tid,
-                                                       "org.freedesktop.DBus.Properties", "GetAll");
+    QStringLiteral("org.freedesktop.DBus.Properties"), QStringLiteral("GetAll"));
     call.setArguments(QList<QVariant>() << arg);
 
     QDBusReply<QVariantMap> reply = QDBusConnection::systemBus().call(call);
@@ -594,7 +594,7 @@ void Transaction::sync()
         return;
 
     for (auto iter = propertyMap.constBegin(); iter != propertyMap.constEnd(); ++iter) {
-        if (!setProperty(iter.key().toLatin1(), iter.value())) {
+        if (!setProperty(iter.key().toStdString().c_str(), iter.value())) {
             // Qt won't support arbitrary enums over dbus until "maybe Qt 6 or 7"
             // when c++11 is prevalent, so do some ugly hacks here...
             if (iter.key() == QLatin1String("role"))
@@ -608,7 +608,7 @@ void Transaction::sync()
             else if (iter.key() == QLatin1String("packages"))
                 // iter.value() for the QVariantMap is QDBusArgument, so we have to
                 // set this manually
-                setProperty(iter.key().toLatin1(), d->dbus->property(iter.key().toLatin1()));
+                setProperty(iter.key().toStdString().c_str(), d->dbus->property(iter.key().toStdString().c_str()));
             else if (iter.key() == QLatin1String("downloadProgress"))
                 updateDownloadProgress(iter.value().value<QApt::DownloadProgress>());
             else if (iter.key() == QLatin1String("frontendCaps"))
@@ -631,11 +631,11 @@ void Transaction::updateProperty(int type, const QDBusVariant &variant)
         break;
     case StatusProperty:
         updateStatus((TransactionStatus)variant.variant().toInt());
-        emit statusChanged(status());
+        Q_EMIT statusChanged(status());
         break;
     case ErrorProperty:
         updateError((ErrorCode)variant.variant().toInt());
-        emit errorOccurred(error());
+        Q_EMIT errorOccurred(error());
         break;
     case LocaleProperty:
         updateLocale(variant.variant().toString());
@@ -651,7 +651,7 @@ void Transaction::updateProperty(int type, const QDBusVariant &variant)
         break;
     case CancellableProperty:
         updateCancellable(variant.variant().toBool());
-        emit cancellableChanged(isCancellable());
+        Q_EMIT cancellableChanged(isCancellable());
         break;
     case CancelledProperty:
         updateCancelled(variant.variant().toBool());
@@ -659,18 +659,18 @@ void Transaction::updateProperty(int type, const QDBusVariant &variant)
     case ExitStatusProperty:
         updateExitStatus((ExitStatus)variant.variant().toInt());
         if (exitStatus() != QApt::ExitUnfinished)
-            emit finished(exitStatus());
+            Q_EMIT finished(exitStatus());
         break;
     case PausedProperty:
         updatePaused(variant.variant().toBool());
         if (isPaused())
-            emit paused();
+            Q_EMIT paused();
         else
-            emit resumed();
+            Q_EMIT resumed();
         break;
     case StatusDetailsProperty:
         updateStatusDetails(variant.variant().toString());
-        emit statusDetailsChanged(statusDetails());
+        Q_EMIT statusDetailsChanged(statusDetails());
         break;
     case ProgressProperty:
         updateProgress(variant.variant().toInt());
@@ -681,7 +681,7 @@ void Transaction::updateProperty(int type, const QDBusVariant &variant)
         arg >> prog;
 
         updateDownloadProgress(prog);
-        emit downloadProgressChanged(downloadProgress());
+        Q_EMIT downloadProgressChanged(downloadProgress());
         break;
     }
     case UntrustedPackagesProperty:
@@ -689,11 +689,11 @@ void Transaction::updateProperty(int type, const QDBusVariant &variant)
         break;
     case DownloadSpeedProperty:
         updateDownloadSpeed(variant.variant().toULongLong());
-        emit downloadSpeedChanged(downloadSpeed());
+        Q_EMIT downloadSpeedChanged(downloadSpeed());
         break;
     case DownloadETAProperty:
         updateDownloadETA(variant.variant().toULongLong());
-        emit downloadETAChanged(downloadETA());
+        Q_EMIT downloadETAChanged(downloadETA());
         break;
     case FilePathProperty:
         updateFilePath(variant.variant().toString());
@@ -711,7 +711,7 @@ void Transaction::updateProperty(int type, const QDBusVariant &variant)
 
 void Transaction::emitFinished(int exitStatus)
 {
-    emit finished((QApt::ExitStatus)exitStatus);
+    Q_EMIT finished((QApt::ExitStatus)exitStatus);
 }
 
 }

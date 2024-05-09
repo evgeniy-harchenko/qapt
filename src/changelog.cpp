@@ -21,7 +21,7 @@
 #include "changelog.h"
 
 // Qt includes
-#include <QRegExp>
+#include <QtCore/QRegularExpression>
 #include <QSharedData>
 #include <QStringBuilder>
 #include <QStringList>
@@ -68,46 +68,51 @@ public:
 
 void ChangelogEntryPrivate::parseData(const QString &sourcePackage)
 {
-    QStringList lines = data.split('\n');
-    QRegExp rxInfo(QString("^%1 \\((.*)\\)(.*)$").arg(QRegExp::escape(sourcePackage)));
+    QStringList lines = data.split(QChar::fromLatin1('\n'));
+    QRegularExpression rxInfo(QStringLiteral("^%1 \\((.*)\\)(.*)$").arg(QRegularExpression::escape(sourcePackage)));
+    QRegularExpressionMatch infoMatch;
 
     QString versionLine = lines.first();
     lines.removeFirst();
-    rxInfo.indexIn(versionLine);
+    versionLine.indexOf(rxInfo, 0, &infoMatch);
 
-    QStringList list = rxInfo.capturedTexts();
+    QStringList list = infoMatch.capturedTexts();
     if (list.count() > 1) {
         version = list.at(1);
     }
 
-    foreach (const QString &line, lines) {
+    for (const QString &line: lines) {
         // Populate description
         if (line.startsWith(QLatin1String("  "))) {
-            description.append(line % '\n');
+            description.append(line % QChar::fromLatin1('\n'));
 
             // Grab CVEs
-            QRegExp rxCVE("CVE-\\d{4}-\\d{4}");
-            rxCVE.indexIn(line);
-            QStringList cveMatches = rxCVE.capturedTexts();
+            QRegularExpression rxCVE(QStringLiteral("CVE-\\d{4}-\\d{4}"));
+            QRegularExpressionMatch cveMatch;
+            if (line.indexOf(rxCVE, 0, &cveMatch) != -1) {
+                QStringList cveMatches = cveMatch.capturedTexts();
 
-            for (const QString &match : cveMatches)
-            {
-                if (!match.isEmpty())
-                    CVEUrls += QString("http://web.nvd.nist.gov/view/vuln/detail?vulnId=%1;%1").arg(match);
+                for (const QString &match: cveMatches) {
+                    if (!match.isEmpty())
+                        CVEUrls += QStringLiteral("http://web.nvd.nist.gov/view/vuln/detail?vulnId=%1;%1").arg(match);
+                }
             }
-
             continue;
         }
 
-        QRegExp rxDate("^ -- (.+) (<.+>)  (.+)$");
-        rxDate.indexIn(line);
-        list = rxDate.capturedTexts();
+        QRegularExpression rxDate(QStringLiteral("^ -- (.+) (<.+>)  (.+)$"));
+        QRegularExpressionMatch dateMatch;
 
-        if (list.count() > 1) {
-            time_t issueTime = -1;
-            if (RFC1123StrToTime(list.at(3).toUtf8().data(), issueTime)) {
-                issueDate = QDateTime::fromTime_t(issueTime);
-                break;
+        if (line.indexOf(rxDate, 0, &dateMatch) != -1) {
+            list = dateMatch.capturedTexts();
+
+            if (list.count() > 1) {
+                time_t issueTime = -1;
+                if (RFC1123StrToTime(list.at(3).toUtf8().data(), issueTime)) {
+                    issueDate = QDateTime::fromMSecsSinceEpoch((qint64) issueTime * 1000, Qt::LocalTime);
+                    //issueDate = QDateTime::fromTime_t(issueTime);
+                    break;
+                }
             }
         }
     }
@@ -219,9 +224,9 @@ ChangelogEntryList Changelog::entries() const
     ChangelogEntryList entries;
     QStringList entryTexts;
 
-    foreach (const QString &line, d->data.split('\n')) {
+    for (const QString &line: d->data.split(QChar::fromLatin1('\n'))) {
         if (line.startsWith(d->sourcePackage)) {
-            entryTexts.append(line % '\n');
+            entryTexts.append(line % QChar::fromLatin1('\n'));
             continue;
         }
 
@@ -231,7 +236,7 @@ ChangelogEntryList Changelog::entries() const
         }
         QString curEntry = entryTexts.at(curIndex);
 
-        curEntry.append(line % '\n');
+        curEntry.append(line % QChar::fromLatin1('\n'));
         entryTexts[curIndex] = curEntry;
     }
 

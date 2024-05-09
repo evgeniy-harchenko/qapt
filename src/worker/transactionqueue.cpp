@@ -165,5 +165,5 @@ void TransactionQueue::emitQueueChanged()
     for (Transaction *trans : m_queue)
         queued << trans->transactionId();
 
-    emit queueChanged(tid, queued);
+    Q_EMIT queueChanged(tid, queued);
 }

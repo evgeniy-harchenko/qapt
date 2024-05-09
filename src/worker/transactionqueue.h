@@ -47,17 +47,17 @@ private:
     Transaction *pendingTransactionById(const QString &id) const;
     Transaction *transactionById(const QString &id) const;
     
-signals:
+Q_SIGNALS:
     void queueChanged(const QString &active,
                       const QStringList &queued);
 
-public slots:
+public Q_SLOTS:
     void addPending(Transaction *trans);
     void removePending(Transaction *trans);
     void enqueue(QString tid);
     void remove(QString tid);
 
-private slots:
+private Q_SLOTS:
     void onTransactionFinished();
     void runNextTransaction();
     void emitQueueChanged();

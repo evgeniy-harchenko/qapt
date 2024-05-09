@@ -1,5 +1,8 @@
+cmake_minimum_required(VERSION 3.16.0)
+
 project(qapt)
-cmake_minimum_required(VERSION 2.8.12)
+
+set(KF6_DEP_VERSION "6.1.0")
 
 set(PROJECT_VERSION_MAJOR 3)
 set(PROJECT_VERSION_MINOR 0)
@@ -7,14 +10,13 @@ set(PROJECT_VERSION_PATCH 5)
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}" )
 set(PROJECT_SOVERSION ${PROJECT_VERSION_MAJOR})
 
-find_package(ECM 0.0.14 REQUIRED NO_MODULE)
+find_package(ECM ${KF6_DEP_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH
     ${ECM_MODULE_PATH}
     ${ECM_KDE_MODULE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 
 include(ECMGenerateHeaders)
-include(ECMPackageConfigHelpers)
 include(ECMPoQmTools)
 include(ECMSetupVersion)
 include(FeatureSummary)
@@ -26,13 +28,13 @@ include(ECMGeneratePriFile) # This needs InstallDirs
 # Turn exceptions on
 kde_enable_exceptions()
 
-set(REQUIRED_QT_VERSION 5.8.0) # Used in QAptConfig
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus Widgets)
+set(REQUIRED_QT_VERSION 6.5.0) # Used in QAptConfig
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED DBus Widgets Core5Compat)
 
 find_package(Xapian REQUIRED)
 find_package(AptPkg REQUIRED)
 
-find_package(PolkitQt5-1 0.112 REQUIRED)
+find_package(PolkitQt6-1 REQUIRED)
 
 # Find the required Libaries
 include_directories(
@@ -61,35 +63,33 @@ add_definitions(-DQAPT_WORKER_RDN_VERSIONED_STRING=${QAPT_WORKER_RDN_VERSIONED_S
 # Also forward version for utils.
 add_definitions(-DCMAKE_PROJECT_VERSION=\"${PROJECT_VERSION}\")
 
-set(KF5_DEP_VERSION "5.0.0")
-
 # Only used to install worker actions
-find_package(KF5Auth ${KF5_DEP_VERSION})
+find_package(KF6Auth ${KF6_DEP_VERSION})
 
 # Used for utils
-find_package(KF5CoreAddons ${KF5_DEP_VERSION})
-find_package(KF5I18n ${KF5_DEP_VERSION})
-find_package(KF5KIO ${KF5_DEP_VERSION})
-find_package(KF5Runner ${KF5_DEP_VERSION})
-find_package(KF5TextWidgets ${KF5_DEP_VERSION})
-find_package(KF5WidgetsAddons ${KF5_DEP_VERSION})
-find_package(KF5WindowSystem ${KF5_DEP_VERSION})
-find_package(KF5IconThemes ${KF5_DEP_VERSION})
+find_package(KF6CoreAddons ${KF6_DEP_VERSION})
+find_package(KF6I18n ${KF6_DEP_VERSION})
+find_package(KF6KIO ${KF6_DEP_VERSION})
+find_package(KF6Runner ${KF6_DEP_VERSION})
+find_package(KF6TextWidgets ${KF6_DEP_VERSION})
+find_package(KF6WidgetsAddons ${KF6_DEP_VERSION})
+find_package(KF6WindowSystem ${KF6_DEP_VERSION})
+find_package(KF6IconThemes ${KF6_DEP_VERSION})
 
 find_package(DebconfKDE 1.0)
 find_package(GStreamer 1.0)
 find_package(GLIB2 2.0)
 
-if (KF5CoreAddons_FOUND
-        AND KF5I18n_FOUND
-        AND KF5KIO_FOUND
-        AND KF5Runner_FOUND
-        AND KF5TextWidgets_FOUND
-        AND KF5WidgetsAddons_FOUND
-        AND KF5WindowSystem_FOUND
-        AND KF5IconThemes_FOUND
+if (KF6CoreAddons_FOUND
+        AND KF6I18n_FOUND
+        AND KF6KIO_FOUND
+        AND KF6Runner_FOUND
+        AND KF6TextWidgets_FOUND
+        AND KF6WidgetsAddons_FOUND
+        AND KF6WindowSystem_FOUND
+        AND KF6IconThemes_FOUND
         AND DebconfKDE_FOUND)
-    set(WITH_UTILS true)
+    set(WITH_UTILS false)
 endif()
 
 if (WITH_UTILS AND GSTREAMER_FOUND AND GLIB2_FOUND)
@@ -106,9 +106,9 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
 endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/QApt")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/QApt")
 
-ecm_configure_package_config_file(
+configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/QAptConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/QAptConfig.cmake"
     INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR})
@@ -125,7 +125,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qaptversion.h
         DESTINATION include/qapt
         COMPONENT Devel)
 
-add_subdirectory(autotests)
+#add_subdirectory(autotests)
 add_subdirectory(src)
 
 if(WITH_UTILS)

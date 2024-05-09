@@ -101,7 +101,7 @@ private:
      */
     void downloadArchives();
     
-public slots:
+public Q_SLOTS:
     /**
      * Initializes the worker's package system. This is done lazily to allow
      * the object to first be put in to another thread.
@@ -124,7 +124,7 @@ public slots:
      */
     void quit();
 
-private slots:
+private Q_SLOTS:
     void dpkgStarted();
     void updateDpkgProgress();
     void dpkgFinished(int exitCode, QProcess::ExitStatus exitStatus);

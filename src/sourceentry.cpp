@@ -75,31 +75,31 @@ void SourceEntryPrivate::parseData(const QString &data)
     QString tData = data.simplified();
 
     // Check for nonvalid input
-    if (tData.isEmpty() || tData == QChar('#')) {
+    if (tData.isEmpty() || tData == QChar(QChar::fromLatin1('#'))) {
         isValid = false;
         return;
     }
 
     // Check source enable state
-    if (tData.at(0) == '#') {
+    if (tData.at(0) == QChar::fromLatin1('#')) {
         isEnabled = false;
     }
     // Handle multiple comment characters (hey, it happens!)
-    while (tData.size() > 0 && tData.at(0) == '#') {
+    while (tData.size() > 0 && tData.at(0) == QChar::fromLatin1('#')) {
         // Remove starting '#' from tData
         tData = tData.remove(0, 1);
         tData = tData.trimmed();
     }
 
     // Find any #'s past the start (these are comments)
-    int idx = tData.indexOf('#');
+    int idx = tData.indexOf(QChar::fromLatin1('#'));
     if (idx > 0) {
         // Save the comment, then remove from tData
         comment = tData.right(tData.size() - idx - 1);
         tData.remove(idx, tData.size() - idx + 1);
     }
 
-    const QRegularExpression rx("^([a-z\\-]+) *");
+    const QRegularExpression rx(QStringLiteral("^([a-z\\-]+) *"));
     QRegularExpressionMatch match = rx.match(tData);
 
     // Parse type
@@ -112,11 +112,11 @@ void SourceEntryPrivate::parseData(const QString &data)
     
     int start = match.capturedEnd(), end = tData.size();
     // Parse architecture, see https://wiki.debian.org/Multiarch/HOWTO, Setting up sources
-    if (tData[start] == '[') {
-        QString metadata = tData.mid(start+1, tData.indexOf(']')-start-1);
-        QStringList options = metadata.split(';');
+    if (tData[start] == QChar::fromLatin1('[')) {
+        QString metadata = tData.mid(start+1, tData.indexOf(QChar::fromLatin1(']'))-start-1);
+        QStringList options = metadata.split(QChar::fromLatin1(';'));
         for (const QString &option : options) {
-            QStringList parts = option.split('=');
+            QStringList parts = option.split(QChar::fromLatin1('='));
 
             if (parts.size() != 2) {
                 isValid = false;
@@ -130,11 +130,11 @@ void SourceEntryPrivate::parseData(const QString &data)
             }
 
             QString value = parts.at(1);
-            architectures = value.split(',');
+            architectures = value.split(QChar::fromLatin1(','));
         }
         
         start+=metadata.size()+2;
-        for (; tData[start] == ' '; ++start)
+        for (; tData[start] == QChar::fromLatin1(' '); ++start)
         {}
     }
     
@@ -161,7 +161,7 @@ void SourceEntryPrivate::parseData(const QString &data)
         return;
     }
 
-    QStringList pieces = tData.mid(start).split(' ', QString::SkipEmptyParts);
+    QStringList pieces = tData.mid(start).split(QChar::fromLatin1(' '), Qt::SkipEmptyParts);
     if (pieces.isEmpty()) {
         // Invalid source entry
         isValid = false;
@@ -281,12 +281,12 @@ QString SourceEntry::toString() const
     line += d->type;
 
     if (!d->architectures.isEmpty())
-        line += QString(" [arch=%1]").arg(d->architectures.join(QChar(',')));
+        line += QStringLiteral(" [arch=%1]").arg(d->architectures.join(QChar::fromLatin1(',')));
 
-    line += ' ' % d->uri % ' ' % d->dist;
+    line += QChar::fromLatin1(' ') % d->uri % QChar::fromLatin1(' ') % d->dist;
 
     if (!d->components.isEmpty())
-        line += ' ' + d->components.join(QChar(' '));
+        line += QChar::fromLatin1(' ') + d->components.join(QChar::fromLatin1(' '));
 
     if (!d->comment.isEmpty())
         line += QLatin1String(" #") % d->comment;
@@ -306,7 +306,7 @@ void SourceEntry::setEnabled(bool isEnabled)
         d->line.remove(0, 1);
     } else {
         // Add #
-        d->line.prepend('#');
+        d->line.prepend(QChar::fromLatin1('#'));
     }
 }
 

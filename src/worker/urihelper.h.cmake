@@ -12,7 +12,7 @@ static const char s_workerReverseDomainName[] = @QAPT_WORKER_RDN_VERSIONED_STRIN
 
 static QString dbusActionUri(const char *actionId)
 {
-    return QString("%1.%2").arg(QLatin1String(s_workerReverseDomainName),
+    return QStringLiteral("%1.%2").arg(QLatin1String(s_workerReverseDomainName),
                                 QLatin1String(actionId));
 }
 

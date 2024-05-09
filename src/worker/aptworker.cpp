@@ -657,7 +657,7 @@ void AptWorker::installFile()
 
     m_dpkgProcess = new QProcess(this);
     QString program = QLatin1String("dpkg") %
-            QLatin1String(" -i ") % '"' % m_trans->filePath() % '"';
+            QLatin1String(" -i ") % QChar::fromLatin1('"') % m_trans->filePath() % QChar::fromLatin1('"');
     setenv("PATH", "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", 1);
     setenv("DEBIAN_FRONTEND", "passthrough", 1);
     setenv("DEBCONF_PIPE", "/tmp/qapt-sock", 1);
@@ -675,7 +675,7 @@ void AptWorker::dpkgStarted()
 
 void AptWorker::updateDpkgProgress()
 {
-    QString str = m_dpkgProcess->readLine();
+    QString str = QString::fromUtf8(m_dpkgProcess->readLine());
 
     m_trans->setStatusDetails(str);
 }
@@ -684,7 +684,7 @@ void AptWorker::dpkgFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitCode != 0 || exitStatus != QProcess::NormalExit) {
         m_trans->setError(QApt::CommitError);
-        m_trans->setErrorDetails(m_dpkgProcess->readAllStandardError());
+        m_trans->setErrorDetails(QString::fromUtf8(m_dpkgProcess->readAllStandardError()));
     }
 
     m_dpkgProcess->deleteLater();

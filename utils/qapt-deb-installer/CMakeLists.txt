@@ -17,4 +17,4 @@ target_link_libraries(qapt-deb-installer
     QApt::Main)
 
 install(TARGETS qapt-deb-installer ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(PROGRAMS qapt-deb-installer.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(PROGRAMS qapt-deb-installer.desktop  DESTINATION ${KDE_INSTALL_APPDIR})

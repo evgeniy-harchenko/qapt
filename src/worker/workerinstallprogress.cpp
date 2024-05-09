@@ -57,7 +57,7 @@ WorkerInstallProgress::WorkerInstallProgress(int begin, int end)
 void WorkerInstallProgress::setTransaction(Transaction *trans)
 {
     m_trans = trans;
-    std::setlocale(LC_ALL, m_trans->locale().toLatin1());
+    std::setlocale(LC_ALL, m_trans->locale().toStdString().c_str());
 
     // FIXME: bloody workaround.
     //        Since QLocale::system and consequently QTextCodec::forLocale is
@@ -70,14 +70,14 @@ void WorkerInstallProgress::setTransaction(Transaction *trans)
     //        Ultimately transactions should get new properties for QLocale::name
     //        and QTextCodec::name, assuming generally meaningful values we can
     //        through those properties accurately recreate the client locale env.
-    if (m_trans->locale().contains(QChar('.'))) {
-        QTextCodec *codec = QTextCodec::codecForName(m_trans->locale().split(QChar('.')).last().toUtf8());
+    if (m_trans->locale().contains(QChar::fromLatin1('.'))) {
+        QTextCodec *codec = QTextCodec::codecForName(m_trans->locale().split(QChar::fromLatin1('.')).last().toUtf8());
         QTextCodec::setCodecForLocale(codec);
     }
 
     if ((trans->frontendCaps() & QApt::DebconfCap) && !trans->debconfPipe().isEmpty()) {
         setenv("DEBIAN_FRONTEND", "passthrough", 1);
-        setenv("DEBCONF_PIPE", trans->debconfPipe().toLatin1(), 1);
+        setenv("DEBCONF_PIPE", trans->debconfPipe().toStdString().c_str(), 1);
     } else {
         setenv("DEBIAN_FRONTEND", "noninteractive", 1);
     }
@@ -166,7 +166,7 @@ void WorkerInstallProgress::updateInterface(int fd, int writeFd)
             // If str legitimately had a ':' in it (such as a package version)
             // we need to retrieve the next string in the list.
             if (list.count() == 5) {
-                str += QString(':' % list.at(4));
+                str += QString(QChar::fromLatin1(':') % list.at(4));
             }
 
             if (package.isEmpty() || status.isEmpty()) {
@@ -175,12 +175,12 @@ void WorkerInstallProgress::updateInterface(int fd, int writeFd)
 
             if (status.contains(QLatin1String("pmerror"))) {
                 // Append error string to existing error details
-                m_trans->setErrorDetails(m_trans->errorDetails() % package % '\n' % str % "\n\n");
+                m_trans->setErrorDetails(m_trans->errorDetails() % package % QChar::fromLatin1('\n') % str % QStringLiteral("\n\n"));
             } else if (status.contains(QLatin1String("pmconffile"))) {
                 // From what I understand, the original file starts after the ' character ('\'') and
                 // goes to a second ' character. The new conf file starts at the next ' and goes to
                 // the next '.
-                QStringList strList = str.split('\'');
+                QStringList strList = str.split(QChar::fromLatin1('\''));
                 QString oldFile = strList.at(1);
                 QString newFile = strList.at(2);
 

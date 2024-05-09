@@ -32,6 +32,7 @@
 #include <QStringList>
 #include <QTemporaryFile>
 #include <QTextStream>
+#include <QtCore/QRegularExpression>
 
 // Apt includes
 #include <apt-pkg/algorithms.h>
@@ -106,7 +107,7 @@ pkgCache::PkgFileIterator PackagePrivate::searchPkgFileIter(QLatin1String label,
                 const char *verOrigin = found.Origin();
                 const char *verArchive = found.Archive();
                 if (verLabel && verOrigin && verArchive) {
-                    if(verLabel == label && verOrigin == label &&
+                    if(QString::fromUtf8(verLabel) == label && QString::fromUtf8(verOrigin) == label &&
                        QLatin1String(verArchive) == release) {
                         return found;
                     }
@@ -266,7 +267,7 @@ QString Package::longDescription() const
         rawDescription = QString::fromUtf8(parser.LongDesc().data());
         // Apt acutally returns the whole description, we just want the
         // extended part.
-        rawDescription.remove(shortDescription() % '\n');
+        rawDescription.remove(shortDescription() % QChar::fromLatin1('\n'));
         // *Now* we're really raw. Sort of. ;)
 
         QString parsedDescription;
@@ -274,14 +275,14 @@ QString Package::longDescription() const
         QStringList sections = rawDescription.split(QLatin1String("\n ."));
 
         for (int i = 0; i < sections.count(); ++i) {
-            sections[i].replace(QRegExp(QLatin1String("\n( |\t)+(-|\\*)")),
+            sections[i].replace(QRegularExpression(QLatin1String("\n( |\t)+(-|\\*)")),
                                 QLatin1String("\n\r ") % QString::fromUtf8("\xE2\x80\xA2"));
             // There should be no new lines within a section.
             sections[i].remove(QLatin1Char('\n'));
             // Hack to get the lists working again.
             sections[i].replace(QLatin1Char('\r'), QLatin1Char('\n'));
             // Merge multiple whitespace chars into one
-            sections[i].replace(QRegExp(QLatin1String("\\ \\ +")), QChar::fromLatin1(' '));
+            sections[i].replace(QRegularExpression(QLatin1String("\\ \\ +")), QChar::fromLatin1(' '));
             // Remove the initial whitespace
             if (sections[i].startsWith(QChar::Space)) {
                 sections[i].remove(0, 1);
@@ -393,7 +394,7 @@ QStringList Package::availableVersions() const
                 ? QLatin1String(File.Archive())
                 : QLatin1String(File.Site());
         versions.append(QLatin1String(Ver.VerStr()) % QLatin1String(" (") %
-                        archive % ')');
+                        archive % QChar::fromLatin1(')'));
     }
 
     return versions;
@@ -434,7 +435,7 @@ QStringList Package::installedFilesList() const
 
     // Fallback for multiarch packages
     if (!QFile::exists(path)) {
-        path = QLatin1String("/var/lib/dpkg/info/") % name() % ':' %
+        path = QLatin1String("/var/lib/dpkg/info/") % name() % QChar::fromLatin1(':') %
                              architecture() % QLatin1String(".list");
     }
 
@@ -454,7 +455,7 @@ QStringList Package::installedFilesList() const
 
         // Remove non-file directory listings
         for (int i = 0; i < installedFilesList.size() - 1; ++i) {
-            if (installedFilesList.at(i+1).contains(installedFilesList.at(i) + '/')) {
+            if (installedFilesList.at(i+1).contains(installedFilesList.at(i) + QChar::fromLatin1('/'))) {
                 installedFilesList[i] = QString(QLatin1Char(' '));
             }
         }
@@ -512,12 +513,12 @@ QString Package::component() const
     if(sect.isEmpty())
         return QString();
 
-    QStringList split = sect.split('/');
+    QStringList split = sect.split(QChar::fromLatin1('/'));
 
     if (split.count() > 1)
         return split.first();
 
-    return QString("main");
+    return QStringLiteral("main");
 }
 
 QByteArray Package::md5Sum() const
@@ -546,7 +547,7 @@ QUrl Package::changelogUrl() const
     // pkgAcqChangelog::URI(ver) may return URIs with schemes other than http(s)
     // e.g. copy:// gzip:// for local files. We exclude them for backward
     // compatibility with libQApt <= 3.0.3.
-    if (!url.startsWith("http"))
+    if (!url.startsWith(QStringLiteral("http")))
         return QUrl();
 
     return QUrl(url);
@@ -559,12 +560,12 @@ QUrl Package::screenshotUrl(QApt::ScreenshotType type) const
         case QApt::Thumbnail:
             url = QUrl(controlField(QLatin1String("Thumbnail-Url")));
             if(url.isEmpty())
-                url = QUrl("http://screenshots.debian.net/thumbnail/" % name());
+                url = QUrl(QStringLiteral("http://screenshots.debian.net/thumbnail/") % name());
             break;
         case QApt::Screenshot:
             url = QUrl(controlField(QLatin1String("Screenshot-Url")));
             if(url.isEmpty())
-                url = QUrl("http://screenshots.debian.net/screenshot/" % name());
+                url = QUrl(QStringLiteral("http://screenshots.debian.net/screenshot/") % name());
             break;
         default:
             qDebug() << "I do not know how to handle the screenshot type given to me: " << QString::number(type);
@@ -789,7 +790,7 @@ bool Package::isInUpdatePhase() const
     if (machineId.isNull()) {
         QFile file(QStringLiteral("/var/lib/dbus/machine-id"));
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            machineId = file.readLine().trimmed();
+            machineId = QString::fromUtf8(file.readLine().trimmed());
         }
     }
 
@@ -868,47 +869,47 @@ bool Package::isForeignArch() const
 
 QList<DependencyItem> Package::depends() const
 {
-    return DependencyInfo::parseDepends(controlField("Depends"), Depends);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Depends")), Depends);
 }
 
 QList<DependencyItem> Package::preDepends() const
 {
-    return DependencyInfo::parseDepends(controlField("Pre-Depends"), PreDepends);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Pre-Depends")), PreDepends);
 }
 
 QList<DependencyItem> Package::suggests() const
 {
-    return DependencyInfo::parseDepends(controlField("Suggests"), Suggests);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Suggests")), Suggests);
 }
 
 QList<DependencyItem> Package::recommends() const
 {
-    return DependencyInfo::parseDepends(controlField("Recommends"), Recommends);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Recommends")), Recommends);
 }
 
 QList<DependencyItem> Package::conflicts() const
 {
-    return DependencyInfo::parseDepends(controlField("Conflicts"), Conflicts);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Conflicts")), Conflicts);
 }
 
 QList<DependencyItem> Package::replaces() const
 {
-    return DependencyInfo::parseDepends(controlField("Replaces"), Replaces);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Replaces")), Replaces);
 }
 
 QList<DependencyItem> Package::obsoletes() const
 {
-    return DependencyInfo::parseDepends(controlField("Obsoletes"), Obsoletes);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Obsoletes")), Obsoletes);
 }
 
 QList<DependencyItem> Package::breaks() const
 {
-    return DependencyInfo::parseDepends(controlField("Breaks"), Breaks);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Breaks")), Breaks);
 }
 
 QList<DependencyItem> Package::enhances() const
 {
-    return DependencyInfo::parseDepends(controlField("Enhance"), Enhances);
+    return DependencyInfo::parseDepends(controlField(QStringLiteral("Enhance")), Enhances);
 }
 
 QStringList Package::dependencyList(bool useCandidateVersion) const
@@ -1090,7 +1091,7 @@ QStringList Package::enhancedByList() const
 {
     QStringList enhancedByList;
 
-    Q_FOREACH (QApt::Package *package, d->backend->availablePackages()) {
+    for (QApt::Package *package: d->backend->availablePackages()) {
         if (package->enhancesList().contains(name())) {
             enhancedByList << package->name();
         }
@@ -1135,8 +1136,8 @@ QList<QApt::MarkingErrorInfo> Package::brokenReason() const
 
             QString requiredVersion;
             if(Start.TargetVer() != 0) {
-                requiredVersion = '(' % QLatin1String(Start.CompType())
-                                  % QLatin1String(Start.TargetVer()) % ')';
+                requiredVersion = QChar::fromLatin1('(') % QLatin1String(Start.CompType())
+                                  % QLatin1String(Start.TargetVer()) % QChar::fromLatin1(')');
             }
 
             if (!Ver.end()) {

@@ -169,9 +169,9 @@ QDateTime BackendPrivate::getReleaseDateFromArchive(const QString &releaseId, co
     // `-security` the Date gets updated throughout the life of the release.
     pkgCache::RlsFileIterator rls;
     for (rls = depCache->GetCache().RlsFileBegin(); !rls.end(); ++rls) {
-        if (rls.Origin() == releaseId
-                && rls.Label() == releaseId
-                && rls.Archive() == releaseCodename) {
+        if (QString::fromUtf8(rls.Origin()) == releaseId
+                && QString::fromUtf8(rls.Label()) == releaseId
+                && QString::fromUtf8(rls.Archive()) == releaseCodename) {
 
             FileFd fd;
             if (!OpenMaybeClearSignedFile(rls.FileName(), fd)) {
@@ -246,7 +246,7 @@ bool Backend::reloadCache()
 {
     Q_D(Backend);
 
-    emit cacheReloadStarted();
+    Q_EMIT cacheReloadStarted();
 
     if (!d->cache->open()) {
         setInitError();
@@ -319,7 +319,7 @@ bool Backend::reloadCache()
 
     loadReleaseDate();
 
-    emit cacheReloadFinished();
+    Q_EMIT cacheReloadFinished();
 
     return true;
 }
@@ -345,7 +345,7 @@ void Backend::loadPackagePins()
 
     for (const QString &pinName : pinFiles) {
         // Make all paths absolute
-        QString pinPath = pinName.startsWith('/') ? pinName : dir % pinName;
+        QString pinPath = pinName.startsWith(QChar::fromLatin1('/')) ? pinName : dir % pinName;
 
         if (!QFile::exists(pinPath))
                 continue;
@@ -790,7 +790,7 @@ QDateTime Backend::timeCacheLastUpdated() const
 {
     QDateTime sinceUpdate;
 
-    QFileInfo updateStamp("/var/lib/apt/periodic/update-success-stamp");
+    QFileInfo updateStamp(QStringLiteral("/var/lib/apt/periodic/update-success-stamp"));
     if (!updateStamp.exists())
         return sinceUpdate;
 
@@ -802,9 +802,9 @@ bool Backend::xapianIndexNeedsUpdate() const
     Q_D(const Backend);
 
     // If the cache has been modified after the xapian timestamp, we need to rebuild
-    QDateTime aptCacheTime = QFileInfo(d->config->findFile("Dir::Cache::pkgcache")).lastModified();
+    QDateTime aptCacheTime = QFileInfo(d->config->findFile(QStringLiteral("Dir::Cache::pkgcache"))).lastModified();
 
-    return ((d->xapianTimeStamp < aptCacheTime.toTime_t()) || (!d->xapianIndexExists));
+    return ((d->xapianTimeStamp < aptCacheTime.toSecsSinceEpoch()) || (!d->xapianIndexExists));
 }
 
 bool Backend::openXapianIndex()
@@ -812,7 +812,7 @@ bool Backend::openXapianIndex()
     Q_D(Backend);
 
     QFileInfo timeStamp(QLatin1String("/var/lib/apt-xapian-index/update-timestamp"));
-    d->xapianTimeStamp = timeStamp.lastModified().toTime_t();
+    d->xapianTimeStamp = timeStamp.lastModified().toSecsSinceEpoch();
 
     if(d->xapianDatabase) {
         delete d->xapianDatabase;
@@ -961,7 +961,7 @@ void Backend::restoreCacheState(const CacheState &state)
         deps->MarkAuto(pkg->packageIterator(), (oldflags & Package::IsAuto));
     }
 
-    emit packageChanged();
+    Q_EMIT packageChanged();
 }
 
 void Backend::setUndoRedoCacheSize(int newSize)
@@ -1027,7 +1027,7 @@ void Backend::markPackagesForUpgrade()
     Q_D(Backend);
 
     APT::Upgrade::Upgrade(*d->cache->depCache(), APT::Upgrade::FORBID_REMOVE_PACKAGES | APT::Upgrade::FORBID_INSTALL_NEW_PACKAGES);
-    emit packageChanged();
+    Q_EMIT packageChanged();
 }
 
 void Backend::markPackagesForDistUpgrade()
@@ -1035,7 +1035,7 @@ void Backend::markPackagesForDistUpgrade()
     Q_D(Backend);
 
     APT::Upgrade::Upgrade(*d->cache->depCache(), APT::Upgrade::ALLOW_EVERYTHING);
-    emit packageChanged();
+    Q_EMIT packageChanged();
 }
 
 void Backend::markPackagesForAutoRemove()
@@ -1056,7 +1056,7 @@ void Backend::markPackagesForAutoRemove()
             cache.MarkDelete(pkgIter, false);
     }
 
-    emit packageChanged();
+    Q_EMIT packageChanged();
 }
 
 void Backend::markPackageForInstall(const QString &name)
@@ -1082,7 +1082,7 @@ void Backend::markPackages(const QApt::PackageList &packages, QApt::Package::Sta
     pkgDepCache *deps = d->cache->depCache();
     setCompressEvents(true);
 
-    foreach (Package *package, packages) {
+    for (Package *package: packages) {
         const pkgCache::PkgIterator &iter = package->packageIterator();
         switch (action) {
         case Package::ToInstall: {
@@ -1130,7 +1130,7 @@ void Backend::markPackages(const QApt::PackageList &packages, QApt::Package::Sta
     }
 
     setCompressEvents(false);
-    emit packageChanged();
+    Q_EMIT packageChanged();
 }
 
 void Backend::setCompressEvents(bool enabled)
@@ -1147,7 +1147,7 @@ void Backend::setCompressEvents(bool enabled)
     } else {
         delete d->actionGroup;
         d->actionGroup = nullptr;
-        emit packageChanged();
+        Q_EMIT packageChanged();
     }
 }
 
@@ -1182,7 +1182,7 @@ QApt::Transaction * Backend::commitChanges()
             packageList.insert(QString::fromStdString(fullName), Package::ToUpgrade);
             break;
         case Package::ToDowngrade:
-            packageList.insert(QString(QString::fromStdString(fullName)) % ',' % package->availableVersion(), Package::ToDowngrade);
+            packageList.insert(QString(QString::fromStdString(fullName)) % QChar::fromLatin1(',') % package->availableVersion(), Package::ToDowngrade);
             break;
         case Package::ToRemove:
             if(flags & Package::ToPurge) {
@@ -1258,11 +1258,11 @@ Transaction *Backend::downloadArchives(const QString &listFile, const QString &d
     lines.removeAt(0);
 
     QStringList packages;
-    foreach (const QByteArray &line, lines) {
-        packages << line;
+    for (const QByteArray &line: lines) {
+        packages << QString::fromUtf8(line);
     }
 
-    QString dirName = listFile.left(listFile.lastIndexOf('/'));
+    QString dirName = listFile.left(listFile.lastIndexOf(QChar::fromLatin1('/')));
 
     QDir dir(dirName);
     dir.mkdir(QLatin1String("packages"));
@@ -1287,7 +1287,7 @@ Transaction *Backend::installFile(const DebFile &debFile)
 
 void Backend::emitPackageChanged()
 {
-    emit packageChanged();
+    Q_EMIT packageChanged();
 }
 
 Transaction *Backend::updateCache()
@@ -1444,7 +1444,7 @@ bool Backend::loadSelections(const QString &path)
 
     Fix.Resolve(true);
 
-    emit packageChanged();
+    Q_EMIT packageChanged();
 
     return true;
 }
@@ -1470,7 +1470,7 @@ bool Backend::setPackagePinned(Package *package, bool pin)
 {
     Q_D(Backend);
 
-    QString dir = d->config->findDirectory("Dir::Etc") % QLatin1String("preferences.d/");
+    QString dir = d->config->findDirectory(QStringLiteral("Dir::Etc")) % QLatin1String("preferences.d/");
     QString path = dir % package->name();
     QString pinDocument;
 
@@ -1549,7 +1549,7 @@ bool Backend::setPackagePinned(Package *package, bool pin)
                 return false;
             }
 
-            pinDocument = tempFile.readAll();
+            pinDocument = QString::fromUtf8(tempFile.readAll());
         }
     }
 
@@ -1582,7 +1582,7 @@ void Backend::updateXapianIndex()
                                          QLatin1String("org.debian.AptXapianIndex"),
                                          QLatin1String("UpdateFinished"),
                                          this, SLOT(emitXapianUpdateFinished()));
-    emit xapianUpdateStarted();
+    Q_EMIT xapianUpdateStarted();
 }
 
 void Backend::emitXapianUpdateFinished()
@@ -1598,7 +1598,7 @@ void Backend::emitXapianUpdateFinished()
                                             QLatin1String("UpdateFinished"),
                                             this, SLOT(xapianUpdateFinished(bool)));
     openXapianIndex();
-    emit xapianUpdateFinished();
+    Q_EMIT xapianUpdateFinished();
 }
 
 bool Backend::addArchiveToCache(const DebFile &archive)

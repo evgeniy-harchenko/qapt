@@ -29,7 +29,7 @@ namespace QApt {
 class DependencyInfoTest : public QObject
 {
     Q_OBJECT
-private slots:
+private Q_SLOTS:
     void testSimpleParse();
     void testOrDependency();
 
@@ -46,7 +46,7 @@ void DependencyInfoTest::testSimpleParse()
         packageNames.append(QStringLiteral("dep%1").arg(QString::number(i)));
     }
 
-    QString field = packageNames.join(",");
+    QString field = packageNames.join(QStringLiteral(","));
     DependencyType depType = Depends;
     auto depList = DependencyInfo::parseDepends(field, depType);
     QCOMPARE(depList.size(), depCount);
@@ -77,7 +77,7 @@ void DependencyInfoTest::testMultiArchAnnotation()
     auto depList = DependencyInfo::parseDepends(field, depType);
     for (auto depGroup : depList) {
         for (auto dep : depGroup) {
-            QCOMPARE(dep.packageName(), field.split(':').first());
+            QCOMPARE(dep.packageName(), field.split(QChar::fromLatin1(':')).first());
             QCOMPARE(dep.multiArchAnnotation(), QStringLiteral("any"));
         }
     }

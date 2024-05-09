@@ -87,7 +87,7 @@ void SourcesListPrivate::setDefaultSourcesFiles()
 
     // Go through the parts dir and append those
     QDir partsDir(QString::fromStdString(_config->FindFile("Dir::Etc::sourceparts")));
-    for (const QString& file : partsDir.entryList(QStringList() << "*.list")) {
+    for (const QString& file : partsDir.entryList(QStringList() << QStringLiteral("*.list"))) {
         addSourcesFile(partsDir.filePath(file));
     }
 
@@ -116,7 +116,7 @@ void SourcesListPrivate::load(const QString &filePath)
 
     // Make a source entry for each line in the file
     while (!file.atEnd()) {
-        QString line = file.readLine();
+        QString line = QString::fromUtf8(file.readLine());
         list[filePath].append(SourceEntry(line, filePath));
     }
 }
@@ -236,11 +236,11 @@ QString SourcesList::dataForSourceFile(const QString& sourceFile)
     QString to_return;
 
     for (const SourceEntry &listEntry : entries(sourceFile)) {
-        to_return.append(listEntry.toString() + '\n');
+        to_return.append(listEntry.toString() + QChar::fromLatin1('\n'));
     }
 
     if (to_return.isEmpty()) {
-        to_return.append(QString("## See sources.list(5) for more information, especially\n"
+        to_return.append(QStringLiteral("## See sources.list(5) for more information, especially\n"
                                  "# Remember that you can only use http, ftp or file URIs.\n"
                                  "# CDROMs are managed through the apt-cdrom tool.\n"));
     }
@@ -255,9 +255,9 @@ QString SourcesList::toString() const
     QString toReturn;
 
     for (const QString &sourceFile : d->sourceFiles) {
-        toReturn += sourceFile + '\n';
+        toReturn += sourceFile + QChar::fromLatin1('\n');
         for (const QApt::SourceEntry &sourceEntry : entries(sourceFile)) {
-            toReturn += sourceEntry.toString() + '\n';
+            toReturn += sourceEntry.toString() + QChar::fromLatin1('\n');
         }
     }
 

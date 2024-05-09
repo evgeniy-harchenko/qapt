@@ -178,7 +178,7 @@ bool WorkerDaemon::copyArchiveToCache(const QString &archivePath)
 
     QString cachePath = QString::fromStdString(_config->FindDir("Dir::Cache::Archives"));
     // Filename
-    cachePath += archivePath.right(archivePath.size() - archivePath.lastIndexOf('/'));
+    cachePath += archivePath.right(archivePath.size() - archivePath.lastIndexOf(QChar::fromLatin1('/')));
 
     if (QFile::exists(cachePath)) {
         // Already copied

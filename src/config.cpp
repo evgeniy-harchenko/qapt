@@ -36,7 +36,7 @@
 
 namespace QApt {
 
-const QString APT_CONFIG_PATH = QString("/etc/apt/apt.conf");
+const QString APT_CONFIG_PATH = QStringLiteral("/etc/apt/apt.conf");
 
 class ConfigPrivate
 {
@@ -95,7 +95,7 @@ void ConfigPrivate::writeBufferEntry(const QByteArray &key, const QByteArray &va
 
     if (changed) {
         // No new keys. Recompose lines and set buffer to new buffer
-        Q_FOREACH (const QByteArray &line, lines) {
+        for (const QByteArray &line: lines) {
             tempBuffer += QByteArray(line + '\n');
         }
 
@@ -183,14 +183,14 @@ void Config::writeEntry(const QString &key, const bool value)
     boolString = value ? "\"true\";" : "\"false\";";
 
     if (d->newFile) {
-        d->buffer.append(key + ' ' + boolString);
+        d->buffer.append(key.toLatin1() + ' ' + boolString);
         d->newFile = false;
     } else {
         d->writeBufferEntry(key.toLatin1(), boolString);
     }
 
-    _config->Set(key.toLatin1(), value);
-    d->worker->writeFileToDisk(QString(d->buffer), APT_CONFIG_PATH);
+    _config->Set(key.toStdString().c_str(), value);
+    d->worker->writeFileToDisk(QString::fromUtf8(d->buffer), APT_CONFIG_PATH);
 }
 
 void Config::writeEntry(const QString &key, const int value)
@@ -208,8 +208,8 @@ void Config::writeEntry(const QString &key, const int value)
         d->writeBufferEntry(key.toLatin1(), intString);
     }
 
-    _config->Set(key.toLatin1(), value);
-    d->worker->writeFileToDisk(QString(d->buffer), APT_CONFIG_PATH);
+    _config->Set(key.toStdString().c_str(), value);
+    d->worker->writeFileToDisk(QString::fromUtf8(d->buffer), APT_CONFIG_PATH);
 }
 
 void Config::writeEntry(const QString &key, const QString &value)
@@ -221,14 +221,14 @@ void Config::writeEntry(const QString &key, const QString &value)
     valueString = '\"' + value.toLatin1() + "\";";
 
     if (d->newFile) {
-        d->buffer.append(key + ' ' + valueString);
+        d->buffer.append(key.toLatin1() + ' ' + valueString);
         d->newFile = false;
     } else {
         d->writeBufferEntry(key.toLatin1(), valueString);
     }
 
     _config->Set(key.toStdString(), value.toStdString());
-    d->worker->writeFileToDisk(QString(d->buffer), APT_CONFIG_PATH);
+    d->worker->writeFileToDisk(QString::fromUtf8(d->buffer), APT_CONFIG_PATH);
 }
 
 }

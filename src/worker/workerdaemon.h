@@ -51,11 +51,11 @@ private:
     Transaction *createTransaction(QApt::TransactionRole role,
                                    QVariantMap instructionsList = QVariantMap());
 
-signals:
+Q_SIGNALS:
     Q_SCRIPTABLE void transactionQueueChanged(const QString &active,
                                               const QStringList &queued);
     
-public slots:
+public Q_SLOTS:
     // Transaction-based methods. Return transaction ids.
     QString updateCache();
     QString installFile(const QString &file);
@@ -67,7 +67,7 @@ public slots:
     bool writeFileToDisk(const QString &contents, const QString &path);
     bool copyArchiveToCache(const QString &archivePath);
 
-private slots:
+private Q_SLOTS:
     void checkIdle();
 };
 

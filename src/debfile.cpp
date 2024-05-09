@@ -24,6 +24,7 @@
 #include <QProcess>
 #include <QStringBuilder>
 #include <QTemporaryFile>
+#include <QtCore/QRegularExpression>
 
 // Must be before APT_PKG_ABI checks!
 #include <apt-pkg/macros.h>
@@ -152,21 +153,21 @@ QString DebFile::longDescription() const
 {
     QString rawDescription = QLatin1String(d->controlData->FindS("Description").c_str());
     // Remove short description
-    rawDescription.remove(shortDescription() + '\n');
+    rawDescription.remove(shortDescription() + QChar::fromLatin1('\n'));
 
     QString parsedDescription;
     // Split at double newline, by "section"
     QStringList sections = rawDescription.split(QLatin1String("\n ."));
 
     for (int i = 0; i < sections.count(); ++i) {
-        sections[i].replace(QRegExp(QLatin1String("\n( |\t)+(-|\\*)")),
+        sections[i].replace(QRegularExpression(QLatin1String("\n( |\t)+(-|\\*)")),
                                 QLatin1String("\n\r ") % QString::fromUtf8("\xE2\x80\xA2"));
         // There should be no new lines within a section.
         sections[i].remove(QLatin1Char('\n'));
         // Hack to get the lists working again.
         sections[i].replace(QLatin1Char('\r'), QLatin1Char('\n'));
         // Merge multiple whitespace chars into one
-        sections[i].replace(QRegExp(QLatin1String("\\ \\ +")), QChar::fromLatin1(' '));
+        sections[i].replace(QRegularExpression(QLatin1String("\\ \\ +")), QChar::fromLatin1(' '));
         // Remove the initial whitespace
         sections[i].remove(0, 1);
         // Append to parsedDescription
@@ -239,9 +240,9 @@ QStringList DebFile::fileList() const
     tar.start(program2);
     tar.waitForFinished();
 
-    QString files = tar.readAllStandardOutput();
+    QString files = QString::fromUtf8(tar.readAllStandardOutput());
 
-    QStringList filesList = files.split('\n');
+    QStringList filesList = files.split(QChar::fromLatin1('\n'));
     filesList.removeFirst(); // First entry is the "./" entry
     filesList.removeAll(QLatin1String("")); // Remove empty entries
 
@@ -261,7 +262,7 @@ QStringList DebFile::iconList() const
 {
     QStringList fileNames = fileList();
     QStringList iconsList;
-    foreach (const QString &fileName, fileNames) {
+    for (const QString &fileName: fileNames) {
         if (fileName.startsWith(QLatin1String("./usr/share/icons"))) {
             iconsList << fileName;
         }
@@ -269,7 +270,7 @@ QStringList DebFile::iconList() const
 
     // XPM as a fallback. It's really not pretty when scaled up
     if (iconsList.isEmpty()) {
-        foreach (const QString &fileName, fileNames) {
+        for (const QString &fileName: fileNames) {
             if (fileName.startsWith(QLatin1String("./usr/share/pixmaps"))) {
                 iconsList << fileName;
             }
@@ -372,7 +373,7 @@ bool DebFile::extractFileFromArchive(const QString &fileName, const QString &des
     dpkg.waitForFinished();
 
     QString program2 = QLatin1String("tar -xf") % tempFileName %
-                       QLatin1String(" -C ") % destination % ' ' % fileName;
+                       QLatin1String(" -C ") % destination % QChar::fromLatin1(' ') % fileName;
 
     QProcess tar;
     tar.start(program2);

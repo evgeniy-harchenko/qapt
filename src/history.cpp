@@ -26,6 +26,7 @@
 #include <QProcess>
 #include <QSharedData>
 #include <QStringBuilder>
+#include <QtCore/QRegularExpression>
 
 // APT includes
 #include <apt-pkg/configuration.h>
@@ -85,7 +86,7 @@ void HistoryItemPrivate::parseData(const QString &data)
     while (lineIndex < lines.size()) {
         QString line = lines.at(lineIndex);
         // skip empty lines and lines beginning with '#'
-        if (line.isEmpty() || line.at(0) == '#') {
+        if (line.isEmpty() || line.at(0) == QChar::fromLatin1('#')) {
             lineIndex++;
             continue;
         }
@@ -126,7 +127,7 @@ void HistoryItemPrivate::parseData(const QString &data)
 
             QString actionPackages = keyValue.value(1);
             // Remove arch info
-            actionPackages.remove(QRegExp(QLatin1String(":\\w+")));
+            actionPackages.remove(QRegularExpression(QLatin1String(":\\w+")));
 
             for (QString package : actionPackages.split(QLatin1String("), "))) {
                 if (!package.endsWith(QLatin1Char(')'))) {
@@ -244,19 +245,19 @@ void HistoryPrivate::init()
     QString fullPath;
 
     for (const QString &file : logFiles) {
-        fullPath = directoryPath % '/' % file;
+        fullPath = directoryPath % QChar::fromLatin1('/') % file;
         if (fullPath.contains(QLatin1String("history"))) {
             if (fullPath.endsWith(QLatin1String(".gz"))) {
                 QProcess gunzip;
                 gunzip.start(QLatin1String("gunzip"), QStringList() << QLatin1String("-c") << fullPath);
                 gunzip.waitForFinished();
 
-                data.append(gunzip.readAll());
+                data.append(QString::fromUtf8(gunzip.readAll()));
             } else {
                 QFile historyFile(fullPath);
 
                 if (historyFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                    data.append(historyFile.readAll());
+                    data.append(QString::fromUtf8(historyFile.readAll()));
                 }
             }
         }
