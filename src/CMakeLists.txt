@@ -50,8 +50,8 @@ target_include_directories(QApt INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INC
 
 set_target_properties(QApt
     PROPERTIES
-    VERSION ${QAPT_VERSION_STRING}
-    SOVERSION ${QAPT_SOVERSION_STRING}
+    VERSION ${QAPT_VERSION}
+    SOVERSION ${QAPT_SOVERSION}
     EXPORT_NAME Main)
 
 target_link_libraries(QApt
