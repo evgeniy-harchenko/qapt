@@ -7,11 +7,11 @@ set(qaptbatch_SRCS
 add_executable(qapt-batch ${qaptbatch_SRCS})
 
 target_link_libraries(qapt-batch
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::KIOCore
-    KF5::WidgetsAddons
-    KF5::WindowSystem
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::KIOCore
+    KF6::WidgetsAddons
+    KF6::WindowSystem
     QApt::Main)
 
-install(TARGETS qapt-batch ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS qapt-batch ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

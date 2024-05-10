@@ -27,23 +27,24 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KLazyLocalizedString>
 
-static const char description[] =
-    I18N_NOOP2("@info", "A Debian package installer");
+static const KLazyLocalizedString description =
+        kli18nc("@info", "A Debian package installer");
 
 static const char version[] = CMAKE_PROJECT_VERSION;
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme("applications-other"));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("applications-other")));
 
     KLocalizedString::setApplicationDomain("qapt-deb-installer");
 
-    KAboutData aboutData("qapt-deb-installer",
+    KAboutData aboutData(QStringLiteral("qapt-deb-installer"),
                          i18nc("@title", "QApt Package Installer"),
-                         version,
-                         i18nc("@info", description),
+                         QString::fromUtf8(version),
+                         i18nc("@info", description.toString().toStdString().c_str()),
                          KAboutLicense::LicenseKey::GPL,
                          i18nc("@info:credit", "(C) 2011 Jonathan Thomas"));
 
@@ -58,7 +59,7 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addVersionOption();
-    parser.addPositionalArgument("file",
+    parser.addPositionalArgument(QStringLiteral("file"),
                                  i18nc("@info:shell argument", ".deb file"));
     aboutData.setupCommandLine(&parser);
     parser.process(app);

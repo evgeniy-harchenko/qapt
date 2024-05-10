@@ -46,13 +46,13 @@ DebViewer::DebViewer(QWidget *parent)
     , m_debFile(nullptr)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(QMargins());
     setLayout(mainLayout);
 
     // Header
     QWidget *headerWidget = new QWidget(this);
     QHBoxLayout *headerLayout = new QHBoxLayout(headerWidget);
-    headerLayout->setMargin(0);
+    headerLayout->setContentsMargins(QMargins());
     headerWidget->setLayout(headerLayout);
 
     m_iconLabel = new QLabel(headerWidget);
@@ -96,7 +96,7 @@ DebViewer::DebViewer(QWidget *parent)
     m_versionInfoWidget->setLayout(versionInfoLayout);
 
     QLabel *infoIcon = new QLabel(m_versionInfoWidget);
-    infoIcon->setPixmap(QIcon::fromTheme("dialog-information").pixmap(32, 32));
+    infoIcon->setPixmap(QIcon::fromTheme(QStringLiteral("dialog-information")).pixmap(32, 32));
 
     QWidget *verInfoBox = new QWidget(m_versionInfoWidget);
     verInfoBox->setLayout(new QVBoxLayout);
@@ -195,7 +195,7 @@ void DebViewer::setDebFile(QApt::DebFile *debFile)
     m_debFile = debFile;
 
     QStringList iconList = m_debFile->iconList();
-    qSort(iconList);
+    std::sort(iconList.begin(), iconList.end());
 
     // Try to get the biggest icon, which should be last
     QString iconPath;
@@ -217,7 +217,7 @@ void DebViewer::setDebFile(QApt::DebFile *debFile)
     }
 
     if (iconPath.isEmpty()) {
-        icon = QIcon::fromTheme("application-x-deb");
+        icon = QIcon::fromTheme(QStringLiteral("application-x-deb"));
     }
 
     m_iconLabel->setPixmap(icon.pixmap(48,48));
@@ -229,7 +229,7 @@ void DebViewer::setDebFile(QApt::DebFile *debFile)
     shortDesc.prepend(QLatin1String("<b>"));
     shortDesc.append(QLatin1String("</b><br><br>"));
     QString longDesc = debFile->longDescription();
-    longDesc.replace('\n', QLatin1String("<br>"));
+    longDesc.replace(QChar::fromLatin1('\n'), QLatin1String("<br>"));
 
     m_descriptionWidget->append(shortDesc + longDesc);
 
@@ -240,12 +240,12 @@ void DebViewer::setDebFile(QApt::DebFile *debFile)
     m_homepageLabel->setText(debFile->homepage());
 
     QStringList fileList = debFile->fileList();
-    qSort(fileList);
+    std::sort(fileList.begin(), fileList.end());
     QString filesString;
 
-    foreach (const QString &file, fileList) {
+    for (const QString &file: fileList) {
         if (!file.trimmed().isEmpty()) {
-            filesString.append(file + '\n');
+            filesString.append(file + QChar::fromLatin1('\n'));
         }
     }
 

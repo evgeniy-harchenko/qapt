@@ -184,9 +184,9 @@ void DebInstaller::installDebFile()
 void DebInstaller::setupTransaction(QApt::Transaction *trans)
 {
     // Provide proxy/locale to the transaction
-    if (KProtocolManager::proxyType() == KProtocolManager::ManualProxy) {
+    /*if (KProtocolManager::proxyType() == KProtocolManager::ManualProxy) {
         trans->setProxy(KProtocolManager::proxyFor("http"));
-    }
+    }*/
 
     trans->setLocale(QLatin1String(setlocale(LC_MESSAGES, 0)));
 
@@ -295,7 +295,7 @@ QString DebInstaller::maybeAppendArchSuffix(const QString &pkgName, bool checkin
         return pkgName;
 
     // Real multiarch checks
-    QString multiArchName = pkgName % ':' % m_foreignArch;
+    QString multiArchName = pkgName % QChar::fromLatin1(':') % m_foreignArch;
     QApt::Package *multiArchPkg = m_backend->package(multiArchName);
 
     // Check for a new dependency, we'll handle that later
@@ -325,8 +325,8 @@ QApt::PackageList DebInstaller::checkConflicts()
     QApt::Package *pkg = 0;
     QString packageName;
     bool ok = true;
-    foreach(const QApt::DependencyItem &item, conflicts) {
-        foreach (const QApt::DependencyInfo &info, item) {
+    for(const QApt::DependencyItem &item: conflicts) {
+        for (const QApt::DependencyInfo &info: item) {
             packageName = maybeAppendArchSuffix(info.packageName(), true);
             pkg = m_backend->package(packageName);
 
@@ -361,14 +361,14 @@ QApt::Package *DebInstaller::checkBreaksSystem()
     QApt::PackageList systemPackages = m_backend->availablePackages();
     std::string debVer = m_debFile->version().toStdString();
 
-    foreach (QApt::Package *pkg, systemPackages) {
+    for (QApt::Package *pkg: systemPackages) {
         if (!pkg->isInstalled()) {
             continue;
         }
 
         // Check for broken depends
-        foreach(const QApt::DependencyItem &item, pkg->depends()) {
-            foreach (const QApt::DependencyInfo &dep, item) {
+        for(const QApt::DependencyItem &item: pkg->depends()) {
+            for (const QApt::DependencyInfo &dep: item) {
                 if (dep.packageName() != m_debFile->packageName()) {
                     continue;
                 }
@@ -384,8 +384,8 @@ QApt::Package *DebInstaller::checkBreaksSystem()
 
         // Check for existing conflicts against the .deb
         // FIXME: Check provided virtual packages too
-        foreach(const QApt::DependencyItem &item, pkg->conflicts()) {
-            foreach (const QApt::DependencyInfo &conflict, item) {
+        for(const QApt::DependencyItem &item: pkg->conflicts()) {
+            for (const QApt::DependencyInfo &conflict: item) {
                 if (conflict.packageName() != m_debFile->packageName()) {
                     continue;
                 }
@@ -409,9 +409,9 @@ bool DebInstaller::satisfyDepends()
     QApt::Package *pkg = 0;
     QString packageName;
 
-    foreach(const QApt::DependencyItem &item, m_debFile->depends()) {
+    for(const QApt::DependencyItem &item: m_debFile->depends()) {
         bool oneSatisfied = false;
-        foreach (const QApt::DependencyInfo &dep, item) {
+        for (const QApt::DependencyInfo &dep: item) {
             packageName = maybeAppendArchSuffix(dep.packageName());
             pkg = m_backend->package(packageName);
             if (!pkg) {

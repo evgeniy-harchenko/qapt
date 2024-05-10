@@ -65,18 +65,18 @@ QAptBatch::QAptBatch(QString mode, QStringList packages, int winId)
     m_label->setText(i18nc("@label", "Waiting for authorization"));
     m_progressBar->setMaximum(0); // Set progress bar to indeterminate/busy
 
-    if (m_mode == "install") {
+    if (m_mode == QStringLiteral("install")) {
         commitChanges(QApt::Package::ToInstall, packages);
-    } else if (m_mode == "uninstall") {
+    } else if (m_mode == QStringLiteral("uninstall")) {
         commitChanges(QApt::Package::ToRemove, packages);
-    } else if (m_mode == "update") {
+    } else if (m_mode == QStringLiteral("update")) {
         m_trans = m_backend->updateCache();
     }
     m_detailsWidget->setTransaction(m_trans);
     setTransaction(m_trans);
 
     if (winId)
-        KWindowSystem::setMainWindow(this, winId);
+        KWindowSystem::setMainWindow(this->windowHandle(), winId);
 
     // Create buttons.
     m_buttonBox->setStandardButtons(QDialogButtonBox::Cancel | QDialogButtonBox::Close);
@@ -142,12 +142,12 @@ void QAptBatch::setTransaction(QApt::Transaction *trans)
 {
     m_trans = trans;
 
-    m_trans->setLocale(setlocale(LC_ALL, 0));
+    m_trans->setLocale(QString::fromUtf8(setlocale(LC_ALL, 0)));
 
     // Provide proxy/locale to the transaction
-    if (KProtocolManager::proxyType() == KProtocolManager::ManualProxy) {
+    /*if (KProtocolManager::proxyType() == KProtocolManager::ManualProxy) {
         m_trans->setProxy(KProtocolManager::proxyFor("http"));
-    }
+    }*/
 
     connect(m_trans, SIGNAL(statusChanged(QApt::TransactionStatus)),
             this, SLOT(transactionStatusChanged(QApt::TransactionStatus)));
@@ -356,7 +356,7 @@ void QAptBatch::transactionStatusChanged(QApt::TransactionStatus status)
         setVisibleButtons(QDialogButtonBox::Cancel);
         break;
     case QApt::FinishedStatus: {
-        if (m_mode == "install") {
+        if (m_mode == QStringLiteral("install")) {
             setWindowTitle(i18nc("@title:window", "Installation Complete"));
 
             if (m_trans->error() != QApt::Success) {
@@ -367,7 +367,7 @@ void QAptBatch::transactionStatusChanged(QApt::TransactionStatus status)
                                     "Package successfully installed.",
                                     "Packages successfully installed.", m_packages.size()));
             }
-        } else if (m_mode == "uninstall") {
+        } else if (m_mode == QStringLiteral("uninstall")) {
             setWindowTitle(i18nc("@title:window", "Removal Complete"));
 
             if (m_trans->error() != QApt::Success) {
@@ -379,7 +379,7 @@ void QAptBatch::transactionStatusChanged(QApt::TransactionStatus status)
                                     "Package successfully uninstalled.",
                                     "Packages successfully uninstalled.", m_packages.size()));
             }
-        } else if (m_mode == "update") {
+        } else if (m_mode == QStringLiteral("update")) {
             setWindowTitle(i18nc("@title:window", "Refresh Complete"));
 
             if (m_trans->error() != QApt::Success) {

@@ -6,5 +6,5 @@ target_link_libraries(debthumbnailer
 
 message(WARNING "make sure thumbnailer actually works")
 
-install(TARGETS debthumbnailer DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES debthumbnailer.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(TARGETS debthumbnailer DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(FILES debthumbnailer.desktop DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/thumbcreator)

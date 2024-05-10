@@ -23,20 +23,19 @@
 
 #include <QStringList>
 
-#include <kio/thumbcreator.h>
+#include <kio/thumbnailcreator.h>
 
 namespace QApt {
     class DebFile;
 }
 
-class DebThumbnailer : public ThumbCreator
+class DebThumbnailer : public KIO::ThumbnailCreator
 {
 public:
-    DebThumbnailer();
-    virtual ~DebThumbnailer();
-
-    virtual bool create(const QString &path, int w, int h, QImage &img);
-    virtual Flags flags() const;
+    DebThumbnailer(QObject *parent, const QVariantList &args);
+    ~DebThumbnailer();
+    KIO::ThumbnailResult create(const KIO::ThumbnailRequest &request) override;
+    //virtual Flags flags() const;
 };
 
 #endif

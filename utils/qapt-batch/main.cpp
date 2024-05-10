@@ -28,23 +28,24 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KLazyLocalizedString>
 
-static const char description[] =
-    I18N_NOOP2("@info", "A batch installer using QApt");
+static const KLazyLocalizedString description =
+        kli18nc("@info", "A batch installer using QApt");
 
 static const char version[] = CMAKE_PROJECT_VERSION;
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme("applications-other"));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("applications-other")));
 
     KLocalizedString::setApplicationDomain("qapt-batch");
 
-    KAboutData aboutData("qaptbatch",
+    KAboutData aboutData(QStringLiteral("qaptbatch"),
                          i18nc("@title", "QApt Batch Installer"),
-                         version,
-                         i18nc("@info", description),
+                         QString::fromUtf8(version),
+                         i18nc("@info", description.toString().toStdString().c_str()),
                          KAboutLicense::LicenseKey::GPL,
                          i18nc("@info:credit", "(C) 2010 Jonathan Thomas"));
 
@@ -73,7 +74,7 @@ int main(int argc, char **argv)
     QCommandLineOption updateOption(QStringLiteral("update"),
                                     i18nc("@info:shell", "Update the package cache"));
     parser.addOption(updateOption);
-    parser.addPositionalArgument("packages",
+    parser.addPositionalArgument(QStringLiteral("packages"),
                                  i18nc("@info:shell", "Packages to be operated upon"));
     aboutData.setupCommandLine(&parser);
     parser.process(app);

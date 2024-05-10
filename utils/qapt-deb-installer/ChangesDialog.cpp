@@ -54,7 +54,7 @@ ChangesDialog::ChangesDialog(QWidget *parent, const QApt::StateChanges &changes)
     QWidget *bottomBox = new QWidget(this);
     QHBoxLayout *bottomLayout = new QHBoxLayout(bottomBox);
     bottomLayout->setSpacing(0);
-    bottomLayout->setMargin(0);
+    bottomLayout->setContentsMargins(QMargins());
     bottomBox->setLayout(bottomLayout);
 
     QWidget *bottomSpacer = new QWidget(bottomBox);
@@ -103,7 +103,7 @@ void ChangesDialog::addPackages(const QApt::StateChanges &changes)
             item = new QStandardItem;
             item->setText(package->name());
             item->setEditable(false);
-            item->setIcon(QIcon::fromTheme("muon"));
+            item->setIcon(QIcon::fromTheme(QStringLiteral("muon")));
 
             root->appendRow(item);
         }

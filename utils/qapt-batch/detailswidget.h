@@ -46,7 +46,7 @@ private:
     QLabel *m_speedLabel;
     QLabel *m_speedDescriptor;
 
-private slots:
+private Q_SLOTS:
     void updateTimeText(quint64 eta);
     void updateSpeedText(quint64 speed);
     void transactionStatusChanged(QApt::TransactionStatus status);

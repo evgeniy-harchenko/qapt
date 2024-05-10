@@ -34,14 +34,14 @@
 #include <KTextEdit>
 
 // LibQApt/DebconfKDE includes
-#include <DebconfGui.h>
+//#include <DebconfGui.h>
 #include <QApt/Transaction>
 
 DebCommitWidget::DebCommitWidget(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(QMargins());
     setLayout(layout);
 
     m_headerLabel = new QLabel(this);
@@ -60,20 +60,20 @@ DebCommitWidget::DebCommitWidget(QWidget *parent)
     m_terminal->setFrameShape(QFrame::NoFrame);
 
     QString uuid = QUuid::createUuid().toString();
-    uuid.remove('{').remove('}').remove('-');
+    uuid.remove(QChar::fromLatin1('{')).remove(QChar::fromLatin1('}')).remove(QChar::fromLatin1('-'));
     m_pipe = QDir::tempPath() % QLatin1String("/qapt-sock-") % uuid;
 
-    m_debconfGui = new DebconfKde::DebconfGui(m_pipe, this);
+    /*m_debconfGui = new DebconfKde::DebconfGui(m_pipe, this);
     m_debconfGui->connect(m_debconfGui, SIGNAL(activated()), this, SLOT(showDebconf()));
     m_debconfGui->connect(m_debconfGui, SIGNAL(deactivated()), this, SLOT(hideDebconf()));
-    m_debconfGui->hide();
+    m_debconfGui->hide();*/
 
     m_progressBar = new QProgressBar(this);
     m_progressBar->hide();
 
     layout->addWidget(m_headerLabel);
     layout->addWidget(m_terminal);
-    layout->addWidget(m_debconfGui);
+    //layout->addWidget(m_debconfGui);
     layout->addWidget(m_progressBar);
 }
 
@@ -190,12 +190,12 @@ void DebCommitWidget::updateTerminal(const QString &message)
 void DebCommitWidget::showDebconf()
 {
     m_terminal->hide();
-    m_debconfGui->show();
+    //m_debconfGui->show();
 }
 
 void DebCommitWidget::hideDebconf()
 {
-    m_debconfGui->hide();
+    //m_debconfGui->hide();
     m_terminal->show();
 }
 

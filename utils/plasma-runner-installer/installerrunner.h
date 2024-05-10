@@ -28,19 +28,19 @@
  * and suggests the installation of the package that would normally contain
  * the executable if not found.
  */
-class InstallerRunner : public Plasma::AbstractRunner
+class InstallerRunner : public KRunner::AbstractRunner
 {
 Q_OBJECT
 
 public:
-    InstallerRunner(QObject *parent, const QVariantList &args);
+    InstallerRunner(QObject *parent, const KPluginMetaData &metaData);
     ~InstallerRunner();
 
-    void match(Plasma::RunnerContext &context);
-    void run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &action);
+    void match(KRunner::RunnerContext &context);
+    void run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &action);
 
 protected:
-    void setupMatch(const QString &package, const QString &term, Plasma::QueryMatch &action);
+    void setupMatch(const QString &package, const QString &term, KRunner::QueryMatch &action);
 };
 
 #endif
