@@ -125,7 +125,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qaptversion.h
         DESTINATION include/qapt
         COMPONENT Devel)
 
-#add_subdirectory(autotests)
+add_subdirectory(autotests)
 add_subdirectory(src)
 
 if(WITH_UTILS)

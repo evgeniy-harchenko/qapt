@@ -22,7 +22,7 @@
 
 #include "transactionerrorhandlingtest.h"
 
-#include <QtTest>
+#include <QtTest/QtTest>
 #include <transaction.h>
 
 QTEST_MAIN(TransactionErrorHandlingTest);
@@ -64,7 +64,7 @@ void TransactionErrorHandlingTest::initTestCase()
 {
     // Called before the first testfunction is executed
     QWARN( "PLEASE NOTE: You're going to see some dbus warnings, that's expected. Carry on." );
-    this->subject = new QApt::Transaction( 0 );
+    this->subject = new QApt::Transaction( QStringLiteral("0") );
 }
 
 void TransactionErrorHandlingTest::cleanupTestCase()
@@ -100,12 +100,12 @@ void TransactionErrorHandlingTest::testSuccess()
 
 void TransactionErrorHandlingTest::testUnknownError()
 {
-    QString dummyDetails( DUMMY_DETAILS );
+    QString dummyDetails( QStringLiteral(DUMMY_DETAILS) );
     this->subject->updateError( QApt::ErrorCode::UnknownError );
     this->subject->updateErrorDetails( dummyDetails );
     
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_UNKNOWN_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_UNKNOWN_ERROR),
         "Verify that we got the error message we expected to get for UnknownError..."
     );
     
@@ -117,7 +117,7 @@ void TransactionErrorHandlingTest::testInitError()
     this->subject->updateError(QApt::ErrorCode::InitError);
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_INIT_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_INIT_ERROR),
         "Verify that we got the error message we expected to get for InitError..."
     );
 }
@@ -127,19 +127,19 @@ void TransactionErrorHandlingTest::testLockError()
     this->subject->updateError( QApt::ErrorCode::LockError );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_LOCK_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_LOCK_ERROR),
         "Verify that we got the error message we expected to get for LockError..."
     );
 }
 
 void TransactionErrorHandlingTest::testDiskSpaceError()
 {
-    QString dummyDetails( DUMMY_DETAILS );
+    QString dummyDetails( QStringLiteral(DUMMY_DETAILS) );
     this->subject->updateError( QApt::ErrorCode::DiskSpaceError );
     this->subject->updateErrorDetails( dummyDetails );
     
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_DISKSPACE_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_DISKSPACE_ERROR),
         "Verify that we got the error message we expected to get for DiskSpaceError..."
     );
     
@@ -151,19 +151,19 @@ void TransactionErrorHandlingTest::testFetchError()
     this->subject->updateError( QApt::ErrorCode::FetchError );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_FETCH_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_FETCH_ERROR),
         "Verify that we got the error message we expected to get for FetchError..."
     );
 }
 
 void TransactionErrorHandlingTest::testCommitError()
 {
-    QString dummyDetails( DUMMY_DETAILS );
+    QString dummyDetails( QStringLiteral(DUMMY_DETAILS) );
     this->subject->updateError( QApt::ErrorCode::CommitError );
     this->subject->updateErrorDetails( dummyDetails );
     
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_COMMIT_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_COMMIT_ERROR),
         "Verify that we got the error message we expected to get for CommitError..."
     );
     
@@ -175,7 +175,7 @@ void TransactionErrorHandlingTest::testAuthError()
     this->subject->updateError( QApt::ErrorCode::AuthError );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_AUTH_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_AUTH_ERROR),
         "Verify that we got the error message we expected to get for AuthError..."
     );
 }
@@ -185,7 +185,7 @@ void TransactionErrorHandlingTest::testWorkerDisappeared()
     this->subject->updateError( QApt::ErrorCode::WorkerDisappeared );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_WORKER_DISAPPEARED_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_WORKER_DISAPPEARED_ERROR),
         "Verify that we got the error message we expected to get for WorkerDisappeared..."
     );
 }
@@ -194,13 +194,13 @@ void TransactionErrorHandlingTest::testUntrustedError()
 {
     QStringList untrusted;
     
-    untrusted << "one";
+    untrusted << QStringLiteral("one");
     
     this->subject->updateError( QApt::ErrorCode::UntrustedError );
     this->subject->updateUntrustedPackages( (const QStringList&) untrusted );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_UNTRUSTED_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_UNTRUSTED_ERROR),
         "Verify that we got the error message we expected to get for UntrustedError..."
     );
 }
@@ -210,7 +210,7 @@ void TransactionErrorHandlingTest::testDownloadDisallowedError()
     this->subject->updateError( QApt::ErrorCode::DownloadDisallowedError );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_DOWNLOAD_DISALLOWED_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_DOWNLOAD_DISALLOWED_ERROR),
         "Verify that we got the error message we expected to get for DownloadDisallowedError..."
     );
 }
@@ -220,7 +220,7 @@ void TransactionErrorHandlingTest::testNotFoundError()
     this->subject->updateError( QApt::ErrorCode::NotFoundError );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_NOTFOUND_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_NOTFOUND_ERROR),
         "Verify that we got the error message we expected to get for NotFoundError..."
     );
 }
@@ -230,7 +230,7 @@ void TransactionErrorHandlingTest::testWrongArchError()
     this->subject->updateError( QApt::ErrorCode::WrongArchError );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_WRONGARCH_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_WRONGARCH_ERROR),
         "Verify that we got the error message we expected to get for WrongArchError..."
     );
 }
@@ -240,7 +240,7 @@ void TransactionErrorHandlingTest::testMarkingError()
     this->subject->updateError( QApt::ErrorCode::MarkingError );
 
     QVERIFY2(
-        this->subject->errorString() == EXPECTED_MESSAGE_MARKING_ERROR,
+        this->subject->errorString() == QStringLiteral(EXPECTED_MESSAGE_MARKING_ERROR),
         "Verify that we got the error message we expected to get for MarkingError..."
     );
 }

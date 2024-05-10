@@ -46,9 +46,9 @@ void SourcesListTest::verifySourceEntry(
         entry.type().compare(type) == 0,
         qPrintable(
             label
-            + ": The type isn't \""+ type +"\", it's \""
+            + QStringLiteral(": The type isn't \"")+ type +QStringLiteral("\", it's \"")
             + entry.type()
-            + "\"!"
+            + QStringLiteral("\"!")
         )
     );
     
@@ -57,9 +57,9 @@ void SourcesListTest::verifySourceEntry(
         entry.uri().compare(uri) == 0,
         qPrintable(
             label
-            + ": The URI isn't \""+ uri +"\", it's \""
+            + QStringLiteral(": The URI isn't \"")+ uri +QStringLiteral("\", it's \"")
             + entry.uri()
-            + "\"!"
+            + QStringLiteral("\"!")
         )
     );
     
@@ -68,9 +68,9 @@ void SourcesListTest::verifySourceEntry(
         entry.dist().compare(dist) == 0,
         qPrintable(
             label
-            + ": The distro isn't \""+ dist +"\", it's \""
+            + QStringLiteral(": The distro isn't \"")+ dist +QStringLiteral("\", it's \"")
             + entry.dist()
-            + "\"!"
+            + QStringLiteral("\"!")
         )
     );
     
@@ -79,9 +79,9 @@ void SourcesListTest::verifySourceEntry(
         entry.components().join(QStringLiteral("!")).compare(components) == 0,
         qPrintable(
             label
-            + ": The components (joined with !) aren't \""+ components +"\", they're \""
+            + QStringLiteral(": The components (joined with !) aren't \"")+ components +QStringLiteral("\", they're \"")
             + entry.components().join(QStringLiteral("!"))
-            + "\"!"
+            + QStringLiteral("\"!")
         )
     );
     
@@ -90,9 +90,9 @@ void SourcesListTest::verifySourceEntry(
         entry.architectures().join(QStringLiteral("!")).compare(archs) == 0,
         qPrintable(
             label
-            + ": The archs (joined with !) aren't \""+ archs +"\", they're \""
+            + QStringLiteral(": The archs (joined with !) aren't \"")+ archs +QStringLiteral("\", they're \"")
             + entry.architectures().join(QStringLiteral("!"))
-            + "\"!"
+            + QStringLiteral("\"!")
         )
     );
     
@@ -102,7 +102,7 @@ void SourcesListTest::verifySourceEntry(
         : "I was expecting this entry to be disabled, but it wasn't.";
     QVERIFY2(
         entry.isEnabled() == isEnabled,
-        qPrintable(label+": "+isEnabledMsg)
+        qPrintable(label+QStringLiteral(": ")+QString::fromUtf8(isEnabledMsg))
     );
     
     // Verify isValid...
@@ -111,7 +111,7 @@ void SourcesListTest::verifySourceEntry(
         : "I was expecting this entry to be invalid, but it wasn't.";
     QVERIFY2(
         entry.isValid() == isValid,
-        qPrintable(label+": "+isValidMsg)
+        qPrintable(label+QStringLiteral(": ")+QString::fromUtf8(isValidMsg))
     );
 }
 
@@ -149,9 +149,9 @@ void SourcesListTest::cleanupTestCase()
     QVERIFY2(
         QFile::remove(outputFile),
         qPrintable(
-            "Unable to remove file \""
+                QStringLiteral("Unable to remove file \"")
             + outputFile
-            + "\"."
+            + QStringLiteral("\".")
         )
     );
 }
@@ -180,9 +180,9 @@ void SourcesListTest::testConstructor()
     QVERIFY2(
         shouldntBeEmpty.count() > 0,
         qPrintable(
-            "The default constructor should have given us an empty file list, but it didn't. I got these: "
+                QStringLiteral("The default constructor should have given us an empty file list, but it didn't. I got these: ")
             + shouldntBeEmpty.join(QStringLiteral("!"))
-            + " which is "
+            + QStringLiteral(" which is ")
             + QString::number(shouldntBeEmpty.count())
         )
     );
@@ -191,9 +191,9 @@ void SourcesListTest::testConstructor()
     QVERIFY2(
         previousCount == subjectDefaultConstructor.entries().count(),
         qPrintable(
-            "The default constructor should have given us the same number of entries as the subsequent reload() call. I had "
+                QStringLiteral("The default constructor should have given us the same number of entries as the subsequent reload() call. I had ")
             + QString::number(previousCount)
-            + " and now I have "
+            + QStringLiteral(" and now I have ")
             + QString::number(subjectDefaultConstructor.entries().count())
         )
     );
@@ -270,13 +270,13 @@ void SourcesListTest::testLoadSourcesOneFile()
     QVERIFY2(
         entries.count() == SOURCES_COUNT,
         qPrintable(
-            "We don't have "
+                QStringLiteral("We don't have ")
             + QString::number(SOURCES_COUNT)
-            + " entries, we have "
+            + QStringLiteral(" entries, we have ")
             + QString::number(entries.count())
-            + "! Please check the file, the MD5 should be \""
-            + TEST1_MD5
-            + "\""
+            + QStringLiteral("! Please check the file, the MD5 should be \"")
+            + QStringLiteral(TEST1_MD5)
+            + QStringLiteral("\"")
         )
     );
     
@@ -285,7 +285,7 @@ void SourcesListTest::testLoadSourcesOneFile()
     QVERIFY2(
         entries[0].toString().compare(QStringLiteral("## First test")) == 0,
         qPrintable(
-            "I was expecting \"## First test\" as the first line, but I got "
+                QStringLiteral("I was expecting \"## First test\" as the first line, but I got ")
             + entries[0].toString()
         )
     );
@@ -368,26 +368,26 @@ void SourcesListTest::testLoadSourcesOneFile()
         true
     );
     verifySourceEntry(
-        "Line #7",
+            QStringLiteral("Line #7"),
         entries[7],
-        "deb",
-        "https://apttest/ubuntu", // <-- Note, https this time
-        "saucy",
-        "contrib!main!partner",
-        "i386!ppc",
+                           QStringLiteral("deb"),
+                                   QStringLiteral("https://apttest/ubuntu"), // <-- Note, https this time
+                                   QStringLiteral("saucy"),
+                                   QStringLiteral("contrib!main!partner"),
+                                   QStringLiteral("i386!ppc"),
         true,
         true
     );
     QVERIFY2(
-        entries[8].toString().compare("") == 0,
+        entries[8].toString().compare(QStringLiteral("")) == 0,
         qPrintable(
-            "I was expecting an empty string as the ninth line (index 8), but I got "
+                QStringLiteral("I was expecting an empty string as the ninth line (index 8), but I got ")
             + entries[8].toString()
         )
     );
     // An empty line isn't invalid
     verifySourceEntry(
-        "Line #8",
+            QStringLiteral("Line #8"),
         entries[8],
         QString(),
         QString(),
@@ -398,59 +398,59 @@ void SourcesListTest::testLoadSourcesOneFile()
         false
     );
     verifySourceEntry(
-        "Line #9",
+            QStringLiteral("Line #9"),
         entries[9],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "contrib!main!partner",
-        "i386!ppc",
+                           QStringLiteral("deb"),
+                                   QStringLiteral("http://apttest/ubuntu"),
+                                   QStringLiteral("saucy"),
+                                   QStringLiteral("contrib!main!partner"),
+                                   QStringLiteral("i386!ppc"),
         false, // <-- Note, disabled!
         true
     );
     verifySourceEntry(
-        "Line #10",
+            QStringLiteral("Line #10"),
         entries[10],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "contrib!main!partner",
-        "i386!ppc",
+                           QStringLiteral("deb"),
+                                   QStringLiteral("http://apttest/ubuntu"),
+                                   QStringLiteral("saucy"),
+                                   QStringLiteral("contrib!main!partner"),
+                                   QStringLiteral("i386!ppc"),
         false, // <-- Note, disabled!
         true
     );
     verifySourceEntry(
-        "Line #11",
+            QStringLiteral("Line #11"),
         entries[11],
-        "deb",
-        "http://apttest/ubuntu",
-        "saucy",
-        "contrib!main!partner",
-        "i386!ppc",
+                           QStringLiteral("deb"),
+                                   QStringLiteral("http://apttest/ubuntu"),
+                                   QStringLiteral("saucy"),
+                                   QStringLiteral("contrib!main!partner"),
+                                   QStringLiteral("i386!ppc"),
         false, // <-- Note, disabled!
         true
     );
     // This line ensures that lines only containing comment characters (e.g. ##)
     // are discarded as invalid.
     verifySourceEntry(
-        "Line #12",
+            QStringLiteral("Line #12"),
         entries[12],
-        "",
-        "",
-        "",
-        "",
-        "",
+                           QStringLiteral(""),
+                                   QStringLiteral(""),
+                                   QStringLiteral(""),
+                                   QStringLiteral(""),
+                                   QStringLiteral(""),
         false, // <-- Note, disabled!
         false
     );
     verifySourceEntry(
-        "Line #13",
+            QStringLiteral("Line #13"),
         entries[13],
-        "deb",
-        "cdrom:[Kubuntu 11.10 _Oneiric Ocelot_ - Release amd64 (20111012)]/",
-        "oneiric",
-        "main!restricted",
-        "",
+                           QStringLiteral("deb"),
+                                   QStringLiteral("cdrom:[Kubuntu 11.10 _Oneiric Ocelot_ - Release amd64 (20111012)]/"),
+                                   QStringLiteral("oneiric"),
+                                   QStringLiteral("main!restricted"),
+                                   QStringLiteral(""),
         true,
         true
     );
@@ -463,7 +463,7 @@ void SourcesListTest::testLoadSourcesManyFiles()
 {
     QVERIFY2(sampleSourcesHasTwoFiles.count() == 2,
         qPrintable(
-            "We don't have the 2 files I was expecting, we have "
+                QStringLiteral("We don't have the 2 files I was expecting, we have ")
             + QString::number(sampleSourcesHasTwoFiles.count())
         )
     );
@@ -482,15 +482,15 @@ void SourcesListTest::testLoadSourcesManyFiles()
     QVERIFY2(
         entries.count() == ALL_SOURCES_COUNT,
         qPrintable(
-            "We don't have "
+                QStringLiteral("We don't have ")
             + QString::number(ALL_SOURCES_COUNT)
-            + " entries, we have "
+            + QStringLiteral(" entries, we have ")
             + QString::number(entries.count())
-            + "! Please check the files test1.list and test2.list, the MD5's should be \""
-            + TEST1_MD5
-            + "\" and \""
-            + TEST2_MD5
-            + "\" respectively."
+            + QStringLiteral("! Please check the files test1.list and test2.list, the MD5's should be \"")
+            + QStringLiteral(TEST1_MD5)
+            + QStringLiteral("\" and \"")
+            + QStringLiteral(TEST2_MD5)
+            + QStringLiteral("\" respectively.")
         )
     );
     
@@ -501,22 +501,22 @@ void SourcesListTest::testLoadSourcesManyFiles()
         test1.count() == SOURCES_COUNT,
         qPrintable(
             sampleSourcesHasTwoFiles[0]
-            + "\nLooks like test1.list doesn't have "
+            + QStringLiteral("\nLooks like test1.list doesn't have ")
             + QString::number(SOURCES_COUNT)
-            + " entries afterall; it has "
+            + QStringLiteral(" entries afterall; it has ")
             + QString::number(test1.count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     QVERIFY2(
         test2.count() == SOURCES_COUNT_2,
         qPrintable(
             sampleSourcesHasTwoFiles[0]
-            + "\nLooks like test2.list doesn't have "
+            + QStringLiteral("\nLooks like test2.list doesn't have ")
             + QString::number(SOURCES_COUNT_2)
-            + " entries afterall; it has "
+            + QStringLiteral(" entries afterall; it has ")
             + QString::number(test1.count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
 }
@@ -529,45 +529,45 @@ void SourcesListTest::testAddSource()
     QVERIFY2(
         subjectSingleEntry.entries().count() == 0,
         qPrintable(
-            "I expected to have a new, empty file with zero entries. I found "
+                QStringLiteral("I expected to have a new, empty file with zero entries. I found ")
             + QString::number(subjectSingleEntry.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     
     QApt::SourceEntry entryOne;
-    entryOne.setType("deb");
-    entryOne.setUri("https://foo.com/bar");
-    entryOne.setComponents({"main"});
-    entryOne.setDist("saucy");
+    entryOne.setType(QStringLiteral("deb"));
+    entryOne.setUri(QStringLiteral("https://foo.com/bar"));
+    entryOne.setComponents({QStringLiteral("main")});
+    entryOne.setDist(QStringLiteral("saucy"));
     entryOne.setEnabled(true);
     // Verify the item we just created...
     verifySourceEntry(
-        "New Entry #0",
+            QStringLiteral("New Entry #0"),
         entryOne,
-        "deb",
-        "https://foo.com/bar",
-        "saucy",
-        "main",
+                           QStringLiteral("deb"),
+                                   QStringLiteral("https://foo.com/bar"),
+                                   QStringLiteral("saucy"),
+                                   QStringLiteral("main"),
         QString(),
         true,
         true
     );
     QApt::SourceEntry entryTwo;
-    entryTwo.setType("deb");
-    entryTwo.setUri("https://foo.com/bar2");
-    entryTwo.setComponents({"main"});
-    entryTwo.setDist("saucy");
+    entryTwo.setType(QStringLiteral("deb"));
+    entryTwo.setUri(QStringLiteral("https://foo.com/bar2"));
+    entryTwo.setComponents({QStringLiteral("main")});
+    entryTwo.setDist(QStringLiteral("saucy"));
     entryTwo.setEnabled(true);
     
     // Verify the item we just created...
     verifySourceEntry(
-        "New Entry #1",
+            QStringLiteral("New Entry #1"),
         entryTwo,
-        "deb",
-        "https://foo.com/bar2",
-        "saucy",
-        "main",
+                           QStringLiteral("deb"),
+                                   QStringLiteral("https://foo.com/bar2"),
+                                   QStringLiteral("saucy"),
+                                   QStringLiteral("main"),
         QString(),
         true,
         true
@@ -577,18 +577,18 @@ void SourcesListTest::testAddSource()
     QVERIFY2(
         subjectSingleEntry.entries().count() == 1,
         qPrintable(
-            "I expected to have a single entry now. I found "
+                QStringLiteral("I expected to have a single entry now. I found ")
             + QString::number(subjectSingleEntry.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     
     QVERIFY2(
         subjectSingleEntry.containsEntry(entryOne),
         qPrintable(
-            "I totally thought I had an entry \""
+                QStringLiteral("I totally thought I had an entry \"")
             + entryOne.toString()
-            + "\", but I don't."
+            + QStringLiteral("\", but I don't.")
         )
     );
     
@@ -596,22 +596,22 @@ void SourcesListTest::testAddSource()
     QVERIFY2(
         subjectMultipleFiles.entries().count() == ALL_SOURCES_COUNT,
         qPrintable(
-            "I expected to have both files 1 and 2 loaded with "
+                QStringLiteral("I expected to have both files 1 and 2 loaded with ")
             + QString::number(ALL_SOURCES_COUNT)
-            + " entries. I found "
+            + QStringLiteral(" entries. I found ")
             + QString::number(subjectMultipleFiles.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     subjectMultipleFiles.addEntry(entryOne);
     QVERIFY2(
         subjectMultipleFiles.entries().count() == ALL_SOURCES_COUNT+1,
         qPrintable(
-            "I expected to have a new, empty file with "
+                QStringLiteral("I expected to have a new, empty file with ")
             + QString::number(ALL_SOURCES_COUNT+1)
-            + " entries. I found "
+            + QStringLiteral(" entries. I found ")
             + QString::number(subjectMultipleFiles.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
 }
@@ -626,15 +626,15 @@ void SourcesListTest::testRemoveSource()
     subject.reload();
     
     // Construct our two sources
-    entryOne.setType("deb");
-    entryOne.setUri("https://foo.com/bar");
-    entryOne.setComponents({"main"});
-    entryOne.setDist("saucy");
+    entryOne.setType(QStringLiteral("deb"));
+    entryOne.setUri(QStringLiteral("https://foo.com/bar"));
+    entryOne.setComponents({QStringLiteral("main")});
+    entryOne.setDist(QStringLiteral("saucy"));
     entryOne.setEnabled(true);
-    entryTwo.setType("deb");
-    entryTwo.setUri("https://foo.com/bar2");
-    entryTwo.setComponents({"main"});
-    entryTwo.setDist("saucy");
+    entryTwo.setType(QStringLiteral("deb"));
+    entryTwo.setUri(QStringLiteral("https://foo.com/bar2"));
+    entryTwo.setComponents({QStringLiteral("main")});
+    entryTwo.setDist(QStringLiteral("saucy"));
     entryTwo.setEnabled(true);
     
     subject.addEntry(entryOne);
@@ -643,9 +643,9 @@ void SourcesListTest::testRemoveSource()
     QVERIFY2(
         subject.entries().count() == 2,
         qPrintable(
-            "I expected to have 2 sources. I found "
+                QStringLiteral("I expected to have 2 sources. I found ")
             + QString::number(subject.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     
@@ -653,9 +653,9 @@ void SourcesListTest::testRemoveSource()
     QVERIFY2(
         subject.entries().count() == 1,
         qPrintable(
-            "Now, I expect to have 1 sources. I found "
+                QStringLiteral("Now, I expect to have 1 sources. I found ")
             + QString::number(subject.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );    
 }
@@ -668,15 +668,15 @@ void SourcesListTest::testSaveSources()
     QApt::SourceEntry entryTwo;
 
     // Construct our two sources
-    entryOne.setType("deb");
-    entryOne.setUri("https://foo.com/bar");
-    entryOne.setComponents({"main"});
-    entryOne.setDist("saucy");
+    entryOne.setType(QStringLiteral("deb"));
+    entryOne.setUri(QStringLiteral("https://foo.com/bar"));
+    entryOne.setComponents({QStringLiteral("main")});
+    entryOne.setDist(QStringLiteral("saucy"));
     entryOne.setEnabled(true);
-    entryTwo.setType("deb");
-    entryTwo.setUri("https://foo.com/bar2");
-    entryTwo.setComponents({"main"});
-    entryTwo.setDist("saucy");
+    entryTwo.setType(QStringLiteral("deb"));
+    entryTwo.setUri(QStringLiteral("https://foo.com/bar2"));
+    entryTwo.setComponents({QStringLiteral("main")});
+    entryTwo.setDist(QStringLiteral("saucy"));
     entryTwo.setEnabled(true);
     
     subject.addEntry(entryOne);
@@ -686,16 +686,16 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
                 subject.containsEntry(entryOne),
                 qPrintable(
-                    "I expected to have the entry "
+                        QStringLiteral("I expected to have the entry ")
                     + entryOne.toString()
                 )
     );
     QVERIFY2(
         subject.entries().count() == 1,
         qPrintable(
-            "I expected to have 1 sources. I found "
+                QStringLiteral("I expected to have 1 sources. I found ")
             + QString::number(subject.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     
@@ -705,9 +705,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterSave.entries().count() == 1,
         qPrintable(
-            "I expected to have 1 sources after loading. I found "
+                QStringLiteral("I expected to have 1 sources after loading. I found ")
             + QString::number(loadingAfterSave.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
 
@@ -716,9 +716,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterSave.entries().count() == 2,
         qPrintable(
-            "I expected to have 2 sources after adding another. I found "
+                QStringLiteral("I expected to have 2 sources after adding another. I found ")
             + QString::number(loadingAfterSave.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
 
@@ -726,9 +726,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterSave.entries().count() == 2,
         qPrintable(
-            "I expected to have 2 sources after loading again. I found "
+                QStringLiteral("I expected to have 2 sources after loading again. I found ")
             + QString::number(loadingAfterSecondSave.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
 
@@ -736,9 +736,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterSecondSave.entries().count() == 2,
         qPrintable(
-            "I expected to have 2 sources after adding another. I found "
+                QStringLiteral("I expected to have 2 sources after adding another. I found ")
             + QString::number(loadingAfterSecondSave.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
 
@@ -746,9 +746,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterSave.entries().count() == 2,
         qPrintable(
-            "I expected to have 2 sources after loading again. I found "
+                QStringLiteral("I expected to have 2 sources after loading again. I found ")
             + QString::number(loadingAfterSecondSaveB.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     
@@ -758,9 +758,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterSecondSave.entries().count() == 0,
         qPrintable(
-            "I expected to have 0 sources after removing the two I had previously added. I found "
+                QStringLiteral("I expected to have 0 sources after removing the two I had previously added. I found ")
             + QString::number(loadingAfterSecondSave.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     
@@ -770,9 +770,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterThirdSave.entries().count() == 3,
         qPrintable(
-            "I expected to have 3 sources (all the default comments) after saving following the remove. I found "
+                QStringLiteral("I expected to have 3 sources (all the default comments) after saving following the remove. I found ")
             + QString::number(loadingAfterThirdSave.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
     
@@ -780,9 +780,9 @@ void SourcesListTest::testSaveSources()
     QVERIFY2(
         loadingAfterSecondSave.entries().count() == 3,
         qPrintable(
-            "I expected to have 3 sources (all the default comments) after saving following the remove (using reload()). I found "
+                QStringLiteral("I expected to have 3 sources (all the default comments) after saving following the remove (using reload()). I found ")
             + QString::number(loadingAfterSecondSave.entries().count())
-            + " entries."
+            + QStringLiteral(" entries.")
         )
     );
 }
