@@ -230,14 +230,17 @@ QStringList DebFile::fileList() const
     QProcess tar;
 
     // dpkg --fsys-tarfile filename
-    QString program = QLatin1String("dpkg --fsys-tarfile ") + d->filePath;
-
+    dpkg.setProgram(QLatin1String("dpkg"));
+    dpkg.setArguments({QStringLiteral("--fsys-tarfile"), d->filePath});
     dpkg.setStandardOutputFile(tempFileName);
-    dpkg.start(program);
+    dpkg.setStandardErrorFile(QProcess::nullDevice());
+    dpkg.start();
     dpkg.waitForFinished();
 
-    QString program2 = QLatin1String("tar -tf ") + tempFileName;
-    tar.start(program2);
+    tar.setProgram(QLatin1String("tar"));
+    tar.setArguments({QStringLiteral("-tf"), tempFileName});
+    tar.setStandardErrorFile(QProcess::nullDevice());
+    tar.start();
     tar.waitForFinished();
 
     QString files = QString::fromUtf8(tar.readAllStandardOutput());
@@ -365,18 +368,21 @@ bool DebFile::extractFileFromArchive(const QString &fileName, const QString &des
     QString tempFileName = tempFile.fileName();
 
     // dpkg --fsys-tarfile filename
-    QString program = QLatin1String("dpkg --fsys-tarfile ") + d->filePath;
 
     QProcess dpkg;
+    dpkg.setProgram(QLatin1String("dpkg"));
+    dpkg.setArguments({QStringLiteral("--fsys-tarfile"), d->filePath});
     dpkg.setStandardOutputFile(tempFileName);
-    dpkg.start(program);
+    dpkg.setStandardErrorFile(QProcess::nullDevice());
+    dpkg.start();
     dpkg.waitForFinished();
 
-    QString program2 = QLatin1String("tar -xf") % tempFileName %
-                       QLatin1String(" -C ") % destination % QChar::fromLatin1(' ') % fileName;
-
     QProcess tar;
-    tar.start(program2);
+    tar.setProgram(QLatin1String("tar"));
+    tar.setArguments({QStringLiteral("-xf"), tempFileName, QLatin1String("-C"), destination, fileName});
+    tar.setStandardOutputFile(tempFileName);
+    tar.setStandardErrorFile(QProcess::nullDevice());
+    tar.start();
     tar.waitForFinished();
 
     return !tar.exitCode();
