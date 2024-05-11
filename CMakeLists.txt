@@ -76,7 +76,7 @@ find_package(KF6WidgetsAddons ${KF6_DEP_VERSION})
 find_package(KF6WindowSystem ${KF6_DEP_VERSION})
 find_package(KF6IconThemes ${KF6_DEP_VERSION})
 
-find_package(DebconfKDE 1.0)
+#find_package(DebconfKDE 1.0)
 find_package(GStreamer 1.0)
 find_package(GLIB2 2.0)
 
@@ -88,7 +88,8 @@ if (KF6CoreAddons_FOUND
         AND KF6WidgetsAddons_FOUND
         AND KF6WindowSystem_FOUND
         AND KF6IconThemes_FOUND
-        AND DebconfKDE_FOUND)
+        #AND DebconfKDE_FOUND
+)
     set(WITH_UTILS true)
 endif()
 

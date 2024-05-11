@@ -25,23 +25,21 @@
 #include <QStringBuilder>
 #include <QImage>
 #include <QPainter>
-
 #include <QIcon>
-#include <QDebug>
+#include <KPluginFactory>
 
 #include <QApt/DebFile>
 
+K_PLUGIN_CLASS_WITH_JSON(DebThumbnailer, "debthumbnailer.json")
+
 DebThumbnailer::DebThumbnailer(QObject *parent, const QVariantList &args)
-        : KIO::ThumbnailCreator(parent, args)
-{
+        : KIO::ThumbnailCreator(parent, args) {
 }
 
-DebThumbnailer::~DebThumbnailer()
-{
+DebThumbnailer::~DebThumbnailer() {
 }
 
-KIO::ThumbnailResult DebThumbnailer::create(const KIO::ThumbnailRequest &request)
-{
+KIO::ThumbnailResult DebThumbnailer::create(const KIO::ThumbnailRequest &request) {
     const QApt::DebFile debFile(request.url().toLocalFile());
 
     if (!debFile.isValid()) {
@@ -82,18 +80,16 @@ KIO::ThumbnailResult DebThumbnailer::create(const KIO::ThumbnailRequest &request
         return KIO::ThumbnailResult::fail();
     }
 
-    QPixmap mimeIcon = QIcon::fromTheme(QStringLiteral("application-x-deb")).pixmap(request.targetSize().width(), request.targetSize().height());
-    QPixmap appOverlay = QPixmap(destPath % iconPath).scaledToWidth(request.targetSize().width()/2);
+    QPixmap mimeIcon = QIcon::fromTheme(QStringLiteral("application-x-deb")).pixmap(request.targetSize().width(),
+                                                                                    request.targetSize().height());
+    QPixmap appOverlay = QPixmap(destPath % iconPath).scaledToWidth(request.targetSize().width() / 2);
 
     QPainter painter(&mimeIcon);
     for (int y = 0; y < appOverlay.height(); y += appOverlay.height()) {
-        painter.drawPixmap( 0, y, appOverlay );
+        painter.drawPixmap(0, y, appOverlay);
     }
 
     return KIO::ThumbnailResult::pass(mimeIcon.toImage());
 }
 
-/*ThumbCreator::Flags DebThumbnailer::flags() const
-{
-    return None;
-}*/
+#include "DebThumbnailer.moc"

@@ -380,7 +380,6 @@ bool DebFile::extractFileFromArchive(const QString &fileName, const QString &des
     QProcess tar;
     tar.setProgram(QLatin1String("tar"));
     tar.setArguments({QStringLiteral("-xf"), tempFileName, QLatin1String("-C"), destination, fileName});
-    tar.setStandardOutputFile(tempFileName);
     tar.setStandardErrorFile(QProcess::nullDevice());
     tar.start();
     tar.waitForFinished();

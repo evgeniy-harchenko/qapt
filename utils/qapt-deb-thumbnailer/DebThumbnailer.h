@@ -23,7 +23,7 @@
 
 #include <QStringList>
 
-#include <kio/thumbnailcreator.h>
+#include <KIO/ThumbnailCreator>
 
 namespace QApt {
     class DebFile;
@@ -31,11 +31,11 @@ namespace QApt {
 
 class DebThumbnailer : public KIO::ThumbnailCreator
 {
+    Q_OBJECT
 public:
     DebThumbnailer(QObject *parent, const QVariantList &args);
     ~DebThumbnailer();
     KIO::ThumbnailResult create(const KIO::ThumbnailRequest &request) override;
-    //virtual Flags flags() const;
 };
 
 #endif
