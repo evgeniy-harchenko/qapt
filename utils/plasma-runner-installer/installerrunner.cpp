@@ -27,13 +27,12 @@
 // KDE includes
 #include <KLocalizedString>
 #include <KProcess>
-//#include <KServiceTypeTrader>
+#include <KApplicationTrader>
 
-//K_EXPORT_PLASMA_RUNNER(installer, InstallerRunner)
+K_PLUGIN_CLASS_WITH_JSON(InstallerRunner, "plasma-runner-installer.json")
 
 InstallerRunner::InstallerRunner(QObject *parent, const KPluginMetaData &metaData)
-    : KRunner::AbstractRunner(parent, metaData)
-{
+        : KRunner::AbstractRunner(parent, metaData) {
 
     setObjectName("Installation Suggestions");
     //setPriority(AbstractRunner::HighestPriority);
@@ -41,14 +40,12 @@ InstallerRunner::InstallerRunner(QObject *parent, const KPluginMetaData &metaDat
     addSyntax(KRunner::RunnerSyntax(QStringLiteral(":q:"), i18n("Suggests the installation of applications if :q: is not found")));
 }
 
-InstallerRunner::~InstallerRunner()
-{
+InstallerRunner::~InstallerRunner() {
 }
 
-void InstallerRunner::match(KRunner::RunnerContext &context)
-{
+void InstallerRunner::match(KRunner::RunnerContext &context) {
     const QString term = context.query();
-    if (term.length() <  3) {
+    if (term.length() < 3) {
         return;
     }
 
@@ -56,13 +53,14 @@ void InstallerRunner::match(KRunner::RunnerContext &context)
     // See http://techbase.kde.org/Development/Tutorials/Services/Traders#The_KTrader_Query_Language
     // if the following is unclear to you.
     QList<KRunner::QueryMatch> matches;
-#if 0 // KF6 TODO port it !
-    QString query = QStringLiteral("exist Exec and ('%1' =~ Name)").arg(term);
-    KService::List services = KServiceTypeTrader::self()->query("Application", query);
 
-    if (services.isEmpty())
-#endif
-    {
+    // TODO it seems it works, but needs to rework at all
+    KService::List services = KApplicationTrader::query([&term](const KService::Ptr &service) {
+        return !service->exec().isNull() && !service->exec().isEmpty() &&
+               service->name().contains(term, Qt::CaseInsensitive);
+    });
+
+    if (services.isEmpty()) {
         KProcess process;
         if (QFile::exists(QStringLiteral("/usr/lib/command-not-found"))) {
             process << QStringLiteral("/usr/lib/command-not-found") << term;
@@ -78,7 +76,7 @@ void InstallerRunner::match(KRunner::RunnerContext &context)
 
         QString output = QString::fromUtf8(process.readAllStandardError());
         QStringList resultLines = output.split(QChar::fromLatin1('\n'));
-        for(const QString &line: resultLines) {
+        for (const QString &line: resultLines) {
             if (line.startsWith(QLatin1String("sudo"))) {
                 QString package = line.split(QChar::fromLatin1(' ')).last();
                 KRunner::QueryMatch match(this);
@@ -94,12 +92,10 @@ void InstallerRunner::match(KRunner::RunnerContext &context)
         return;
     }
 
-
     context.addMatches(matches);
 }
 
-void InstallerRunner::run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &match)
-{
+void InstallerRunner::run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &match) {
     Q_UNUSED(context);
     QString package = match.data().toString();
     if (!package.isEmpty()) {
@@ -110,8 +106,7 @@ void InstallerRunner::run(const KRunner::RunnerContext &context, const KRunner::
     }
 }
 
-void InstallerRunner::setupMatch(const QString &package, const QString &term, KRunner::QueryMatch &match)
-{
+void InstallerRunner::setupMatch(const QString &package, const QString &term, KRunner::QueryMatch &match) {
     match.setText(i18n("Install %1", package));
     match.setData(package);
     if (term != package) {
