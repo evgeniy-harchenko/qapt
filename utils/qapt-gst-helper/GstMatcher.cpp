@@ -64,11 +64,11 @@ bool GstMatcher::matches(QApt::Package *package)
         if (packageVersion.isEmpty()) // No version, discard.
             return false;
 
-        QStringList packageVersionFields = packageVersion.split(QChar('.'));
+        QStringList packageVersionFields = packageVersion.split(QChar::fromLatin1('.'));
         if (packageVersionFields.size() != 2) // must be x.y or we don't consider it a valid API version number.
             return false;
 
-        QStringList infoVersionFields = m_info->version().split(QChar('.'));
+        QStringList infoVersionFields = m_info->version().split(QChar::fromLatin1('.'));
 
         // x and y in x.y: both of the package need to be greater or equal to the ones
         // in the request.

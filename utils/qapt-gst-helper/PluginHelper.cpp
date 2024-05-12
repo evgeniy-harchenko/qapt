@@ -64,7 +64,7 @@ PluginHelper::PluginHelper(QWidget *parent, const QStringList &gstDetails, int w
     QApt::FrontendCaps caps = (QApt::FrontendCaps)(QApt::MediumPromptCap | QApt::UntrustedPromptCap);
     m_backend->setFrontendCaps(caps);
 
-    foreach (const QString &plugin, gstDetails) {
+    for (const QString &plugin: gstDetails) {
         PluginInfo *pluginInfo = new PluginInfo(plugin);
         if (pluginInfo->isValid()) {
             m_searchList << pluginInfo;
@@ -72,7 +72,7 @@ PluginHelper::PluginHelper(QWidget *parent, const QStringList &gstDetails, int w
     }
 
     if (m_winId) {
-        KWindowSystem::setMainWindow(this, m_winId);
+        KWindowSystem::setMainWindow(this->windowHandle(), m_winId);
     }
 
     QPushButton *button = new QPushButton(this);
@@ -136,10 +136,10 @@ void PluginHelper::initError()
 
 void PluginHelper::canSearch()
 {
-    int ret = KMessageBox::No;
+    int ret = KMessageBox::Cancel;
     QStringList niceNames;
 
-    foreach (PluginInfo *pluginInfo, m_searchList) {
+    for (PluginInfo *pluginInfo: m_searchList) {
         niceNames << pluginInfo->name();
     }
 
@@ -148,7 +148,7 @@ void PluginHelper::canSearch()
                             "The following plugins are required: <ul><li>%2</li></ul>"
                             "Do you want to search for these now?",
                             niceNames.size(),
-                            niceNames.join("</li><li>"));
+                            niceNames.join(QStringLiteral("</li><li>")));
 
     // Dunno if it's possible to have both an encoder and a decoder in the same list
     int type = m_searchList.at(0)->pluginType();
@@ -178,20 +178,20 @@ void PluginHelper::canSearch()
         break;
     }
 
-    QString msg = QLatin1Literal("<h3>") % title % QLatin1Literal("</h3>") % message;
-    KGuiItem searchButton = KStandardGuiItem::yes();
+    QString msg = QStringLiteral("<h3>") % title % QStringLiteral("</h3>") % message;
+    KGuiItem searchButton = KStandardGuiItem::ok();
     searchButton.setText(i18nc("Search for packages" ,"Search"));
-    searchButton.setIcon(QIcon::fromTheme("edit-find"));
-    ret = KMessageBox::questionYesNoWId(m_winId, msg, title, searchButton);
+    searchButton.setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
+    ret = KMessageBox::questionTwoActionsWId(m_winId, msg, title, searchButton, KStandardGuiItem::cancel());
 
-    if (ret != KMessageBox::Yes) {
+    if (ret != KMessageBox::Ok) {
         reject();
     }
 }
 
 void PluginHelper::offerInstallPackages()
 {
-    int ret = KMessageBox::No;
+    int ret = KMessageBox::Cancel;
 
     for (QApt::Package *package : m_foundCodecs) {
         package->setInstall();
@@ -211,14 +211,14 @@ void PluginHelper::offerInstallPackages()
                         "Install the following packages?",
                         nameList.size());
 
-    KGuiItem installButton = KStandardGuiItem::yes();
+    KGuiItem installButton = KStandardGuiItem::ok();
     installButton.setText(i18nc("Install packages" ,"Install"));
-    installButton.setIcon(QIcon::fromTheme("download"));
+    installButton.setIcon(QIcon::fromTheme(QStringLiteral("download")));
 
-    ret = KMessageBox::questionYesNoListWId(m_winId, msg, nameList, title,
-                                            installButton, KStandardGuiItem::no());
+    ret = KMessageBox::questionTwoActionsListWId(m_winId, msg, nameList, title,
+                                            installButton, KStandardGuiItem::cancel());
 
-    if (ret != KMessageBox::Yes) {
+    if (ret != KMessageBox::Ok) {
         tExit(ERR_CANCEL);
     } else {
         install();
@@ -482,9 +482,9 @@ void PluginHelper::install()
     m_trans = m_backend->commitChanges();
 
     // Provide proxy/locale to the transaction
-    if (KProtocolManager::proxyType() == KProtocolManager::ManualProxy) {
+    /*if (KProtocolManager::proxyType() == KProtocolManager::ManualProxy) {
         m_trans->setProxy(KProtocolManager::proxyFor("http"));
-    }
+    }*/
 
     m_trans->setLocale(QLatin1String(setlocale(LC_MESSAGES, 0)));
 

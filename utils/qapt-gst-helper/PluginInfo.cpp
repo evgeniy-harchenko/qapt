@@ -40,7 +40,7 @@ PluginInfo::~PluginInfo()
 
 void PluginInfo::parseDetails(const QString &gstDetails)
 {
-    QStringList parts = gstDetails.split('|');
+    QStringList parts = gstDetails.split(QChar::fromLatin1('|'));
 
     if (parts.count() != 5) {
         m_isValid = false;
@@ -67,18 +67,18 @@ void PluginInfo::parseDetails(const QString &gstDetails)
     }
 
     // Everything up to the first '-' is the typeName
-    m_typeName = parts.at(4).section('-', 0, 0);
-    m_capsInfo.remove(m_typeName + '-');
+    m_typeName = parts.at(4).section(QChar::fromLatin1('-'), 0, 0);
+    m_capsInfo.remove(m_typeName + QChar::fromLatin1('-'));
 
-    if (m_typeName == "encoder") {
+    if (m_typeName == QStringLiteral("encoder")) {
         m_pluginType = Encoder;
-    } else if (m_typeName == "decoder") {
+    } else if (m_typeName == QStringLiteral("decoder")) {
         m_pluginType = Decoder;
-    } else if (m_typeName== "urisource") {
+    } else if (m_typeName== QStringLiteral("urisource")) {
         m_pluginType = UriSource;
-    } else if (m_typeName == "urisink") {
+    } else if (m_typeName == QStringLiteral("urisink")) {
         m_pluginType = UriSink;
-    } else if (m_typeName == "element") {
+    } else if (m_typeName == QStringLiteral("element")) {
         m_pluginType = Element;
     } else {
         qDebug() << "invalid plugin type";

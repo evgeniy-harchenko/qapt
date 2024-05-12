@@ -29,23 +29,24 @@
 
 #include <gst/gst.h>
 #include <gst/pbutils/install-plugins.h>
+#include <KLazyLocalizedString>
 
-static const char description[] =
-    I18N_NOOP2("@info", "A GStreamer codec installer using QApt");
+static const KLazyLocalizedString description =
+        kli18nc("@info", "A GStreamer codec installer using QApt");
 
 static const char version[] = CMAKE_PROJECT_VERSION;
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme("applications-other"));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("applications-other")));
 
     KLocalizedString::setApplicationDomain("qapt-gst-helper");
 
-    KAboutData aboutData("qapt-gst-helper",
+    KAboutData aboutData(QStringLiteral("qapt-gst-helper"),
                          i18nc("@title", "QApt Codec Searcher"),
-                         version,
-                         i18nc("@info", description),
+                         QString::fromUtf8(version),
+                         i18nc("@info", description.toString().toStdString().c_str()),
                          KAboutLicense::LicenseKey::GPL,
                          i18nc("@info:credit", "(C) 2011 Jonathan Thomas"));
 
@@ -65,7 +66,7 @@ int main(int argc, char **argv)
                                        i18nc("@info:shell value name", "winid"),
                                        QStringLiteral("0"));
     parser.addOption(transientOption);
-    parser.addPositionalArgument("GStreamer Info",
+    parser.addPositionalArgument(QStringLiteral("GStreamer Info"),
                                  i18nc("@info:shell", "GStreamer install info"));
     aboutData.setupCommandLine(&parser);
     parser.process(app);

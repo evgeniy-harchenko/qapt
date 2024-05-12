@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"qapt-gst-helper\")
+
 set(qapt-gst-helper_SRCS
     main.cpp
     GstMatcher.cpp
@@ -13,11 +15,11 @@ add_executable(qapt-gst-helper ${qapt-gst-helper_SRCS})
 target_link_libraries(qapt-gst-helper
     ${GSTREAMER_LIBRARIES}
     ${GLIB2_LIBRARIES}
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::KIOCore
-    KF5::WidgetsAddons
-    KF5::WindowSystem
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::KIOCore
+    KF6::WidgetsAddons
+    KF6::WindowSystem
     QApt::Main)
 
 install(TARGETS qapt-gst-helper DESTINATION ${LIBEXEC_INSTALL_DIR})

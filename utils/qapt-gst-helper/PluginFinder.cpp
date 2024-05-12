@@ -48,18 +48,18 @@ void PluginFinder::find(const PluginInfo *pluginInfo)
 
     if (!matcher.hasMatches()) {
         // No such codec
-        emit notFound();
+        Q_EMIT notFound();
         return;
     }
 
-    foreach (QApt::Package *package, m_backend->availablePackages()) {
+    for (QApt::Package *package: m_backend->availablePackages()) {
         if (matcher.matches(package) && package->architecture() == m_backend->nativeArchitecture()) {
-            emit foundCodec(package);
+            Q_EMIT foundCodec(package);
             return;
         }
     }
 
-    emit notFound();
+    Q_EMIT notFound();
 }
 
 void PluginFinder::setSearchList(const QList<PluginInfo *> &list)
@@ -69,7 +69,7 @@ void PluginFinder::setSearchList(const QList<PluginInfo *> &list)
 
 void PluginFinder::startSearch()
 {
-    foreach(PluginInfo *info, m_searchList) {
+    for(PluginInfo *info: m_searchList) {
         find(info);
     }
 
