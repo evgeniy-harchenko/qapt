@@ -101,10 +101,8 @@ endif()
 add_feature_info(qapt-utils WITH_UTILS "Runtime utilities using KDE frameworks")
 add_feature_info(qapt-gst-helper WITH_GSTREAMER "GStreamer codec helper util")
 
-message(WARNING "gettext and tr in the same source is insanely tricky, maybe we should give some ki18n to qapt...")
-if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ecm_install_po_files_as_qm(po)
-endif()
+find_package(KF6I18n CONFIG REQUIRED)
+ki18n_install(po)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/QApt")

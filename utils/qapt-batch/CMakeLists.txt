@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"qaptbatch\")
+
 set(qaptbatch_SRCS
     main.cpp
     qaptbatch.cpp

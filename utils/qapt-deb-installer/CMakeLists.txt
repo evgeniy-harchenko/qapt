@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"qapt-deb-installer\")
+
 set(qapt-deb-installer_SRCS
     main.cpp
     DebCommitWidget.cpp
