@@ -1596,7 +1596,7 @@ void Backend::emitXapianUpdateFinished()
                                             QLatin1String("/"),
                                             QLatin1String("org.debian.AptXapianIndex"),
                                             QLatin1String("UpdateFinished"),
-                                            this, SLOT(xapianUpdateFinished(bool)));
+                                            this, SLOT(xapianUpdateFinished()));
     openXapianIndex();
     Q_EMIT xapianUpdateFinished();
 }
