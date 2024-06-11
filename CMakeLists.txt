@@ -128,6 +128,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qaptversion.h
 
 add_subdirectory(autotests)
 add_subdirectory(src)
+add_subdirectory(apt-xapian-index-dbus)
 
 if(WITH_UTILS)
     add_subdirectory(utils)
