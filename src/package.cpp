@@ -130,7 +130,7 @@ void PackagePrivate::initStaticState(const pkgCache::VerIterator &ver, pkgDepCac
         if (stateCache.CandidateVer && stateCache.Upgradable()) {
             packageState |= QApt::Package::Upgradeable;
         }
-        
+
         // If there is no installed packages from requiredByList() then it is an orphaned package
         // Some packages are included in their requiredByList(), but we don't want to take it into account
         bool canBeOrphaned = true;
