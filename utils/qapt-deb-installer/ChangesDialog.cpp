@@ -85,6 +85,9 @@ void ChangesDialog::addPackages(const QApt::StateChanges &changes)
     QHash<int, QString> hash;
     hash[QApt::Package::ToInstall] = i18nc("@info:status Requested action", "Install");
     hash[QApt::Package::NewInstall] = i18nc("@info:status Requested action", "Install");
+    hash[QApt::Package::ToReInstall] = i18nc("@info:status Requested action", "Reinstall");
+    hash[QApt::Package::ToUpgrade] = i18nc("@info:status Requested action", "Upgrade");
+    hash[QApt::Package::ToDowngrade] = i18nc("@info:status Requested action", "Downgrade");
     hash[QApt::Package::ToRemove] = i18nc("@info:status Requested action", "Remove");
 
     for (auto i = changes.constBegin(); i != changes.constEnd(); ++i) {
