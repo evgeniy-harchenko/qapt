@@ -661,7 +661,7 @@ void AptWorker::installFile()
     setenv("PATH", "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", 1);
     setenv("DEBIAN_FRONTEND", "passthrough", 1);
     setenv("DEBCONF_PIPE", "/tmp/qapt-sock", 1);
-    m_dpkgProcess->start(program);
+    m_dpkgProcess->startCommand(program);
     connect(m_dpkgProcess, SIGNAL(started()), this, SLOT(dpkgStarted()));
     connect(m_dpkgProcess, SIGNAL(readyRead()), this, SLOT(updateDpkgProgress()));
     connect(m_dpkgProcess, SIGNAL(finished(int,QProcess::ExitStatus)),
