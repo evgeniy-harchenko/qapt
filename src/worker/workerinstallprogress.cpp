@@ -218,7 +218,7 @@ void WorkerInstallProgress::updateInterface(int fd, int writeFd)
             progress = qRound(qreal(m_progressBegin + qreal(percentage / 100.0) * (m_progressEnd - m_progressBegin)));
 
             m_trans->setProgress(progress);
-            m_trans->setStatusDetails(str);
+            m_trans->setStatusDetails(str % QChar::fromLatin1('\n'));
             // clean-up
             line[0] = 0;
         } else {
