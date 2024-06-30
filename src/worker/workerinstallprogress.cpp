@@ -24,14 +24,10 @@
 #include <QStringBuilder>
 #include <QStringList>
 #include <QTextCodec>
-#include <QDebug>
 
 #include <apt-pkg/error.h>
 #include <apt-pkg/install-progress.h>
 
-#include <errno.h>
-#include <sys/statvfs.h>
-#include <sys/statfs.h>
 #include <sys/wait.h>
 #include <sys/fcntl.h>
 #include <pty.h>
@@ -149,7 +145,7 @@ void WorkerInstallProgress::updateInterface(int fd, int writeFd)
     char buf[2];
     static char line[1024] = "";
 
-    while (1) {
+    while (true) {
         int len = read(fd, buf, 1);
 
         // Status message didn't change
