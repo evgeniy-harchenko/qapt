@@ -187,6 +187,7 @@ void DebCommitWidget::updateProgress(int progress)
 void DebCommitWidget::updateTerminal(const QString &message)
 {
     m_terminal->insertPlainText(message);
+    m_terminal->ensureCursorVisible();
 }
 
 void DebCommitWidget::showDebconf()
