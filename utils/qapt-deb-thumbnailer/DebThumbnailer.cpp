@@ -39,6 +39,43 @@ DebThumbnailer::DebThumbnailer(QObject *parent, const QVariantList &args)
 DebThumbnailer::~DebThumbnailer() {
 }
 
+// Function to extract numbers and non-numeric parts from the string
+QStringList tokenizeString(const QString &str) {
+    QStringList tokens;
+    QRegularExpression re(QStringLiteral("(\\d+|\\D+)"));
+    QRegularExpressionMatchIterator i = re.globalMatch(str);
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+        tokens << match.captured(0);
+    }
+    return tokens;
+}
+
+// Custom natural sorting comparator function (thanks to ChatGPT)
+bool naturalCompare(const QString &a, const QString &b) {
+    QStringList tokensA = tokenizeString(a);
+    QStringList tokensB = tokenizeString(b);
+
+    int n = std::min(tokensA.size(), tokensB.size());
+
+    for (int i = 0; i < n; ++i) {
+        bool aIsNum, bIsNum;
+        int numA = tokensA[i].toInt(&aIsNum);
+        int numB = tokensB[i].toInt(&bIsNum);
+
+        if (aIsNum && bIsNum) {
+            if (numA != numB) {
+                return numA < numB;
+            }
+        } else {
+            if (tokensA[i] != tokensB[i]) {
+                return tokensA[i] < tokensB[i];
+            }
+        }
+    }
+    return tokensA.size() < tokensB.size();
+}
+
 KIO::ThumbnailResult DebThumbnailer::create(const KIO::ThumbnailRequest &request) {
     const QApt::DebFile debFile(request.url().toLocalFile());
 
@@ -55,18 +92,24 @@ KIO::ThumbnailResult DebThumbnailer::create(const KIO::ThumbnailRequest &request
     // To get sensible results we therefore need to discard everything we cannot
     // identify as supported.
     // TODO: should debfile ever get more sensible this should be changed to
-    //       exclude unsupported formats (svg) rather than include supported ones.
-    for (auto it = iconsList.begin(); it != iconsList.end(); ++it) {
-        if (!(*it).endsWith(QStringLiteral(".png")) && !(*it).endsWith(QStringLiteral(".xpm"))) {
-            iconsList.erase(it);
+    //       exclude unsupported formats rather than include supported ones.
+    QMutableListIterator<QString> it(iconsList);
+    while (it.hasNext()) {
+    QString icon = it.next();
+        if ((!icon.endsWith(QStringLiteral(".png")) &&
+        !icon.endsWith(QStringLiteral(".svg")) &&
+        !icon.endsWith(QStringLiteral(".svgz"))) ||
+        icon.contains(QStringLiteral("symbolic")) ||
+        icon.contains(QStringLiteral("/actions/"))) {
+            it.remove();
         }
     }
-
-    std::sort(iconsList.begin(), iconsList.end());
 
     if (iconsList.isEmpty()) {
         return KIO::ThumbnailResult::fail();
     }
+
+    std::sort(iconsList.begin(), iconsList.end(), naturalCompare);
 
     QString iconPath = iconsList.last();
 
@@ -82,7 +125,8 @@ KIO::ThumbnailResult DebThumbnailer::create(const KIO::ThumbnailRequest &request
 
     QPixmap mimeIcon = QIcon::fromTheme(QStringLiteral("application-x-deb")).pixmap(request.targetSize().width(),
                                                                                     request.targetSize().height());
-    QPixmap appOverlay = QPixmap(destPath % iconPath).scaledToWidth(request.targetSize().width() / 2);
+    QPixmap appOverlay = QIcon(destPath % iconPath).pixmap(QSize(request.targetSize().width() / 2,
+                                                                 request.targetSize().height() / 2)).scaledToWidth(request.targetSize().width() / 2);
 
     QPainter painter(&mimeIcon);
     for (int y = 0; y < appOverlay.height(); y += appOverlay.height()) {
