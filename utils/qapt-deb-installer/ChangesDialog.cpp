@@ -99,9 +99,9 @@ void ChangesDialog::addPackages(const QApt::StateChanges &changes)
         font.setBold(true);
         root->setFont(font);
 
-        const QApt::PackageList packages = i.value();
+        const QApt::PackageList &packages = i.value();
 
-        QStandardItem *item = 0;
+        QStandardItem *item = nullptr;
         for (QApt::Package *package : packages) {
             item = new QStandardItem;
             item->setText(package->name());

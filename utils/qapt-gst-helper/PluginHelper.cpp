@@ -100,7 +100,7 @@ void PluginHelper::run()
     if (!m_backend->init())
         initError();
 
-    m_finder = new PluginFinder(0, m_backend);
+    m_finder = new PluginFinder(nullptr, m_backend);
     connect(m_finder, SIGNAL(foundCodec(QApt::Package*)),
             this, SLOT(foundCodec(QApt::Package*)));
     connect(m_finder, SIGNAL(notFound()),
@@ -418,7 +418,7 @@ void PluginHelper::transactionStatusChanged(QApt::TransactionStatus status)
         setCloseButton();
 
         m_trans->deleteLater();
-        m_trans = 0;
+        m_trans = nullptr;
         break;
     case QApt::WaitingConfigFilePromptStatus:
     default:
@@ -486,7 +486,7 @@ void PluginHelper::install()
         m_trans->setProxy(KProtocolManager::proxyFor("http"));
     }*/
 
-    m_trans->setLocale(QLatin1String(setlocale(LC_MESSAGES, 0)));
+    m_trans->setLocale(QLatin1String(setlocale(LC_MESSAGES, nullptr)));
 
     // Connect the transaction all up to our slots
     connect(m_trans, SIGNAL(statusChanged(QApt::TransactionStatus)),

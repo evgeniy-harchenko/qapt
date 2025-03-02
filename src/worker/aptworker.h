@@ -37,7 +37,7 @@ class AptWorker : public QObject
 {
     Q_OBJECT
 public:
-    explicit AptWorker(QObject *parent = 0);
+    explicit AptWorker(QObject *parent = nullptr);
     ~AptWorker();
 
     Transaction *currentTransaction();

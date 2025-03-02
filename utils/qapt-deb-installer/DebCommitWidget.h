@@ -41,7 +41,7 @@ class DebCommitWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DebCommitWidget(QWidget *parent = 0);
+    explicit DebCommitWidget(QWidget *parent = nullptr);
 
     QString pipe() const;
     void setTransaction(QApt::Transaction *trans);

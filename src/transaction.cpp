@@ -50,7 +50,7 @@ class TransactionPrivate
         {
             dbus = new TransactionInterface(QLatin1String(s_workerReverseDomainName),
                                             tid, QDBusConnection::systemBus(),
-                                            0);
+                                            nullptr);
         }
 
         ~TransactionPrivate()

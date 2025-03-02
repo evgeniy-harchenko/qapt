@@ -90,7 +90,7 @@ int main(int argc, char **argv)
     int winId = parser.value(transientOption).toInt();
     QStringList details = parser.positionalArguments();
 
-    PluginHelper pluginHelper(0, details, winId);
+    PluginHelper pluginHelper(nullptr, details, winId);
     pluginHelper.run();
 
     return app.exec();

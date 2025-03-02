@@ -188,7 +188,7 @@ void DebInstaller::setupTransaction(QApt::Transaction *trans)
         trans->setProxy(KProtocolManager::proxyFor("http"));
     }*/
 
-    trans->setLocale(QLatin1String(setlocale(LC_MESSAGES, 0)));
+    trans->setLocale(QLatin1String(setlocale(LC_MESSAGES, nullptr)));
 
     trans->setDebconfPipe(m_commitWidget->pipe());
     m_commitWidget->setTransaction(m_trans);
@@ -322,7 +322,7 @@ QApt::PackageList DebInstaller::checkConflicts()
     QApt::PackageList conflictingPackages;
     QList<QApt::DependencyItem> conflicts = m_debFile->conflicts();
 
-    QApt::Package *pkg = 0;
+    QApt::Package *pkg = nullptr;
     QString packageName;
     bool ok = true;
     for(const QApt::DependencyItem &item: conflicts) {
@@ -401,12 +401,12 @@ QApt::Package *DebInstaller::checkBreaksSystem()
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 bool DebInstaller::satisfyDepends()
 {
-    QApt::Package *pkg = 0;
+    QApt::Package *pkg = nullptr;
     QString packageName;
 
     for(const QApt::DependencyItem &item: m_debFile->depends()) {

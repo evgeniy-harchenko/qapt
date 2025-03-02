@@ -148,7 +148,7 @@ bool WorkerAcquire::Pulse(pkgAcquire *Owner)
 
     pkgAcquireStatus::Pulse(Owner);
 
-    for (pkgAcquire::Worker *iter = Owner->WorkersBegin(); iter != 0; iter = Owner->WorkerStep(iter)) {
+    for (pkgAcquire::Worker *iter = Owner->WorkersBegin(); iter != nullptr; iter = Owner->WorkerStep(iter)) {
         if (!iter->CurrentItem) {
             continue;
         }

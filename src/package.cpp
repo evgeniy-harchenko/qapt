@@ -1040,7 +1040,7 @@ QStringList Package::recommendsList() const
             continue;
         }
         pkgDepCache::StateCache &rState = (*d->backend->cache()->depCache())[pkg];
-        if (it->Type == pkgCache::Dep::Recommends && (rState.CandidateVer != 0 )) {
+        if (it->Type == pkgCache::Dep::Recommends && (rState.CandidateVer != nullptr )) {
             recommends << QLatin1String(it.TargetPkg().Name());
         }
     }
@@ -1066,7 +1066,7 @@ QStringList Package::suggestsList() const
             continue;
         }
         pkgDepCache::StateCache &sState = (*d->backend->cache()->depCache())[pkg];
-        if (it->Type == pkgCache::Dep::Suggests && (sState.CandidateVer != 0 )) {
+        if (it->Type == pkgCache::Dep::Suggests && (sState.CandidateVer != nullptr )) {
             suggests << QLatin1String(it.TargetPkg().Name());
         }
     }
@@ -1092,7 +1092,7 @@ QStringList Package::enhancesList() const
             continue;
         }
         pkgDepCache::StateCache &eState = (*d->backend->cache()->depCache())[pkg];
-        if (it->Type == pkgCache::Dep::Enhances && (eState.CandidateVer != 0 )) {
+        if (it->Type == pkgCache::Dep::Enhances && (eState.CandidateVer != nullptr )) {
             enhances << QLatin1String(it.TargetPkg().Name());
         }
     }
@@ -1148,7 +1148,7 @@ QList<QApt::MarkingErrorInfo> Package::brokenReason() const
             pkgCache::VerIterator Ver =  (*d->backend->cache()->depCache())[Targ].InstVerIter(*d->backend->cache()->depCache());
 
             QString requiredVersion;
-            if(Start.TargetVer() != 0) {
+            if(Start.TargetVer() != nullptr) {
                 requiredVersion = QChar::fromLatin1('(') % QLatin1String(Start.CompType())
                                   % QLatin1String(Start.TargetVer()) % QChar::fromLatin1(')');
             }

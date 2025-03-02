@@ -35,7 +35,7 @@ class PluginFinder : public QObject
 {
     Q_OBJECT
 public:
-    explicit PluginFinder(QObject *parent = 0, QApt::Backend *backend = 0);
+    explicit PluginFinder(QObject *parent = nullptr, QApt::Backend *backend = nullptr);
     ~PluginFinder();
 
 private:

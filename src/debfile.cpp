@@ -48,7 +48,7 @@ class DebFilePrivate
         DebFilePrivate(const QString &path)
             : isValid(false)
             , filePath(path)
-            , extractor(0)
+            , extractor(nullptr)
         {
             init();
         }

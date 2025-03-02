@@ -173,7 +173,7 @@ void SourcesListTest::testConstructor()
     QApt::SourcesList subjectDefaultConstructor;
     QStringList shouldntBeEmpty = subjectDefaultConstructor.sourceFiles();
     QVERIFY2(
-        subjectDefaultConstructor.parent() == 0,
+        subjectDefaultConstructor.parent() == nullptr,
         "The default constructor doesn't have a zero parent?!"
     );
     QVERIFY2(
@@ -209,10 +209,10 @@ void SourcesListTest::testConstructor()
         "The parent-only constructor should have given us sources anyway, using the default list."
     );
     
-    QApt::SourcesList subjectListOnly(0, sampleSourcesHasTwoFiles);
+    QApt::SourcesList subjectListOnly(nullptr, sampleSourcesHasTwoFiles);
     shouldntBeEmpty = subjectListOnly.sourceFiles();
     QVERIFY2(
-        subjectListOnly.parent() == 0,
+        subjectListOnly.parent() == nullptr,
         "The list-only constructor doesn't have a zero parent?!"
     );
     QVERIFY2(
@@ -220,10 +220,10 @@ void SourcesListTest::testConstructor()
         "The list-only constructor should have given us an empty file list, but it didn't."
     );
 
-    QApt::SourcesList subjectDuplicateListOnly(0, sampleSourcesHasDuplicateFiles);
+    QApt::SourcesList subjectDuplicateListOnly(nullptr, sampleSourcesHasDuplicateFiles);
     shouldntBeEmpty = subjectDuplicateListOnly.sourceFiles();
     QVERIFY2(
-        subjectDuplicateListOnly.parent() == 0,
+        subjectDuplicateListOnly.parent() == nullptr,
         "The list-only constructor doesn't have a zero parent?!"
     );
     QVERIFY2(
@@ -255,7 +255,7 @@ void SourcesListTest::testLoadSourcesOneFile()
 {
     QVERIFY2(sampleSourcesHasOneFile.count() == 1, "Verify we have only one source...");
 
-    QApt::SourcesList subject (0, sampleSourcesHasOneFile);
+    QApt::SourcesList subject (nullptr, sampleSourcesHasOneFile);
     
     QApt::SourceEntryList entries = subject.entries();
     qDebug() << "I have " << entries.count() << " entries.";
@@ -467,7 +467,7 @@ void SourcesListTest::testLoadSourcesManyFiles()
         )
     );
 
-    QApt::SourcesList subject (0, sampleSourcesHasTwoFiles);
+    QApt::SourcesList subject (nullptr, sampleSourcesHasTwoFiles);
     
     QApt::SourceEntryList entries = subject.entries();
     qDebug() << "I have " << entries.count() << " entries.";
@@ -523,7 +523,7 @@ void SourcesListTest::testLoadSourcesManyFiles()
 void SourcesListTest::testAddSource()
 {
     QStringList outfilesListJustOne (dummyFile);
-    QApt::SourcesList subjectSingleEntry(0, outfilesListJustOne);
+    QApt::SourcesList subjectSingleEntry(nullptr, outfilesListJustOne);
     
     QVERIFY2(
         subjectSingleEntry.entries().count() == 0,
@@ -591,7 +591,7 @@ void SourcesListTest::testAddSource()
         )
     );
     
-    QApt::SourcesList subjectMultipleFiles(0, sampleSourcesHasTwoFiles);
+    QApt::SourcesList subjectMultipleFiles(nullptr, sampleSourcesHasTwoFiles);
     QVERIFY2(
         subjectMultipleFiles.entries().count() == ALL_SOURCES_COUNT,
         qPrintable(
@@ -618,7 +618,7 @@ void SourcesListTest::testAddSource()
 void SourcesListTest::testRemoveSource()
 {
     QStringList outfilesListJustOne (dummyFile);
-    QApt::SourcesList subject(0, outfilesListJustOne);
+    QApt::SourcesList subject(nullptr, outfilesListJustOne);
     QApt::SourceEntry entryOne;
     QApt::SourceEntry entryTwo;
 
@@ -662,7 +662,7 @@ void SourcesListTest::testRemoveSource()
 void SourcesListTest::testSaveSources()
 {
     QStringList outfilesListJustOne (outputFile);
-    QApt::SourcesList subject(0, outfilesListJustOne);
+    QApt::SourcesList subject(nullptr, outfilesListJustOne);
     QApt::SourceEntry entryOne;
     QApt::SourceEntry entryTwo;
 
@@ -700,7 +700,7 @@ void SourcesListTest::testSaveSources()
     
     subject.save();
     
-    QApt::SourcesList loadingAfterSave(0, outfilesListJustOne);
+    QApt::SourcesList loadingAfterSave(nullptr, outfilesListJustOne);
     QVERIFY2(
         loadingAfterSave.entries().count() == 1,
         qPrintable(
@@ -721,7 +721,7 @@ void SourcesListTest::testSaveSources()
         )
     );
 
-    QApt::SourcesList loadingAfterSecondSave(0, outfilesListJustOne);
+    QApt::SourcesList loadingAfterSecondSave(nullptr, outfilesListJustOne);
     QVERIFY2(
         loadingAfterSave.entries().count() == 2,
         qPrintable(
@@ -741,7 +741,7 @@ void SourcesListTest::testSaveSources()
         )
     );
 
-    QApt::SourcesList loadingAfterSecondSaveB(0, outfilesListJustOne);
+    QApt::SourcesList loadingAfterSecondSaveB(nullptr, outfilesListJustOne);
     QVERIFY2(
         loadingAfterSave.entries().count() == 2,
         qPrintable(
@@ -765,7 +765,7 @@ void SourcesListTest::testSaveSources()
     
     loadingAfterSecondSave.save();
     
-    QApt::SourcesList loadingAfterThirdSave(0, outfilesListJustOne);
+    QApt::SourcesList loadingAfterThirdSave(nullptr, outfilesListJustOne);
     QVERIFY2(
         loadingAfterThirdSave.entries().count() == 3,
         qPrintable(

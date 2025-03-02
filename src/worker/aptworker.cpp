@@ -349,7 +349,7 @@ bool AptWorker::markChanges()
         }
 
         // Check if the package was found
-        if (iter == 0) {
+        if (iter == nullptr) {
             m_trans->setError(QApt::NotFoundError);
             m_trans->setErrorDetails(packageString);
 

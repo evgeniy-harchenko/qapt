@@ -76,7 +76,7 @@ int main(int argc, char **argv)
         debFile = parser.positionalArguments().at(0);
     }
 
-    QPointer<DebInstaller> debInstaller = new DebInstaller(0, debFile);
+    QPointer<DebInstaller> debInstaller = new DebInstaller(nullptr, debFile);
 
     switch (debInstaller->exec()) {
         case QDialog::Accepted:

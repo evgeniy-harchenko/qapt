@@ -142,7 +142,7 @@ void QAptBatch::setTransaction(QApt::Transaction *trans)
 {
     m_trans = trans;
 
-    m_trans->setLocale(QString::fromUtf8(setlocale(LC_ALL, 0)));
+    m_trans->setLocale(QString::fromUtf8(setlocale(LC_ALL, nullptr)));
 
     // Provide proxy/locale to the transaction
     /*if (KProtocolManager::proxyType() == KProtocolManager::ManualProxy) {
@@ -302,7 +302,7 @@ void QAptBatch::untrustedPrompt(const QStringList &untrustedPackages)
 
 void QAptBatch::raiseErrorMessage(const QString &text, const QString &title)
 {
-    KMessageBox::error(0, text, title);
+    KMessageBox::error(nullptr, text, title);
     close();
 }
 
@@ -393,7 +393,7 @@ void QAptBatch::transactionStatusChanged(QApt::TransactionStatus status)
         m_done = true;
 
         m_trans->deleteLater();
-        m_trans = 0;
+        m_trans = nullptr;
 
         setVisibleButtons(QDialogButtonBox::Close);
         m_buttonBox->button(QDialogButtonBox::Close)->setFocus();
