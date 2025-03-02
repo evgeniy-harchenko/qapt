@@ -47,6 +47,7 @@
 // System includes
 #include <sys/statvfs.h>
 #include <sys/statfs.h>
+#include <unistd.h>
 #define RAMFS_MAGIC     0x858458f6
 
 // Own includes

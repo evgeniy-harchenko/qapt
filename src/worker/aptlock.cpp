@@ -23,6 +23,8 @@
 #include <apt-pkg/error.h>
 #include <QDebug>
 
+#include <unistd.h>
+
 AptLock::AptLock(const QString &path)
     : m_path(path.toUtf8())
     , m_fd(-1)
