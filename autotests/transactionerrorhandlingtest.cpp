@@ -22,7 +22,7 @@
 
 #include "transactionerrorhandlingtest.h"
 
-#include <QtTest/QtTest>
+#include <QtTest>
 #include <transaction.h>
 
 QTEST_MAIN(TransactionErrorHandlingTest);
@@ -45,7 +45,7 @@ QTEST_MAIN(TransactionErrorHandlingTest);
 
 #define EXPECTED_MESSAGE_WORKER_DISAPPEARED_ERROR "It appears that the QApt worker has either crashed or disappeared. Please report a bug to the QApt maintainers"
 
-#define EXPECTED_MESSAGE_UNTRUSTED_ERROR    "The following package(s) has not been verified by its author(s). Downloading untrusted packages has been disallowed by your current configuration."
+#define EXPECTED_MESSAGE_UNTRUSTED_ERROR    "The following package(s) has not been verified by its authors. Downloading untrusted packages has been disallowed by your current configuration."
 
 // The following two message are for once we finally have the plural forms working in QObject::tr()... but that seems like a lower priority.
 #define EXPECTED_MESSAGE_UNTRUSTED_ERROR_1  "The following package has not been verified by its author. Downloading untrusted packages has been disallowed by your current configuration."
@@ -193,9 +193,9 @@ void TransactionErrorHandlingTest::testWorkerDisappeared()
 void TransactionErrorHandlingTest::testUntrustedError()
 {
     QStringList untrusted;
-    
+
     untrusted << QStringLiteral("one");
-    
+
     this->subject->updateError( QApt::ErrorCode::UntrustedError );
     this->subject->updateUntrustedPackages( (const QStringList&) untrusted );
 

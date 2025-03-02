@@ -120,25 +120,24 @@ void SourcesListTest::initTestCase()
     pkgInitConfig(*_config);
     
     // Called before the first testfunction is executed
-    QString cwd = QCoreApplication::applicationDirPath();
-    sampleSourcesHasOneFile = QStringList(QString(cwd+QStringLiteral("/data/test1.list")));
-    sampleSourcesHasTwoFiles = QStringList(
-        {
-            QString(cwd+QStringLiteral("/data/test1.list")),
-            QString(cwd+QStringLiteral("/data/test2.list"))
-        }
-    );
-    sampleSourcesHasDuplicateFiles = QStringList(
-        {
-            QString(cwd+QStringLiteral("/data/test1.list")),
-            QString(cwd+QStringLiteral("/data/test1.list")),
-            QString(cwd+QStringLiteral("/data/test2.list"))
-        }
-    );
+    QString dataPath = QStringLiteral(DATA_DIR);
+
+    sampleSourcesHasOneFile = QStringList({ dataPath + QStringLiteral("/test1.list") });
+
+    sampleSourcesHasTwoFiles = QStringList({
+        dataPath + QStringLiteral("/test1.list"),
+        dataPath + QStringLiteral("/test2.list")
+    });
+
+    sampleSourcesHasDuplicateFiles = QStringList({
+        dataPath + QStringLiteral("/test1.list"),
+        dataPath + QStringLiteral("/test1.list"),
+        dataPath + QStringLiteral("/test2.list")
+    });
     
     
-    outputFile = QString(cwd+QStringLiteral("/data/write_test.list"));
-    dummyFile = QString(cwd+QStringLiteral("/data/dummy_file.list"));
+    outputFile = QString(dataPath + QStringLiteral("/write_test.list"));
+    dummyFile = QString(dataPath + QStringLiteral("/dummy_file.list"));
 }
 
 void SourcesListTest::cleanupTestCase()
