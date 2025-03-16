@@ -51,6 +51,7 @@ class HistoryItemPrivate : public QSharedData
             , downgradedPackages(other.downgradedPackages)
             , removedPackages(other.removedPackages)
             , purgedPackages(other.purgedPackages)
+            , reinstalledPackages(other.reinstalledPackages)
             , error(other.error)
             , isValid(other.isValid)
         {
@@ -63,6 +64,7 @@ class HistoryItemPrivate : public QSharedData
         QStringList downgradedPackages;
         QStringList removedPackages;
         QStringList purgedPackages;
+        QStringList reinstalledPackages;
         QString error;
         bool isValid;
 
@@ -80,7 +82,7 @@ void HistoryItemPrivate::parseData(const QString &data)
     QStringList actionStrings;
     actionStrings << QLatin1String("Install") << QLatin1String("Upgrade")
                   << QLatin1String("Downgrade") << QLatin1String("Remove")
-                  << QLatin1String("Purge");
+                  << QLatin1String("Purge") << QLatin1String("Reinstall");
 
 
     while (lineIndex < lines.size()) {
@@ -121,6 +123,9 @@ void HistoryItemPrivate::parseData(const QString &data)
             case 4:
                 action = Package::ToPurge;
                 break;
+            case 5:
+                action = Package::ToReInstall;
+                break;
             default:
                 break;
             }
@@ -149,6 +154,9 @@ void HistoryItemPrivate::parseData(const QString &data)
                     break;
                 case Package::ToPurge:
                     purgedPackages << package;
+                    break;
+                case Package::ToReInstall:
+                    reinstalledPackages << package;
                     break;
                 default:
                     break;
@@ -204,6 +212,11 @@ QStringList HistoryItem::removedPackages() const
 QStringList HistoryItem::purgedPackages() const
 {
     return d->purgedPackages;
+}
+
+QStringList HistoryItem::reinstalledPackages() const
+{
+    return d->reinstalledPackages;
 }
 
 QString HistoryItem::errorString() const

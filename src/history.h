@@ -117,6 +117,13 @@ public:
     */
     QStringList purgedPackages() const;
 
+    /**
+     * Returns the list of packages reinstalled during the transaction
+     *
+     * @return the package list as a \c QStringList
+     */
+    QStringList reinstalledPackages() const;
+
    /**
     * Returns the error reported by dpkg, if there is one. If the transaction
     * did not encounter an error, this will return an empty QString.
