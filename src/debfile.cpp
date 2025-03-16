@@ -39,15 +39,16 @@
 #include <apt-pkg/tagfile.h>
 
 #include <QDebug>
+#include <utility>
 
 namespace QApt {
 
 class DebFilePrivate
 {
     public:
-        DebFilePrivate(const QString &path)
+        explicit DebFilePrivate(QString path)
             : isValid(false)
-            , filePath(path)
+            , filePath(std::move(path))
             , extractor(nullptr)
         {
             init();
@@ -61,7 +62,7 @@ class DebFilePrivate
         bool isValid;
         QString filePath;
         debDebFile::MemControlExtract *extractor;
-        pkgTagSection *controlData;
+        pkgTagSection *controlData{};
 
         void init();
 };
@@ -159,15 +160,18 @@ QString DebFile::longDescription() const
     // Split at double newline, by "section"
     QStringList sections = rawDescription.split(QLatin1String("\n ."));
 
+    static const QRegularExpression listRegex(QLatin1String("\n( |\t)+(-|\\*)"));
+    static const QRegularExpression whitespaceRegex(QLatin1String("\\ \\ +"));
+
     for (int i = 0; i < sections.count(); ++i) {
-        sections[i].replace(QRegularExpression(QLatin1String("\n( |\t)+(-|\\*)")),
+        sections[i].replace(listRegex,
                                 QLatin1String("\n\r ") % QString::fromUtf8("\xE2\x80\xA2"));
         // There should be no new lines within a section.
         sections[i].remove(QLatin1Char('\n'));
         // Hack to get the lists working again.
         sections[i].replace(QLatin1Char('\r'), QLatin1Char('\n'));
         // Merge multiple whitespace chars into one
-        sections[i].replace(QRegularExpression(QLatin1String("\\ \\ +")), QChar::fromLatin1(' '));
+        sections[i].replace(whitespaceRegex, QChar::fromLatin1(' '));
         // Remove the initial whitespace
         sections[i].remove(0, 1);
         // Append to parsedDescription
