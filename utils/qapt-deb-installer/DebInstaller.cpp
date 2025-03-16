@@ -107,7 +107,7 @@ void DebInstaller::initGUI()
                              "Could not open <filename>%1</filename>. It does not appear to be a "
                              "valid Debian package file.", m_debFile->filePath());
         KMessageBox::error(this, text, QString());
-        QApplication::instance()->quit();
+        QCoreApplication::quit();
         return;
     }
 
