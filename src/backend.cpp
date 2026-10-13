@@ -645,6 +645,9 @@ PackageList Backend::search(const QString &searchString) const
 
     // Doesn't follow style guidelines to ease merging with synaptic
     try {
+        // The index may have been updated since it was opened: without this,
+        // Xapian refuses to read a revision that the update has discarded.
+        d->xapianDatabase->reopen();
         int maxItems = d->xapianDatabase->get_doccount();
         Xapian::Enquire enquire(*(d->xapianDatabase));
         Xapian::QueryParser parser;
